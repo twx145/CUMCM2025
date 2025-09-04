@@ -11,8 +11,8 @@ GRAVITY = 9.8
 MISSILE_SPEED = 300.0
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
-TIME_STEP = 0.1  # 在优化中，可以用稍大的步长以加速，最后用小步长验证
-NUM_TARGET_POINTS = 50 # 优化时可适当减少点数以提速
+TIME_STEP = 0.001  # 在优化中，可以用稍大的步长以加速，最后用小步长验证
+NUM_TARGET_POINTS = 100 # 优化时可适当减少点数以提速
 
 # -- 初始位置和目标几何 --
 uav_initial_pos = np.array([17800, 0, 1800])
@@ -103,7 +103,7 @@ def fitness_function(x):
 if __name__ == "__main__":
     # 决策变量的边界
     # [v, theta, t_drop, t_delay]
-    bounds = [[70, 0, 0.1, 0.1], [140, 2 * np.pi, 60, 20]]
+    bounds = [[70, (-1)*(1/6)* np.pi, 1, 1], [140, (1/6)* np.pi, 30, 10]]
 
     # 初始猜测值 (x0) - 一个合理的、但不一定最优的策略
     # 比如：以中等速度飞向导弹轨迹与真目标y坐标平面的交点
