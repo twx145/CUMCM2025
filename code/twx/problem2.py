@@ -22,10 +22,7 @@ true_target_base_center = np.array([0, 200, 0])
 true_target_radius = 7
 true_target_height = 10
 
-# 预先生成目标点，避免在循环中重复计算
-target_points = generate_target_points(
-    NUM_TARGET_POINTS, true_target_base_center, true_target_radius, true_target_height
-)
+
 
 # (Helper functions are the same as before)
 def generate_target_points(n_points, base_center, radius, height):
@@ -40,6 +37,11 @@ def generate_target_points(n_points, base_center, radius, height):
         z = 0 if i < n_caps else height
         points.append([base_center[0] + r * np.cos(theta), base_center[1] + r * np.sin(theta), base_center[2] + z])
     return np.array(points)
+
+    # 预先生成目标点，避免在循环中重复计算
+target_points = generate_target_points(
+    NUM_TARGET_POINTS, true_target_base_center, true_target_radius, true_target_height
+)
 
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False
