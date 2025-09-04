@@ -94,8 +94,9 @@ fig.add_trace(go.Surface(
     x=x_cyl, y=y_cyl, z=z_cyl,
     colorscale='Greens',
     showscale=False,
-    opacity=0.5,
-    name='真目标'
+    opacity=1,
+    name='真目标',
+    showlegend=True
 ))
 
 
@@ -123,7 +124,7 @@ fig.update_layout(
         zaxis_title='Z 轴 (m)',
         # 'data' 模式会根据数据范围自动调整轴比例，最真实地反映空间关系
         # 但可能因为X轴范围远大于Y/Z轴而导致图形被压扁，可以用'auto'或'cube'获得更好的视觉效果
-        aspectmode='data' 
+        aspectmode='auto' 
     ),
     margin=dict(l=0, r=0, b=0, t=40),
     legend_title="图例"
