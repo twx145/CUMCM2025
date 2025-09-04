@@ -5,7 +5,7 @@ import time
 
 # -- Core Settings --
 NUM_TARGET_POINTS = 1000       # Number of sample points on the target surface.
-TIME_STEP = 0.01              # Simulation time step in seconds for accuracy.
+TIME_STEP = 0.0001              # Simulation time step in seconds for accuracy.
 
 # -- !!! NEW: ADJUSTABLE THRESHOLD !!! --
 # Set the percentage of sight lines that must be blocked to be considered "effective occlusion".
