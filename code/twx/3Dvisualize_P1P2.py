@@ -161,17 +161,17 @@ if __name__ == "__main__":
     # ===================================================================
     
     # 示例1：使用问题一的参数
-    # strategy_v = 120.0
-    # strategy_theta_deg = 180.0  # 飞向假目标，即-X方向
-    # strategy_t_drop = 1.5
-    # strategy_t_delay = 3.6
+    strategy_v = 120.0
+    strategy_theta_deg = 180.0  # 飞向假目标，即-X方向
+    strategy_t_drop = 1.5
+    strategy_t_delay = 3.6
     
     # 示例2：使用你从第二问优化代码中得到的最优解
     # (请将下面替换为你的实际计算结果)
-    strategy_v = 77.4556 
-    strategy_theta_deg = 178.2870
-    strategy_t_drop = 0.3455 
-    strategy_t_delay = 2.6846 
+    # strategy_v = 77.4556 
+    # strategy_theta_deg = 178.2870
+    # strategy_t_drop = 0.3455 
+    # strategy_t_delay = 2.6846 
 
     # 调用函数，生成并显示动画
     visualize_strategy(
