@@ -168,10 +168,10 @@ if __name__ == "__main__":
     
     # 示例2：使用你从第二问优化代码中得到的最优解
     # (请将下面替换为你的实际计算结果)
-    strategy_v = 120.0065
-    strategy_theta_deg = 0.4574
-    strategy_t_drop = 1.4948
-    strategy_t_delay = 3.6167
+    strategy_v = 120
+    strategy_theta_deg = 0
+    strategy_t_drop = 1.5
+    strategy_t_delay = 3.6
 
     # 调用函数，生成并显示动画
     visualize_strategy(
