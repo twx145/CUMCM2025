@@ -2,6 +2,9 @@ import numpy as np
 import time
 import itertools
 import csv
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 # --- 0. 基础设置与可调参数 ---
 GRAVITY = 9.8
@@ -10,7 +13,7 @@ SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 
 # --- 第四问特定参数 ---
-UAV_NAMES = ['FY1', 'FY2', 'FY3']
+UAV_NAMES = ['FY1', 'FY2', 'FY3'] # 确保顺序一致性
 UAV_INITIAL_POS = {
     'FY1': np.array([17800, 0, 1800], dtype=float),
     'FY2': np.array([12000, 1400, 1400], dtype=float),
@@ -18,7 +21,7 @@ UAV_INITIAL_POS = {
 }
 NUM_INDIVIDUAL_STRATEGIES = 50
 NUM_TEAMS_TO_FORM = 50
-NUM_OPTIMIZATION_ROUNDS = 10 # 局部优化的最大迭代轮数
+NUM_OPTIMIZATION_ROUNDS = 10
 
 # 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
@@ -32,8 +35,8 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# --- 辅助函数 (与之前版本完全相同) ---
-# ... (此处省略 is_line_segment_intersecting_sphere 等)
+# --- 辅助函数与核心计算函数 (与之前版本完全相同) ---
+# ... (此处省略 is_line_segment_intersecting_sphere, get_occlusion_timeline 等函数)
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False
     line_vec, point_vec = p2 - p1, sphere_center - p1
@@ -43,9 +46,7 @@ def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     closest_point = p1 + np.clip(t, 0, 1) * line_vec
     return np.linalg.norm(sphere_center - closest_point) <= sphere_radius
 
-# --- 核心计算函数 (与之前版本完全相同) ---
 def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1):
-    # ... (与上一版完全相同)
     if not strategies: return 0
     smoke_events, min_explode_time, max_end_time = [], float('inf'), float('-inf')
     for strat in strategies:
@@ -61,22 +62,18 @@ def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1
     timeline_len = int((max_end_time - min_explode_time) / time_step) + 1
     occlusion_timeline = np.zeros(timeline_len, dtype=bool)
     time_points = np.arange(min_explode_time, max_end_time, time_step)
-    missile_positions = missile_initial_pos + missile_velocity_vector * time_points[:, np.newaxis]
-    for se in smoke_events:
-        relative_times = time_points - se['t_explode']
-        active_mask = (relative_times >= 0) & (relative_times < SMOKE_DURATION)
-        if not np.any(active_mask): continue
-        smoke_positions = se['p_explode'] - np.array([0, 0, 3.0]) * relative_times[active_mask, np.newaxis]
-        active_missile_pos = missile_positions[active_mask]
-        for i in range(len(active_missile_pos)):
-            if is_line_segment_intersecting_sphere(active_missile_pos[i], target_point, smoke_positions[i], SMOKE_RADIUS):
-                occlusion_timeline[np.where(active_mask)[0][i]] = True
+    for t_idx, t_abs in enumerate(time_points):
+        missile_pos = missile_initial_pos + missile_velocity_vector * t_abs
+        for se in smoke_events:
+            if se['t_explode'] <= t_abs < se['t_explode'] + SMOKE_DURATION:
+                smoke_pos = se['p_explode'] + np.array([0, 0, -3.0 * (t_abs - se['t_explode'])])
+                if is_line_segment_intersecting_sphere(missile_pos, target_point, smoke_pos, SMOKE_RADIUS):
+                    occlusion_timeline[t_idx] = True; break
     return np.sum(occlusion_timeline) * time_step
 
-
-# --- 阶段一 (不变) ---
+# --- 四阶段求解函数 (与之前版本完全相同) ---
+# ... (此处省略 stage1, stage2, stage3, stage4, 和日志记录函数)
 def stage1_individual_coarse_search(uav_name, uav_pos, n_top):
-    # ... (与上一版完全相同)
     print(f"  - [阶段1] 正在为 {uav_name} 进行全局粗搜...")
     feasible_solutions = []
     search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 150)
@@ -100,9 +97,7 @@ def stage1_individual_coarse_search(uav_name, uav_pos, n_top):
                     if strat['occlusion_time'] > 0: feasible_solutions.append(strat)
     return sorted(feasible_solutions, key=lambda x: x['occlusion_time'], reverse=True)[:n_top]
 
-# --- 阶段二 (不变) ---
 def stage2_greedy_combination(individual_strats, n_teams):
-    # ... (与上一版完全相同)
     print(f"\n--- [阶段2] 开始：基于边际增益的贪心算法组合 {n_teams} 个团队 ---")
     all_strats_sorted = sorted(itertools.chain(*individual_strats.values()), key=lambda x: x['occlusion_time'], reverse=True)
     teams = []
@@ -117,9 +112,7 @@ def stage2_greedy_combination(individual_strats, n_teams):
                     current_time = get_occlusion_timeline(team_strats + [strat_to_add], UAV_INITIAL_POS, simple_target_point)
                     if current_time > best_gain:
                         best_gain, best_strat_to_add = current_time, strat_to_add
-            if best_strat_to_add:
-                team_strats.append(best_strat_to_add)
-                current_uavs.append(best_strat_to_add['uav_name'])
+            if best_strat_to_add: team_strats.append(best_strat_to_add); current_uavs.append(best_strat_to_add['uav_name'])
         if len(team_strats) == 3:
             team = {s['uav_name']: s for s in team_strats}
             team['occlusion_time'] = get_occlusion_timeline(team_strats, UAV_INITIAL_POS, simple_target_point)
@@ -131,14 +124,10 @@ def stage2_greedy_combination(individual_strats, n_teams):
     print(f"阶段2完成。成功组合了 {len(unique_teams)} 个独特的团队。")
     return unique_teams
 
-# --- 阶段三 (修改为返回收敛历史) ---
 def stage3_local_optimization_team(team_composition):
     params = {name: strat.copy() for name, strat in team_composition.items() if name in UAV_NAMES}
     current_max_time = team_composition.get('occlusion_time', get_occlusion_timeline(list(params.values()), UAV_INITIAL_POS, simple_target_point))
-    
-    # 新增：用于记录收敛过程
     convergence_history = [current_max_time]
-    
     for i in range(NUM_OPTIMIZATION_ROUNDS):
         last_occlusion_time = current_max_time
         for uav_name in UAV_NAMES:
@@ -146,26 +135,17 @@ def stage3_local_optimization_team(team_composition):
                 original_val = params[uav_name][key]
                 step = 2.5 if key == 'v' else np.radians(5) if key == 'theta_rad' else 0.5
                 search_range = np.linspace(original_val - step, original_val + step, 5)
-                
                 for test_val in search_range:
                     test_params_list = [{**params[name], **({key: test_val} if name == uav_name else {})} for name in UAV_NAMES]
-                    # 约束检查
                     if key == 'v' and not (UAV_V_MIN <= test_val <= UAV_V_MAX): continue
-                    
                     t = get_occlusion_timeline(test_params_list, UAV_INITIAL_POS, simple_target_point)
-                    if t > current_max_time:
-                        current_max_time = t
-                        params[uav_name][key] = test_val
-
+                    if t > current_max_time: current_max_time, params[uav_name][key] = t, test_val
         convergence_history.append(current_max_time)
         if current_max_time - last_occlusion_time < 0.01: break
-    
     params['occlusion_time'] = current_max_time
     return params, convergence_history
-
-# --- 阶段四 (不变) ---
+    
 def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70.0):
-    # ... (与上一版完全相同，此处省略详细代码)
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points)); target_points = []
     for _ in range(int(n_points * 0.6)):
         theta, z = 2*np.pi*np.random.rand(), true_target_height*np.random.rand(); target_points.append([true_target_base_center[0]+7*np.cos(theta), true_target_base_center[1]+7*np.sin(theta), z])
@@ -191,64 +171,105 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_team_details
 
-
-# --- 新增：数据记录函数 ---
 def save_greedy_teams_to_csv(teams, filename="stage2_greedy_selections.csv"):
     if not teams: return
     header = ['team_id', 'initial_total_score']
-    for name in UAV_NAMES:
-        header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
-    
+    for name in UAV_NAMES: header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
     with open(filename, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         for i, team in enumerate(teams):
             row = [i + 1, f"{team['occlusion_time']:.4f}"]
-            for name in UAV_NAMES:
-                strat = team[name]
-                row.extend([
-                    f"{strat['v']:.4f}",
-                    f"{np.degrees(strat['theta_rad']):.4f}",
-                    f"{strat['t_drop']:.4f}",
-                    f"{strat['t_delay']:.4f}"
-                ])
+            for name in UAV_NAMES: row.extend([f"{team[name]['v']:.4f}", f"{np.degrees(team[name]['theta_rad']):.4f}", f"{team[name]['t_drop']:.4f}", f"{team[name]['t_delay']:.4f}"])
             writer.writerow(row)
     print(f"\n[日志] 阶段2：{len(teams)} 组贪心算法选择的团队参数已保存到 {filename}")
 
 def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, filename="stage3_optimization_process.csv"):
     if not optimized_teams: return
     base_header = ['team_id', 'initial_score', 'final_score']
-    for name in UAV_NAMES:
-        base_header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
-    iter_header = [f'iter_{i}_score' for i in range(NUM_OPTIMIZATION_ROUNDS + 1)] # iter_0 is initial score
+    for name in UAV_NAMES: base_header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
+    iter_header = [f'iter_{i}_score' for i in range(NUM_OPTIMIZATION_ROUNDS + 1)]
     header = base_header + iter_header
-
     with open(filename, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(header)
+        writer = csv.writer(f); writer.writerow(header)
         for i, (opt_team, init_team, history) in enumerate(zip(optimized_teams, initial_teams, histories)):
             padded_history = history + [history[-1]] * (NUM_OPTIMIZATION_ROUNDS + 1 - len(history))
             row = [i + 1, f"{init_team['occlusion_time']:.4f}", f"{opt_team['occlusion_time']:.4f}"]
-            for name in UAV_NAMES:
-                strat = opt_team[name]
-                row.extend([f"{strat['v']:.4f}", f"{np.degrees(strat['theta_rad']):.4f}", f"{strat['t_drop']:.4f}", f"{strat['t_delay']:.4f}"])
+            for name in UAV_NAMES: strat = opt_team[name]; row.extend([f"{strat['v']:.4f}", f"{np.degrees(strat['theta_rad']):.4f}", f"{strat['t_drop']:.4f}", f"{strat['t_delay']:.4f}"])
             row.extend([f"{h:.4f}" for h in padded_history])
             writer.writerow(row)
     print(f"[日志] 阶段3：{len(optimized_teams)} 组团队的详细优化过程已保存到 {filename}")
 
+# --- 新增：PCA 可视化函数 ---
+def visualize_optimization_journey(initial_teams, optimized_teams):
+    """
+    使用PCA将12维的团队策略向量降维到2D并可视化优化过程。
+    """
+    print("\n--- [可视化] 正在生成12维解空间的PCA降维图 ---")
+    
+    def team_to_vector(team):
+        # 确保始终按 UAV_NAMES 的顺序提取参数，保证向量的一致性
+        vec = []
+        for name in UAV_NAMES:
+            strat = team[name]
+            vec.extend([strat['v'], strat['theta_rad'], strat['t_drop'], strat['t_delay']])
+        return vec
 
-# --- 主程序 (集成日志记录) ---
+    initial_vectors = np.array([team_to_vector(team) for team in initial_teams])
+    final_vectors = np.array([team_to_vector(team) for team in optimized_teams])
+    
+    # 对所有数据进行标准化
+    scaler = StandardScaler()
+    all_vectors_scaled = scaler.fit_transform(np.vstack([initial_vectors, final_vectors]))
+    
+    # 应用PCA
+    pca = PCA(n_components=2)
+    all_vectors_pca = pca.fit_transform(all_vectors_scaled)
+    
+    # 分离出初始和优化后的点
+    initial_pca = all_vectors_pca[:len(initial_teams)]
+    final_pca = all_vectors_pca[len(initial_teams):]
+    
+    # 找到最佳解的索引
+    best_idx = np.argmax([team['occlusion_time'] for team in optimized_teams])
+    
+    # 绘图
+    plt.style.use('seaborn-v0_8-whitegrid')
+    plt.figure(figsize=(14, 10))
+    
+    # 绘制优化的路径箭头
+    for i in range(len(initial_teams)):
+        plt.arrow(initial_pca[i, 0], initial_pca[i, 1], 
+                  final_pca[i, 0] - initial_pca[i, 0], 
+                  final_pca[i, 1] - initial_pca[i, 1], 
+                  head_width=0.08, fc='gray', ec='gray', alpha=0.5, length_includes_head=True)
+
+    # 绘制散点
+    plt.scatter(initial_pca[:, 0], initial_pca[:, 1], c='dodgerblue', s=80, alpha=0.9, label='初始团队 (Greedy Selections)')
+    plt.scatter(final_pca[:, 0], final_pca[:, 1], c='orangered', s=80, alpha=0.9, label='局部最优团队 (Local Optima)')
+    
+    # 高亮最佳解
+    plt.scatter(final_pca[best_idx, 0], final_pca[best_idx, 1], 
+                c='gold', s=400, marker='*', edgecolors='black', linewidth=1.5, zorder=5,
+                label='最佳候选团队 (Best Candidate)')
+
+    plt.title('12维协同策略空间的PCA降维可视化', fontsize=18, pad=20)
+    plt.xlabel('主成分 1 (Principal Component 1)', fontsize=14)
+    plt.ylabel('主成分 2 (Principal Component 2)', fontsize=14)
+    plt.legend(fontsize=12, loc='best')
+    plt.show()
+
+# --- 主程序 (集成PCA可视化调用) ---
 if __name__ == "__main__":
     start_total_time = time.time()
     
     print("="*60)
-    print("        第四问：三机协同干扰问题求解器启动 (带详细日志)")
+    print("        第四问：三机协同干扰问题求解器启动 (带详细日志和PCA可视化)")
     print("="*60)
     
     individual_strategies = {name: stage1_individual_coarse_search(name, UAV_INITIAL_POS[name], NUM_INDIVIDUAL_STRATEGIES) for name in UAV_NAMES}
     initial_teams = stage2_greedy_combination(individual_strategies, NUM_TEAMS_TO_FORM)
     
-    # --- 日志记录点 1 ---
     save_greedy_teams_to_csv(initial_teams)
 
     if not initial_teams:
@@ -263,15 +284,19 @@ if __name__ == "__main__":
             histories.append(history)
             print(f" 优化后时长: {optimized_team['occlusion_time']:.4f}s")
         
-        # --- 日志记录点 2 ---
         save_optimization_process_to_csv(optimized_teams, initial_teams, histories)
 
+        # --- 新增：调用PCA可视化 ---
+        visualize_optimization_journey(initial_teams, optimized_teams)
+        
         champion_team = max(optimized_teams, key=lambda x: x['occlusion_time'])
         
+        print("\n--- [阶段4] 开始：对冠军团队进行最终高精度验证 ---")
         final_time, final_details = stage4_final_validation_team(champion_team, threshold_percent=OCCLUSION_THRESHOLD_PERCENT)
         
         # 最终结果打印 (不变)
         print("\n" + "="*60)
+        # ... (省略最终结果打印，与上一版完全相同)
         print("        第四问：最优协同干扰策略及最终结果")
         print("="*60)
         print(f"\n搜索概况: 从 {len(initial_teams)} 个高质量团队组合出发，找到的最佳策略如下。")

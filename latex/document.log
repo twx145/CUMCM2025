@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  6 SEP 2025 09:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  6 SEP 2025 11:30
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**document.tex
-(./document.tex
+**c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex
+(c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -22,29 +23,21 @@ File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctex.sty
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctex.sty (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-02-20 L3 programming layer (loader) 
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdft
-ex.def
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box51
 ))
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctexhook.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctexhook.sty
 Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctexpatch.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctexpatch.sty
 Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/fix-cm.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/ts1enc.def
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
@@ -53,39 +46,29 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \l__ctex_tmp_dim=\dimen141
 \g__ctex_section_depth_int=\count198
 \g__ctex_font_size_int=\count199
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
 File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
 )
 
 Package ctex Warning: UTF8 will be used as the default encoding.
 
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/engine/ctex-engine-
-pdftex.def
+(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/engine/ctex-engine-pdftex.def
 File: ctex-engine-pdftex.def 2022/07/14 v2.5.10 (pdf)LaTeX adapter (CTEX)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJKutf8.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJKutf8.sty
 Package: CJKutf8 2021/10/16 4.8.5
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/ifpdf.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJK.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJK.sty
 Package: CJK 2021/10/16 4.8.5
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/mule/MULEen
-c.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/mule/MULEenc.sty
 Package: MULEenc 2021/10/16 4.8.5
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJK.enc
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJK.enc
 File: CJK.enc 2021/10/16 4.8.5
 Now handling font encoding C00 ...
 ... no UTF-8 mapping file for font encoding C00
@@ -153,11 +136,9 @@ Now handling font encoding C62 ...
 ... no UTF-8 mapping file for font encoding C62
 )
 \CJK@indent=\box53
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjkpunct/CJKpunct.sty
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjkpunct/CJKpunct.sty
 Package: CJKpunct 2016/05/14 4.8.4
 \CJKpunct@cnta=\count266
 \CJKpunct@cntb=\count267
@@ -170,14 +151,9 @@ Package: CJKpunct 2016/05/14 4.8.4
    defining Unicode char U+201D (decimal 8221)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2026 (decimal 8230)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjkpunct/CJKpunct.spa))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJKspace.st
-y
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjkpunct/CJKpunct.spa)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/CJKspace.sty
 Package: CJKspace 2021/10/16 3.8.0
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.b
-dg
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.bdg
 File: UTF8.bdg 2021/10/16 4.8.5
 ) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/ctexspa.def
 File: ctexspa.def 2022/07/14 v2.5.10 Space info for CJKpunct (CTEX)
@@ -186,54 +162,37 @@ File: ctexspa.def 2022/07/14 v2.5.10 Space info for CJKpunct (CTEX)
 \l__ctex_ccglue_skip=\skip50
 )
 \l__ctex_ziju_dim=\dimen143
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/zhnumber/zhnumber.sty
 Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
 \l__zhnum_scale_int=\count271
 \l__zhnum_tmp_int=\count272
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.c
-fg
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
 File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-
-chinese.def
-File: ctex-scheme-chinese.def 2022/07/14 v2.5.10 Chinese scheme for generic (CT
-EX)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctex-name-ut
-f8.cfg
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese.def
+File: ctex-scheme-chinese.def 2022/07/14 v2.5.10 Chinese scheme for generic (CTEX)
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 File: ctex-name-utf8.cfg 2022/07/14 v2.5.10 Caption with encoding UTF-8 (CTEX)
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/tools/indentfirst.sty
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/fontset/ctex-fontse
-t-windows.def
-File: ctex-fontset-windows.def 2022/07/14 v2.5.10 Windows fonts definition (CTE
-X)
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctex.cfg
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-windows.def
+File: ctex-fontset-windows.def 2022/07/14 v2.5.10 Windows fonts definition (CTEX)
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/config/ctex.cfg
 File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen144
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen145
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count273
@@ -283,8 +242,7 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/siunitx/siunitx.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2024-02-15 v3.3.12 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count285
 \l__siunitx_number_exponent_fixed_int=\count286
@@ -300,23 +258,14 @@ Package: siunitx 2024-02-15 v3.3.12 A comprehensive (SI) units package
 \l__siunitx_angle_marker_box=\box56
 \l__siunitx_angle_unit_box=\box57
 \l__siunitx_compound_count_int=\count295
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/translations/translation
-s.sty
-Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
- (CN)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count296
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.
-sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.st
-y
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 ) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
@@ -347,12 +296,10 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \extratabsurround=\skip54
 \backup@length=\skip55
 \ar@cellbox=\box65
-))
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/tools/enumerate.sty
+)) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
 \@enLab=\toks25
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \enitkv@toks@=\toks26
 \labelindent=\skip56
@@ -361,27 +308,20 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box66
 \enit@count@id=\count300
 \enitdp@description=\count301
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks28
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cf
-g
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen161
@@ -404,8 +344,7 @@ Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \c@LT@tables=\count305
 \c@LT@chunks=\count306
 \LT@p@ftn=\toks29
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen164
 \lightrulewidth=\dimen165
@@ -424,24 +363,20 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count309
 \@lastruleclass=\count310
 \@thisrulewidth=\dimen176
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/float/float.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count311
 \float@exts=\toks30
 \float@box=\box72
 \@float@everytoks=\toks31
 \@floatcapt=\box73
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/titling/titling.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip61
 \thanksmargin=\skip62
 \droptitle=\skip63
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-
 \f@nch@headwidth=\skip64
 \f@nch@O@elh=\skip65
 \f@nch@O@erh=\skip66
@@ -451,40 +386,27 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@erf=\skip70
 \f@nch@O@olf=\skip71
 \f@nch@O@orf=\skip72
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/setspace/setspace.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinek
-eys.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.st
-y
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 ) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitl
-estring.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count312
@@ -496,13 +418,11 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count315
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -516,21 +436,16 @@ Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
 \c@Hy@tempcnt=\count316
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/url/url.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen178
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.
-sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count317
 \Field@Width=\dimen179
@@ -542,8 +457,7 @@ Package hyperref Info: backreferencing OFF on input line 6078.
 Package hyperref Info: Link coloring OFF on input line 6083.
 Package hyperref Info: Link coloring with OCG OFF on input line 6088.
 Package hyperref Info: PDF/A mode OFF on input line 6093.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -552,32 +466,23 @@ package with kernel methods
 \c@Hfootnote=\count320
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
 \Fld@listcount=\count321
 \c@bookmark@seq@number=\count322
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfile
-check.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniqueco
-unter.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-85.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip73
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count323
 \lst@gtempboxa=\box74
 \lst@token=\toks32
@@ -590,30 +495,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \lst@newlines=\count327
 \lst@lineno=\count328
 \lst@maxwidth=\dimen184
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
 \c@lstnumber=\count329
 \lst@skipnumbers=\count330
 \lst@framebox=\box75
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/02/21 1.10 listings configuration
 ))
 Package: listings 2024/02/21 1.10 (Carsten Heinz)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -634,11 +533,9 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \titlewidth=\dimen187
 \titlewidthlast=\dimen188
 \titlewidthfirst=\dimen189
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count331
@@ -655,18 +552,14 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks34
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 26.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.e
-nc
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc
 File: UTF8.enc 2021/10/16 4.8.5
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.c
-hr
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
 )
-Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 51.
- (./document.aux)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 51.
+
+No file document.aux.
 \openout1 = `document.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
@@ -751,17 +644,11 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
 LaTeX Font Info:    ... okay on input line 51.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
 LaTeX Font Info:    ... okay on input line 51.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/translations/translation
-s-basic-dictionary-english.trsl
-File: translations-basic-dictionary-english.trsl (english translation file `tra
-nslations-basic-dictionary')
+(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 51.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mki
-i
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 51.
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count334
 \scratchdimen=\dimen198
@@ -774,20 +661,13 @@ i
 \MPnumerator=\count338
 \makeMPintoPDFobject=\count339
 \everyMPtoPDFconversion=\toks36
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-ba
-se.sty
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys
-.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 51.
- (./document.out) (./document.out)
 \@outlinefile=\write3
 \openout3 = `document.out'.
 
@@ -827,161 +707,182 @@ Package hyperref Info: Link coloring ON on input line 51.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for C70+gbsn on input line 
-56.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbs
-n.fd
+LaTeX Font Info:    Trying to load font information for C70+gbsn on input line 56.
+(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbsn.fd
 File: c70gbsn.fd 2021/10/16 4.8.5
-)
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbs
-n.fdx
+) (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbsn.fdx
 File: c70gbsn.fdx 2021/10/16 4.8.5
 )
 
 LaTeX Warning: No \author given.
 
-Package CJKpunct Info: punctuation spaces for family 'gbsn' do not exist. Use f
-amily 'def' instead. on input line 64.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-
-windows.tex
-File: ctex-zhmap-windows.tex 2022/07/14 v2.5.10 Windows font map loader for pdf
-TeX and DVIPDFMx (CTEX)
-{d:/2--LaTex/TeXLive/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-{UGBK.sfd}{Unicode.sfd}) [1
+Package CJKpunct Info: punctuation spaces for family 'gbsn' do not exist. Use family 'def' instead. on input line 64.
+(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
+File: ctex-zhmap-windows.tex 2022/07/14 v2.5.10 Windows font map loader for pdfTeX and DVIPDFMx (CTEX)
+{d:/2--LaTex/TeXLive/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1
 
 ] [2]
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 11
-7.
-
-(d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/fd/c70rm.fd
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 117.
+ (d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/tex/latex/ctex/fd/c70rm.fd
 File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
-)
-[3]
-Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
-quanjiao) on input line 177.
- [4] [5]
+) [3]
 
-LaTeX Warning: Reference `fig:convergence_q2' on page 6 undefined on input line
- 212.
+LaTeX Warning: File `pic/Fg1.png' not found on input line 150.
 
 
-LaTeX Warning: Reference `fig:pca_q2' on page 6 undefined on input line 214.
-
-
-LaTeX Warning: File `pca_q2.png' not found on input line 220.
-
-
-! Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:150: Package pdftex.def Error: File `pic/Fg1.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.220 ...udegraphics[width=\textwidth]{pca_q2.png}
-                                                   % <-- å°† "pca_q2.png" æ›...
-
+l.150 ...raphics[width=0.5\textwidth]{pic/Fg1.png}
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+[4] [5]
 
-LaTeX Warning: File `pca_q2.png' not found on input line 227.
+LaTeX Warning: File `pic/Fg2.png' not found on input line 224.
 
 
-! Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:224: Package pdftex.def Error: File `pic/Fg2.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.227 ...udegraphics[width=\textwidth]{pca_q2.png}
-                                                   % <-- å°† "pca_q2.png" æ›...
-
+l.224 ...raphics[width=0.8\textwidth]{pic/Fg2.png}
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [6]
-Overfull \hbox (8.6805pt too wide) in paragraph at lines 280--281
-[] []\C70/rm/bx/n/12/7b , \C70/rm/bx/n/12/4e ^^@ \C70/rm/bx/n/12/96 6 \C70/rm/b
-x/n/12/6b µ\OT1/cmr/bx/n/12 :\C70/rm/bx/n/12/51 h \C70/rm/bx/n/12/5c @ \C70/rm/
-bx/n/12/7c — \C70/rm/bx/n/12/64 ^^\[] \C70/gbsn/bx/n/12/4f Ý \C70/gbsn/m/n/12/6
-3 ^^A \C70/gbsn/bx/n/12/4e ^^M \C70/gbsn/bx/n/12/53 Ø|\C70/gbsn/m/n/12/30 ^^B| 
-\C70/gbsn/bx/n/12/62 ^^Q \C70/gbsn/bx/n/12/4e ì Í \C70/gbsn/m/n/12/71 6 \C70/gb
-sn/bx/n/12/90 ^^Z \C70/gbsn/m/n/12/8f Ç \C70/gbsn/m/n/12/5b ù \C70/gbsn/bx/n/12
-/53 U \C70/gbsn/bx/n/12/67 š \C70/gbsn/bx/n/12/70 ß \C70/gbsn/bx/n/12/5e U \C70
-/gbsn/bx/n/12/5f 9 \C70/gbsn/bx/n/12/76 „ \C70/gbsn/bx/n/12/90 ^^F \C70/gbsn/bx
-/n/12/54 ^^Q \C70/gbsn/bx/n/12/5e ú \C70/gbsn/bx/n/12/6a ! \C70/gbsn/bx/n/12/67
- e \C70/gbsn/bx/n/12/5f ë \C70/gbsn/bx/n/12/90 ^^_ \C70/gbsn/bx/n/12/62 ~ \C70/
-gbsn/bx/n/12/52 0\OT1/cmr/m/n/12 500\C70/gbsn/bx/n/12/4e *
- []
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 233.
 
-[7]
-Overfull \hbox (4.99377pt too wide) in paragraph at lines 291--292
-\C70/gbsn/bx/n/12/5c ^^F \C70/gbsn/m/n/12/6b Ï \C70/gbsn/bx/n/12/4e * \C70/gbsn
-/bx/n/12/89 ã \C70/gbsn/bx/n/12/62 i \C70/gbsn/bx/n/12/5c U \C70/gbsn/bx/n/12/4
-e : 	 \C70/gbsn/bx/n/12/5f 9 \C70/gbsn/bx/n/12/52 ^^] \C70/gbsn/bx/n/12/59 Ë \C
-70/gbsn/bx/n/12/7b V \C70/gbsn/m/n/12/75 e|\C70/gbsn/bx/n/12/ff ^^L| \C70/gbsn/
-bx/n/12/5e v \C70/gbsn/m/n/12/8f “ \C70/gbsn/bx/n/12/51 e \C70/gbsn/bx/n/12/53 
-G \C70/gbsn/bx/n/12/7e § \C70/gbsn/bx/n/12/54 ^^N \C70/gbsn/bx/n/12/76 „\OT1/cm
-tt/m/n/12 step2[]local[]optimization[]multi 
+Overfull \hbox (36.71718pt too wide) in paragraph at lines 235--242
+ [][] 
  []
 
 
-LaTeX Warning: File `pca_q2.png' not found on input line 299.
+LaTeX Warning: File `pic/Fg3.png' not found on input line 248.
 
 
-! Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:248: Package pdftex.def Error: File `pic/Fg3.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.299 ...udegraphics[width=\textwidth]{pca_q2.png}
-                                                   % <-- å°† "pca_q2.png" æ›...
-
+l.248 ...raphics[width=0.8\textwidth]{pic/Fg3.png}
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+[7] [8] [9]
 
-LaTeX Warning: File `pca_q2.png' not found on input line 306.
+LaTeX Warning: Reference `fig:convergence_q2' on page 10 undefined on input line 323.
 
 
-! Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+LaTeX Warning: Reference `fig:pca_q2' on page 10 undefined on input line 325.
+
+
+LaTeX Warning: File `pca_q2.png' not found on input line 331.
+
+
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:331: Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.306 ...udegraphics[width=\textwidth]{pca_q2.png}
+l.331 ...udegraphics[width=\textwidth]{pca_q2.png}
                                                    % <-- å°† "pca_q2.png" æ›...
-
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 348--350
+
+LaTeX Warning: File `pca_q2.png' not found on input line 338.
+
+
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:338: Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.338 ...udegraphics[width=\textwidth]{pca_q2.png}
+                                                   % <-- å°† "pca_q2.png" æ›...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[10]
+
+LaTeX Warning: Reference `tab:results_q2' on page 11 undefined on input line 344.
+
+[11] [12]
+
+LaTeX Warning: Reference `fig:3' on page 13 undefined on input line 407.
+
+
+LaTeX Warning: File `pca_q2.png' not found on input line 413.
+
+
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:413: Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.413 ...udegraphics[width=\textwidth]{pca_q2.png}
+                                                   % <-- å°† "pca_q2.png" æ›...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `pca_q2.png' not found on input line 420.
+
+
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:420: Package pdftex.def Error: File `pca_q2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.420 ...udegraphics[width=\textwidth]{pca_q2.png}
+                                                   % <-- å°† "pca_q2.png" æ›...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `tab:results_q3' on page 13 undefined on input line 427.
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
 
  []
 
-[9]
-! Extra }, or forgotten \endgroup.
+[14]
+
+LaTeX Warning: Reference `tab:q4_results' on page 15 undefined on input line 480.
+
+c:/Users/HUAWEI/OneDrive/Desktop/å›½èµ›/latex/document.tex:509: Extra }, or forgotten \endgroup.
 \@endfloatbox ...pagefalse \outer@nobreak \egroup 
                                                   \color@endbox 
-l.395 	\end{table}
-                  
+l.509 		\end{table}
+                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[10]
+[15]
 
 LaTeX Font Warning: Font shape `C70/gbsn/m/it' undefined
-(Font)              using `C70/gbsn/m/n' instead on input line 404.
+(Font)              using `C70/gbsn/m/n' instead on input line 518.
 
-[11] (./document.aux)
+[16] (./document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -993,146 +894,32 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 6760290CA7F0D14E901636E53CB4B880;1999.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `document.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  1D4FF2D9DC121954FCFA8B1AF2081003;2707.
  ) 
 Here is how much of TeX's memory you used:
- 21952 strings out of 474116
- 422089 string characters out of 5739165
+ 22196 strings out of 474116
+ 426488 string characters out of 5739165
  1963190 words of memory out of 5000000
- 43489 multiletter control sequences out of 15000+600000
- 634921 words of font info for 312 fonts, out of 8000000 for 9000
+ 43668 multiletter control sequences out of 15000+600000
+ 645160 words of font info for 348 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,13n,83p,713b,1226s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
-/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:
-/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei
-.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
-s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wind
-ows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
-<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
-sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
-onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
-indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
-tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
-simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
-:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
-ts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
-dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf
-><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/si
-mhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/
-Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/
-Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.
-ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts
-/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windo
-ws/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><
-c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simh
-ei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fo
-nts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wi
-ndows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.tt
-f><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simhei.ttf><d:/2--LaTex/TeXLive/texlive/2024/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/2--LaTex/TeXLive/texlive/202
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/2--LaTex/TeXLive/tex
-live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/2--LaTex/TeX
-Live/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/2--L
-aTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti12.pfb><d:/2--LaTex/TeXLive/texlive/2024/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/2--LaTex/TeXLive/texlive/
-2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu20.pfb><d:/2--LaTex/TeXLive/texli
-ve/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu30.pfb><d:/2--LaTex/TeXLive/te
-xlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4e.pfb><d:/2--LaTex/TeXLive
-/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4f.pfb><d:/2--LaTex/TeXL
-ive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu50.pfb><d:/2--LaTex/T
-eXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu51.pfb><d:/2--LaTe
-x/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb><d:/2--L
-aTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu53.pfb><d:/2
---LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu54.pfb><d
-:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu55.pfb
-><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu56.
-pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
-57.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gb
-snu58.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu
-/gbsnu59.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gb
-snu/gbsnu5a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic
-/gbsnu/gbsnu5b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arp
-hic/gbsnu/gbsnu5c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/
-arphic/gbsnu/gbsnu5d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/typ
-e1/arphic/gbsnu/gbsnu5e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/
-type1/arphic/gbsnu/gbsnu5f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fon
-ts/type1/arphic/gbsnu/gbsnu60.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/
-fonts/type1/arphic/gbsnu/gbsnu61.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-di
-st/fonts/type1/arphic/gbsnu/gbsnu62.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf
--dist/fonts/type1/arphic/gbsnu/gbsnu63.pfb><d:/2--LaTex/TeXLive/texlive/2024/te
-xmf-dist/fonts/type1/arphic/gbsnu/gbsnu64.pfb><d:/2--LaTex/TeXLive/texlive/2024
-/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><d:/2--LaTex/TeXLive/texlive/2
-024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><d:/2--LaTex/TeXLive/texliv
-e/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><d:/2--LaTex/TeXLive/tex
-live/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu68.pfb><d:/2--LaTex/TeXLive/
-texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu69.pfb><d:/2--LaTex/TeXLi
-ve/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6a.pfb><d:/2--LaTex/Te
-XLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6b.pfb><d:/2--LaTex
-/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6c.pfb><d:/2--La
-Tex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6d.pfb><d:/2-
--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6e.pfb><d:
-/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6f.pfb>
-<d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu70.p
-fb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7
-1.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbs
-nu72.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/
-gbsnu73.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbs
-nu/gbsnu74.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/
-gbsnu/gbsnu75.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arph
-ic/gbsnu/gbsnu76.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/a
-rphic/gbsnu/gbsnu77.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type
-1/arphic/gbsnu/gbsnu78.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/t
-ype1/arphic/gbsnu/gbsnu79.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/font
-s/type1/arphic/gbsnu/gbsnu7a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/f
-onts/type1/arphic/gbsnu/gbsnu7b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dis
-t/fonts/type1/arphic/gbsnu/gbsnu7c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-
-dist/fonts/type1/arphic/gbsnu/gbsnu7d.pfb><d:/2--LaTex/TeXLive/texlive/2024/tex
-mf-dist/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><d:/2--LaTex/TeXLive/texlive/2024/
-texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7f.pfb><d:/2--LaTex/TeXLive/texlive/20
-24/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu80.pfb><d:/2--LaTex/TeXLive/texlive
-/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu81.pfb><d:/2--LaTex/TeXLive/texl
-ive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><d:/2--LaTex/TeXLive/t
-exlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu83.pfb><d:/2--LaTex/TeXLiv
-e/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu84.pfb><d:/2--LaTex/TeX
-Live/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu85.pfb><d:/2--LaTex/
-TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu86.pfb><d:/2--LaT
-ex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu88.pfb><d:/2--
-LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb><d:/
-2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><
-d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8c.pf
-b><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8d
-.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsn
-u8e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/g
-bsnu8f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsn
-u/gbsnu90.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/g
-bsnu/gbsnu91.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphi
-c/gbsnu/gbsnu94.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/ar
-phic/gbsnu/gbsnu95.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1
-/arphic/gbsnu/gbsnu96.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/ty
-pe1/arphic/gbsnu/gbsnu97.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts
-/type1/arphic/gbsnu/gbsnu98.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fo
-nts/type1/arphic/gbsnu/gbsnu99.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist
-/fonts/type1/arphic/gbsnu/gbsnu9a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-d
-ist/fonts/type1/arphic/gbsnu/gbsnu9c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texm
-f-dist/fonts/type1/arphic/gbsnu/gbsnu9f.pfb><d:/2--LaTex/TeXLive/texlive/2024/t
-exmf-dist/fonts/type1/arphic/gbsnu/gbsnuff.pfb>
-Output written on document.pdf (11 pages, 904914 bytes).
+ 80i,18n,83p,759b,1268s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu20.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu30.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu50.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu51.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu53.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu54.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu55.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu56.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu57.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu58.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu60.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu61.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu62.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu63.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu64.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu68.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu69.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu70.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu71.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu72.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu73.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu74.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu75.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu78.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu79.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu80.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu81.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu83.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu84.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu85.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu86.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu88.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu90.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu91.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu94.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu96.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu97.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu9a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type
+1/arphic/gbsnu/gbsnu9c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu9f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnuff.pfb>
+Output written on document.pdf (16 pages, 973182 bytes).
 PDF statistics:
- 973 PDF objects out of 1000 (max. 8388607)
- 690 compressed objects within 7 object streams
- 66 named destinations out of 1000 (max. 500000)
- 465 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1003 PDF objects out of 1200 (max. 8388607)
+ 702 compressed objects within 8 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
 

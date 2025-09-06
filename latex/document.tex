@@ -49,75 +49,75 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{gbsn}
-	
-	%%\thispagestyle{fancy}
-	\maketitle  % 生成标题页
-	
-	\setcounter{page}{1}
-	
-	\vspace{-7em}
-	\begin{abstract}  % 摘要环境
-		\vspace{1em}
+	\begin{CJK}{UTF8}{gbsn}
+		
+		%%\thispagestyle{fancy}
+		\maketitle  % 生成标题页
+		
+		\setcounter{page}{1}
+		
+		\vspace{-7em}
+		\begin{abstract}  % 摘要环境
+			\vspace{1em}
+			
+			
+			\textbf{针对问题一}，
+			
+			\textbf{针对问题二}，
+			
+			\textbf{针对问题三}，
+			
+			\textbf{针对问题四},
+			
+			\noindent\textbf{关键词:} KNN最临近差值法 ; 灰度关联分析法 ; 层次分析法 ; 房租定价策略
+			
+			
+		\end{abstract}
+		
+		\newpage
+		
+		\section{、问题重述}
 		
 		
-		\textbf{针对问题一}，
+		在现代战场上，机场、指挥中心等高价值战略目标面临着光电制导武器的严峻威胁。作为一种高效的无源光电对抗手段，烟幕能以极高的效费比“致盲”来袭武器，有效保护我方资产。然而，传统烟幕布设方式响应慢、灵活性差，难以应对高机动性打击。无人机（UAV）技术凭借其高机动性与快速响应能力，可作为理想的烟幕“精准投送平台”，在预警后迅速部署动态、精确的“防护屏障”。
 		
-		\textbf{针对问题二}，
+		因此，本研究的核心是为无人机群制定最优的烟幕干扰弹投放策略。为系统性解决该议题，可以将原问题分解为五个复杂度递增的子问题，构成一个从基础仿真到多智能体任务分配的完整研究体系：
 		
-		\textbf{针对问题三}，
+		\textbf{问题一：}固定策略下的运动学仿真与效果评估。
+		此问题旨在为后续优化建立一个可量化的基准。在给定无人机与烟幕弹所有运动及投放参数的确定性条件下，要求建立一套精确的运动学模型，仿真烟幕云团的时空轨迹，并基于几何遮蔽原理，计算其对单一来袭导弹的有效遮蔽总时长。
 		
-		\textbf{针对问题四},
+		\textbf{问题二：}单智能体、单次行为的最优策略求解。
+		该问题要求针对单一无人机，在满足其自身性能约束的前提下，优化其飞行方向、速度以及烟幕弹的投放与引爆时机，以实现对单一导弹的最大化遮蔽时间。
 		
-		\noindent\textbf{关键词:} KNN最临近差值法 ; 灰度关联分析法 ; 层次分析法 ; 房租定价策略
+		\textbf{问题三：}单智能体、多次行为的协同优化。
+		该问题在问题二的基础上增加了决策的复杂性。无人机需在一条固定的航线上，规划三次烟幕弹的投放与引爆时机。这要求优化三次投放行为，在满足投放的最小时间间隔约束的条件下，使其产生的多个烟幕云团形成有效互补，实现总遮蔽时长的最大化。
+		
+		\textbf{问题四：}多智能体、协同任务的策略优化。
+		此问题引入了多智能体协同的概念。需要为三架初始位置不同的无人机，分别规划其飞行与投放策略，使它们共同协作，以最优的方式干扰同一枚来袭导弹。
+		
+		\textbf{问题五：}多智能体、多目标的任务分配与综合优化。
+		这个问题复杂度较高。它包含多智能体协同，也引入了\textbf{任务分配}的核心难题。模型需要首先决定：五架无人机应如何分配去拦截三枚不同的导弹，然后在此分配方案下，为每个无人机规划最优的多弹投放策略，最终目标是最大化对所有来袭导弹的总有效遮蔽。
+		
+		\section{、问题分析}
 		
 		
-	\end{abstract}
-	
-	\newpage
-	
-	\section{、问题重述}
-
-	
-	在现代战场上，机场、指挥中心等高价值战略目标面临着光电制导武器的严峻威胁。作为一种高效的无源光电对抗手段，烟幕能以极高的效费比“致盲”来袭武器，有效保护我方资产。然而，传统烟幕布设方式响应慢、灵活性差，难以应对高机动性打击。无人机（UAV）技术凭借其高机动性与快速响应能力，可作为理想的烟幕“精准投送平台”，在预警后迅速部署动态、精确的“防护屏障”。
-	
-	因此，本研究的核心是为无人机群制定最优的烟幕干扰弹投放策略。为系统性解决该议题，我们将原问题分解为五个复杂度递增的子问题，构成一个从基础仿真到多智能体任务分配的完整研究体系：
-	
-	\textbf{问题一：}固定策略下的运动学仿真与效果评估。
-	此问题旨在为后续优化建立一个可量化的基准。在给定无人机与烟幕弹所有运动及投放参数的确定性条件下，要求我们建立一套精确的运动学模型，仿真烟幕云团的时空轨迹，并基于几何遮蔽原理，计算其对单一来袭导弹的有效遮蔽总时长。
-	
-	\textbf{问题二：}单智能体、单次行为的最优策略求解。
-	该问题要求我们针对单一无人机，在满足其自身性能约束的前提下，优化其飞行方向、速度以及烟幕弹的投放与引爆时机，以实现对单一导弹的最大化遮蔽时间。
-	
-	\textbf{问题三：}单智能体、多次行为的协同优化。
-	该问题在问题二的基础上增加了决策的复杂性。无人机需在一条固定的航线上，规划三次烟幕弹的投放与引爆时机。我们需要优化这三次投放行为，使其产生的多个烟幕云团形成有效互补，实现总遮蔽时长的最大化，同时需满足投放的最小时间间隔约束。
-	
-	\textbf{问题四：}多智能体、协同任务的策略优化。
-	此问题引入了多智能体协同的概念。要求我们为三架初始位置不同的无人机，分别规划其飞行与投放策略，使它们共同协作，以最优的方式干扰同一枚来袭导弹。
-	
-	\textbf{问题五：}多智能体、多目标的任务分配与综合优化。
-	这个问题复杂度较高。它包含多智能体协同，也引入了\textbf{任务分配}的核心难题。模型需要首先决定：五架无人机应如何分配去拦截三枚不同的导弹，然后在此分配方案下，为每个无人机规划最优的多弹投放策略，最终目标是最大化对所有来袭导弹的总有效遮蔽。
-	
-	\section{、问题分析}
-
-	
-	对于\textbf{问题一，}我们首先建立三维笛卡尔坐标系，随后分别构建无人机与导弹的匀速直线运动模型，以及烟幕弹脱离无人机后的平抛运动弹道模型。通过对时间进行离散化，以微小步长（0.001秒）进行数值仿真，我们精确追踪烟幕云团中心在爆炸后20秒内的时空轨迹。最终，通过计算几何方法，在每个时间步判断导弹-真目标视线段与烟幕球体是否相交，累计所有相交的时间步，得到高精度的总有效遮蔽时长。
-	
-	对于\textbf{问题二，}本队设计了一个\textbf{“全局粗搜-局部精调-精细验证”}的三阶段优化算法。第一阶段，通过逆向建模和可行性剪枝，利用真目标中心构建单视线，在离散化的解空间中快速定位多个可行的初始解。第二阶段，取遮蔽单视线时间前n长的初始解为起点，采用坐标上升法进行局部精细寻优，最后选取遮蔽单视线最长的参数作为输出。第三阶段，对真目标进行1000点采样构建导弹到真目标的多条视线来测得最优参数对应的有效遮蔽时间。
-	
-	对于\textbf{问题三，}本队优化问题二的优化框架，我们沿用全局粗搜的第一阶段代码，在获得n组可行参数后增加四个参数（两枚烟雾弹各自的投放和延时时间），此外我们计算三个烟幕云团产生的遮蔽时间区间的并集总长度作为新的目标函数，以准确评估协同效应。接着第二阶段模型对n组决策变量进行迭代寻优。第三阶段模型计算最优解的精确遮蔽时间。
-	
-	对于\textbf{问题四，}我们在第二问框架上引入了\textbf{“多目标全局粗搜-贪心组合选择-局部精调-精细验证”}的四阶段优化算法。第一阶段本算法依次对三个无人机进行全局粗搜确定各自发射窗口。第二阶段我们采用基于边际增益的贪心算法选出候选的n组参数。第三阶段对各组参数分别调优并选取最优参数。第四阶段进行最优解精确遮蔽时间计算。
-	
-	对于\textbf{问题五，}
-	
-	
-	\section{、模型准备}
-	
-	\subsection{问题假设}
-	
+		对于\textbf{问题一，}首先建立三维笛卡尔坐标系，随后分别构建无人机与导弹的匀速直线运动模型，以及烟幕弹脱离无人机后的平抛运动弹道模型。通过对时间进行离散化，以微小步长（0.001秒）进行数值仿真，精确追踪烟幕云团中心在爆炸后20秒内的时空轨迹。最终，通过计算几何方法，在每个时间步判断导弹-真目标视线段与烟幕球体是否相交，累计所有相交的时间步，得到高精度的总有效遮蔽时长。
+		
+		对于\textbf{问题二，}创新性采用\textbf{“全局粗搜-局部精调-精细验证”}的三阶段优化算法。第一阶段，通过逆向建模和可行性剪枝，利用真目标中心构建单视线，在离散化的解空间中快速定位多个可行的初始解。第二阶段，取遮蔽单视线时间前n长的初始解为起点，采用坐标上升法进行局部精细寻优，最后选取遮蔽单视线最长的参数作为输出。第三阶段，对真目标进行1000点采样构建导弹到真目标的多条视线来测得最优参数对应的有效遮蔽时间。
+		
+		对于\textbf{问题三，}优化问题二的优化框架，沿用全局粗搜的第一阶段代码，在获得n组可行参数后增加四个参数（两枚烟雾弹各自的投放和延时时间），计算三个烟幕云团产生的遮蔽时间区间的并集总长度作为新的目标函数，以准确评估协同效应。第二阶段模型对n组决策变量进行迭代寻优。第三阶段模型计算最优解的精确遮蔽时间。
+		
+		对于\textbf{问题四，}在第二问框架上引入了\textbf{“多目标全局粗搜-贪心组合选择-局部精调-精细验证”}的四阶段优化算法。第一阶段本算法依次对三个无人机进行全局粗搜确定各自发射窗口。第二阶段采用基于边际增益的贪心算法选出候选的n组参数。第三阶段对各组参数分别调优并选取最优参数。第四阶段进行最优解精确遮蔽时间计算。
+		
+		对于\textbf{问题五，}
+		
+		
+		\section{、模型准备}
+		
+		\subsection{问题假设}
+		
 		1.无人机投放烟幕干扰弹时，干扰弹的初速度与无人机飞行速度相同。
-				
+		
 		2.将飞行中导弹视作质点，导弹以 \(\SI{300}{m/s}\) 直指原点做匀速直线运动。
 		
 		3.干扰弹起爆后瞬时形成球状烟幕云团，且以\(\SI{3}{m/s}\) 的速度匀速垂直下沉，无侧向运动。
@@ -128,301 +128,415 @@
 		
 		6.取真目标表面某点，与导弹位置连接成线段 。若该直线段在某时刻与球状烟幕云团存在公共点，则视为该时刻对该点有效遮蔽。相切时为临界情况。
 		
-		7.运用随机取点思想：在真目标表面均匀随机选取 \(N\) 个点，其中 \(n\) 个点被遮蔽，
-		则有效面积遮挡比估算为
-		\[
-		\frac{n}{N}.
-		\]
-	
-	
-	
-	
-	\subsection{符号说明}
-	
-	
-	\section{、模型建立与求解}
-	
-	\subsection{问题一}
-	
-	\subsubsection{}
-	
-	\subsection{问题二}
-	
-	针对问题二，我们的目标是确定无人机FY1的最优飞行与投放策略，以最大化单枚烟幕弹对M1导弹的有效遮蔽时长。为解决这个非凸优化问题，我们设计了一个鲁棒性强的\textbf{“全局粗搜 $\rightarrow$ 局部精调 $\rightarrow$ 精细验证”}三阶段优化框架。该框架通过系统性的搜索与迭代，高效地在广阔的解空间中定位全局最优解或其高质量近似解。
-	
-	\subsubsection{决策变量与目标函数}
-	
-	\begin{enumerate}
-		\item \textbf{决策变量}: 我们的模型需要优化四个关键参数来定义无人机的完整策略：
 		
-			- 无人机飞行速度 $v$ (m/s)\\
-		\indent	- 无人机飞行方向 $\theta$ (弧度)\\
-		\indent	- 烟幕弹投放时间 $t_{\text{drop}}$ (s)\\
-		\indent	- 烟幕弹引信延迟时间 $t_{\text{delay}}$ (s)
-
-		\item \textbf{约束条件}:
-
-			- 无人机速度约束: $70 \le v \le 140$ m/s\\
-		\indent	- 物理可行性约束: $t_{\text{drop}} > 0$, $t_{\text{delay}} > 0$
-
 		
-		\item \textbf{目标函数}: 我们的核心目标是最大化最终的有效遮蔽时间 $T_{\text{occlusion}}$。
-		\begin{equation}
-			\max T_{\text{occlusion}}(v, \theta, t_{\text{drop}}, t_{\text{delay}})
-		\end{equation}
-	\end{enumerate}
-	
-	\subsubsection{三阶段优化框架}
-	
-	\paragraph{第一阶段：全局粗搜与可行解窗口定位}
-	此阶段的目标是在整个解空间中快速、广泛地识别出具有潜力的“可行解窗口”，为后续的精细优化提供高质量的起点。我们创新性地采用了\textbf{逆向建模}的思路。
-	
-	我们首先离散化烟幕起爆时间 $t_{\text{explode}}$ 和起爆点在初始导弹-目标视线上的相对位置比例 $los\_ratio$。对于每一个 $(t_{\text{explode}}, t_{\text{delay}}, los\_ratio)$ 组合，我们可以反向推算出唯一确定的理想起爆点坐标 $P_{\text{explode}}$。
-	
-	基于 $P_{\text{explode}}$ 和投放延迟 $t_{\text{delay}}$，我们可以解析出无人机为了实现此次爆炸所\textbf{必须具备}的三维速度矢量 $\vec{V}_{\text{UAV, required}}$。其计算公式如下：
-	\begin{equation}
-		P_{\text{explode}} = P_{\text{UAV,initial}} + \vec{V}_{\text{UAV, required}} \cdot t_{\text{explode}} + \frac{1}{2} \vec{g} \cdot t_{\text{delay}}^2
-	\end{equation}
-	\begin{equation}
-		\vec{V}_{\text{UAV, required}} = \frac{P_{\text{explode}} - P_{\text{UAV,initial}} - (0, 0, -0.5gt_{\text{delay}}^2)}{t_{\text{explode}}}
-	\end{equation}
-	
-	随后，我们对该速度进行可行性剪枝：检查其水平分量的模长（即无人机速度 $v$）是否在 $[70, 140]$ m/s 的区间内。通过此方法高效地过滤掉大量不可行解。对于每个可行策略，我们使用简化的目标模型（将真目标视为一个质点）快速计算其遮蔽时长。最终，我们从数百万个搜索点中筛选出数万个可行解，并选取其中遮蔽时长最长且分布稀疏的500个解作为第二阶段的优化起点。
-	
-	\paragraph{第二阶段：多起点局部精调}
-	此阶段的目标是从这些高质量的起点出发，进行精细的局部寻优。
-	我们采用的局部优化算法是\textbf{坐标上升法}。该算法在每次迭代中，会依次固定其他三个决策变量，仅对其中一个变量在其邻域内进行一维搜索，以找到能使目标函数最大化的值。具体来说，对于当前最优参数 $(v, \theta, t_{\text{drop}}, t_{\text{delay}})$，我们依次在以下区间内进行线性搜索：
-	
-		- $v_{\text{new}} \in [v-5, v+5]$\\
-	\indent	- $\theta_{\text{new}} \in [\theta-10^\circ, \theta+10^\circ]$\\
-	\indent	- $t_{\text{drop, new}} \in [t_{\text{drop}}-1, t_{\text{drop}}+1]$\\
-	\indent	- $t_{\text{delay, new}} \in [t_{\text{delay}}-1, t_{\text{delay}}+1]$
-
-	重复此过程直至目标函数值不再有显著提升（收敛阈值设为0.001s）或达到最大迭代次数(10次)。
-	
-	\paragraph{第三阶段：高精度模型验证}
-	为了得到最终的精确遮蔽时间，我们使用最高精度的模型对第二阶段输出的全局最优候选解进行最终验证。此阶段与前两阶段的核心区别在于对\textbf{真目标的建模方式}。我们采用蒙特卡洛方法，在圆柱形的真目标表面和底面随机均匀采样1000个点。
-	
-	在每个仿真时间步（0.001s），我们判断这1000条从导弹位置到目标采样点的视线中，被烟幕球体遮挡的比例。累计所有有效遮蔽的时间步，便得到最终的高精度遮蔽时长。
-	
-	\subsubsection{模型求解}
-	\begin{enumerate}
-		\item \textbf{全局粗搜求解}: 我们对起爆时间、引信延迟和视线比率进行大范围离散化搜索，并调用\code{check\_reachability}函数进行可行性判断，最终获得500个高质量的初始解。
 		
-		\item \textbf{局部精调求解}: 我们对这500个初始解执行\code{step2\_local\_optimization}函数进行坐标上升优化。图\ref{fig:convergence_q2}展示了优化过程中目标函数（遮蔽时长）的收敛情况。从图中可以看出我们的坐标上升算法非常高效，通常在短短几次迭代内就能收敛。
 		
-		\item \textbf{结果与分析}: 在500个局部最优点中，我们选取了遮蔽时长最长的解作为全局最优候选解。图\ref{fig:pca_q2}直观展示了从初始解到最终局部最优解的变化过程。初始解（蓝点）广泛分布，经过优化后（箭头方向），它们收敛至多个不同的区域（红点簇），这有力地证明了该问题的非凸性，并凸显了我们采用\textbf{多起点优化}策略的必要性和正确性，它极大地降低了模型陷入较差局部最优解的风险。最终我们从中选出的最佳候选解（绿色星标）是在充分探索了多个“山峰”后得到的。
+		\subsection{符号说明}
 		
-	\begin{figure}[H]
-		\centering
-		\begin{minipage}{0.48\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
-			\caption{问题二：4维解空间的PCA降维可视化（左图）}
-			\label{fig:pca_q2_left}
-		\end{minipage}
-		\hfill % 这是一个弹性空间，会把两个minipage推开
-		\begin{minipage}{0.48\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
-			\caption{问题二：4维解空间的PCA降维可视化（右图）}
-			\label{fig:pca_q2_right}
-		\end{minipage}
-	\end{figure}
 		
-		\item \textbf{最终验证}: 将最佳候选解输入\code{step3\_final\_validation}函数进行高精度验证，我们得到了最终的优化结果，如表\ref{tab:results_q2}所示。
-	\end{enumerate}
-	
-	% --- 插入您的Q2结果表格 ---
-	\begin{table}[H]
-		\centering
-		\caption{问题二：最优策略与结果}
-		\label{tab:results_q2}
-		\begin{tabular}{@{}lcc@{}}
-			\toprule
-			决策变量               & 最优值      & 单位 \\ \midrule
-			无人机飞行速度 ($v$)     & (填入您的结果) & m/s  \\
-			无人机飞行方向 ($\theta$)    & (填入您的结果) & 度   \\
-			烟幕弹投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒   \\
-			引信延迟时间 ($t_{\text{delay}}$)   & (填入您的结果) & 秒   \\ \midrule
-			\textbf{最终高精度遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒}   \\ \bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\subsection{问题三的模型建立与求解}
-	
-	
-	问题三要求使用无人机FY1投放三枚烟幕弹对M1进行干扰。这使得问题从单点决策演变为\textbf{多目标协同优化}，我们在问题二成功的三阶段优化框架基础上，对其进行了针对性的扩展和升级。
-	
-	\subsubsection{决策变量与目标函数的演进}
-
-	\begin{enumerate}
-		\item \textbf{决策变量扩展}: 无人机保持统一的飞行速度 $v$ 和方向 $\theta$。决策变量从4个扩展到8个，以控制三枚烟幕弹的投放：
+		\section{、模型建立与求解}
 		
-		 - $v, \theta$\\
-		\indent - 第一枚弹的投放与延迟时间 $(t_{\text{drop1}}, t_{\text{delay1}})$\\
-		\indent - 第二枚弹的投放与延迟时间 $(t_{\text{drop2}}, t_{\text{delay2}})$\\
-		\indent - 第三枚弹的投放与延迟时间 $(t_{\text{drop3}}, t_{\text{delay3}})$
-	
-		\item \textbf{约束条件更新}: 新增了投放间隔约束，即 $t_{\text{drop}(i+1)} - t_{\text{drop}(i)} \ge 1.0$ s。
+		\subsection{问题一的模型建立与求解}
 		
-		\item \textbf{目标函数升级——协同效应建模}:
-		为了准确评估三枚弹的\textbf{协同效应}，我们将目标函数 $T_{\text{total\_occlusion}}$ 定义为\textbf{三个遮蔽时间区间的并集总长度}。在数值仿真中，我们在每个时间步检查是否有\textbf{至少一个}烟幕云团正在提供有效遮蔽。这个新的目标函数能够正确地奖励那些通过时序配合来最大化总覆盖时间的策略。
-		\begin{equation}
-			T_{\text{total\_occlusion}} = \text{length} \left( \bigcup_{i=1}^{3} \text{OcclusionInterval}_i \right)
-		\end{equation}
+		\subsubsection{单一无人机投放一枚干扰弹的空间物理模型}
 		
-	\end{enumerate}
-	
-	\subsubsection{优化框架的适应性改进}
-	我们沿用了“全局粗搜-局部精调-精细验证”的宏观框架，但对核心模块进行了必要升级：
-	
-	\paragraph{第一阶段:全局粗搜} 保持不变。我们仍然通过对单枚烟幕弹的逆向建模来快速找到500个高质量的初始“锚点”。
-	
-		\paragraph{第二阶段:局部精调} 这是模型改进的核心。\\
-	\indent - \textbf{初始化}: 我们将第一阶段得到的每个单弹策略 $(v, \theta, t_{\text{drop}}, t_{\text{delay}})$ 作为“种子”，生成一个初始的八维决策向量。例如，以该策略为中心弹，前后各布置一枚，形成 $(t_{\text{drop}}-1.2, t_{\text{delay}})$, $(t_{\text{drop}}, t_{\text{delay}})$, $(t_{\text{drop}}+1.2, t_{\text{delay}})$ 的初始投放序列。\\
-	\indent - \textbf{高维坐标上升}: 我们将坐标上升法应用到新的8维决策空间中，在每次迭代中依次对8个变量进行一维邻域搜索。
-	
-		\paragraph{第三阶段:精细验证} 验证模型 \code{step3\_final\_validation\_multi} 被相应地修改，以同时模拟三个烟幕云团的运动和遮蔽效果，并根据新的协同目标函数计算最终的高精度总遮蔽时长。
-	
-	
-	\subsubsection{模型求解}
-	\begin{enumerate}
-		\item \textbf{求解流程}: 我们首先运行问题二的第一阶段代码，获得500个单弹初始解。随后，将每个解扩展为三弹初始策略，并输入升级后的\code{step2\_local\_optimization\_multi}\\函数进行高维局部优化。
+		以假目标为原点建立空间坐标系，相关物体空间分布状态参考图1。
 		
-		\item \textbf{结果与分析}: 最终，我们从500个优化后的局部最优解中，选出使协同遮蔽时间最长的全局最优候选解。如图\ref{fig:3}所示，尽管解空间维度翻倍，我们的多起点优化策略依然表现出色，有效地探索了高维空间，并从多个初始点（蓝点）出发，最终收敛到不同的局部最优区域（红点）。
+		其中，导弹M1位于$(20000,0,2000)$（单位：m，下同）处，以$300\,\mathrm{m/s}$直指原点（假目标）飞行。无人机FY1位于$(17800,0,1800)$处，真目标位于$(0,200,0)$处。
 		
 		\begin{figure}[H]
 			\centering
-			\begin{minipage}{0.48\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
-				\caption{问题二：4维解空间的PCA降维可视化（左图）}
-				\label{fig:4}
-			\end{minipage}
-			\hfill % 这是一个弹性空间，会把两个minipage推开
-			\begin{minipage}{0.48\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
-				\caption{问题二：4维解空间的PCA降维可视化（右图）}
-				\label{fig:3}
-			\end{minipage}
+			\includegraphics[width=0.5\textwidth]{pic/Fg1.png}
+			\caption{空间坐标系与物体分布状态}
+			\label{fig:spatial_distribution}
 		\end{figure}
 		
+		在本模型中，假设无人机 FY1 在 $xOy$ 平面内以 $120 \, \mathrm{m/s}$ 的速度朝向假目标飞行，且飞行过程中高度保持不变。无人机在执行任务后 $t_d = 1.5 \, \mathrm{s}$ 时投放一枚烟幕干扰弹，该干扰弹在投放后 $t_{\text{delay}} = 3.6 \, \mathrm{s}$ 起爆。
 		
-		\item \textbf{最终验证与最优策略}: 对最佳候选解进行高精度验证后，我们得到了问题三的最优干扰策略，详细参数与最终性能评估如表\ref{tab:results_q3}所示。
-	\end{enumerate}
-	
-	% --- 插入您的Q3结果表格 ---
-	\begin{table}[H]
-		\centering
-		\caption{问题三：最优干扰策略及最终结果}
-		\label{tab:results_q3}
-		\begin{tabular}{@{}llcc@{}}
-			\toprule
-			参数类别           & 变量                & 最优值      & 单位 \\ \midrule
-			\textbf{UAV统一飞行策略} & 飞行速度 ($v$)        & (填入您的结果) & m/s  \\
-			& 飞行方向 ($\theta$)     & (填入您的结果) & 度   \\ \midrule
-			\textbf{第1枚烟幕弹} & 投放时间 ($t_{\text{drop1}}$) & (填入您的结果) & 秒   \\
-			& 引信延迟 ($t_{\text{delay1}}$) & (填入您的结果) & 秒   \\ \midrule
-			\textbf{第2枚烟幕弹} & 投放时间 ($t_{\text{drop2}}$) & (填入您的结果) & 秒   \\
-			& 引信延迟 ($t_{\text{delay2}}$) & (填入您的结果) & 秒   \\ \midrule
-			\textbf{第3枚烟幕弹} & 投放时间 ($t_{\text{drop3}}$) & (填入您的结果) & 秒   \\
-			& 引信延迟 ($t_{\text{delay3}}$) & (填入您的结果) & 秒   \\ \midrule
-			\textbf{最终性能评估} & \textbf{高精度总遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒}   \\ \bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\subsection{问题四}
-	
-	
-	问题四要求为三架初始位置不同的无人机协同规划干扰策略，是一个高维度的多智能体协同优化问题。决策变量的总维度达到了12维。为应对这一挑战，我们构建了一个更为精妙和高效的\textbf{“多目标全局粗搜 $\rightarrow$ 贪心组合选择 $\rightarrow$ 协同局部精调 $\rightarrow$ 最终高精度验证”}四阶段分层优化框架。该框架的核心思想是“\textbf{分解-组合-协同}”。
-	
-	\subsubsection{四阶段分层优化框架}
-	\paragraph{第一阶段：多目标全局粗搜}
-	我们对三架无人机\textbf{分别独立}地执行问题二中的第一阶段全局粗搜，为每架无人机搜索并识别出50个最高质量的单兵作战策略，为后续组合提供高质量的参数组合。
-	
-	\paragraph{第二阶段：基于边际增益的贪心组合}
-	拥有了每个无人机的优秀策略后，理论组合数高达 $50^3$ 种。为高效筛选，我们设计了\textbf{基于边际增益的贪心组合算法}。该算法优先考虑策略间的\textbf{互补性}。其核心逻辑是：
-	
-		 \indent - \textbf{种子选择}: 以所有单机策略中最优的参数组合作为起点开启“团队组建”。\\
-		 \indent - \textbf{迭代增补}: 对于一个不完整的团队，遍历所有尚未加入的无人机及其策略，选择一个能够使当前团队\textbf{总协同遮蔽时长增益最大}的策略加入。边际增益的计算确保了每一步决策都是为了最大化团队的协同效应。\\
+		无人机的飞行速度方向由当前位置指向假目标原点 $\mathbf{O} = (0, 0, 0)$，其速度矢量可表示为：
+		\begin{equation}
+			\mathbf{v}_d = \frac{\mathbf{O} - \mathbf{P}_{d0}}{\| \mathbf{O} - \mathbf{P}_{d0} \|} \cdot v_d,
+		\end{equation}
+		其中 $v_d = 120 \, \mathrm{m/s}$。无人机飞行过程中保持高度不变，其速度矢量的 $z$ 分量为零。
+		
+		在 $t_d = 1.5 \, \mathrm{s}$ 时刻，无人机投放干扰弹，此时无人机的位置为干扰弹的初始位置：
+		\begin{equation}
+			\mathbf{P}_{\text{drop}} = \mathbf{P}_{d0} + \mathbf{v}_d \cdot t_d.
+		\end{equation}
+		
+		干扰弹投放时的初速度与无人机的速度相同，即 $\mathbf{v}_d$。在起爆前，将干扰弹视为质点，并忽略空气阻力，其运动遵循平抛运动规律。设从投放时刻起经过时间 $\tau$，干扰弹的位置为：
+		\begin{equation}
+			\mathbf{P}_{\text{shell}}(\tau) = \mathbf{P}_{\text{drop}} + \mathbf{v}_d \cdot \tau + \frac{1}{2} (0, 0, -g) \tau^2,
+		\end{equation}
+		其中重力加速度取 $g = 9.8 \, \mathrm{m/s}^2$。
+		
+		干扰弹在投放后 $t_{\text{delay}} = 3.6 \, \mathrm{s}$ 时刻起爆，起爆点位置为：
+		\begin{equation}
+			\mathbf{P}_{\text{explode}} = \mathbf{P}_{\text{drop}} + \mathbf{v}_d \cdot t_{\text{delay}} + \frac{1}{2} (0, 0, -g) t_{\text{delay}}^2.
+		\end{equation}
+		
+		起爆后瞬时形成一个半径为 $R_s = 10 \, \mathrm{m}$ 的球状烟幕云团，云团中心以 $v_s = 3 \, \mathrm{m/s}$ 的速度匀速垂直下沉。设从起爆时刻起经过时间 $t$，烟幕云团中心的位置为：
+		\begin{equation}
+			\mathbf{P}_{\text{smog}}(t) = \mathbf{P}_{\text{explode}} + (0, 0, -v_s \cdot t).
+		\end{equation}
+		
+		烟幕云团在起爆后持续存在 $T_{\text{exist}} = 20 \, \mathrm{s}$，在此期间具备遮蔽能力。
+		
+		\subsubsection{导弹飞行的空间物理模型}
+		
+		将导弹 M1 视为质点，其从初始位置 $\mathbf{P}_{M1}(0)$ 以恒定速率 $v_m = 300 \, \mathrm{m/s}$ 沿直线飞向原点 $\mathbf{O}$。其速度矢量为：
+		\begin{equation}
+			\mathbf{v}_m = \frac{\mathbf{O} - \mathbf{P}_{M1}(0)}{\| \mathbf{O} - \mathbf{P}_{M1}(0) \|} \cdot v_m.
+		\end{equation}
+		
+		在 $t \geq 0$ 时刻，导弹的位置可表示为：
+		\begin{equation}
+			\mathbf{P}_m(t) = \mathbf{P}_{M1}(0) + \mathbf{v}_m \cdot t.
+		\end{equation}
+		
+		\subsubsection{有效遮蔽时间的确定}
+		
+		考虑真目标表面任意一点与导弹位置的连线构成一条线段。若在某一时刻，该线段与球状烟幕云团存在交点，则认为烟幕干扰弹在该时刻对该点实现了有效遮蔽。
+		
+		采用随机抽样方法，在真目标（圆柱体）表面均匀随机选取1000个点作为目标点集。目标的面积遮挡比反映了目标被烟幕遮挡的程度，可以用被烟幕遮蔽目标的面积与无烟幕干扰时目标的面积的比值进行度量。定义烟幕干扰度为 $D$，则：
+		\begin{equation}
+			D = \frac{S}{S_0}
+		\end{equation}
+		式中 $S$ 为目标被烟幕遮挡区域的面积，$S_0$ 为无烟幕干扰时目标的面积。
+		
+		当烟幕对目标的面积遮挡比发生变化时，导引头对目标的识别准确度也随之变化。当烟幕遮挡面积比小于70\% 时，目标具备抗烟幕干扰能力，且随着遮挡面积比的增加，识别概率不断下降【1】。故本文采用70\%的烟幕面积遮挡比作为识别目标的临界值。
+		
+		记在时刻$t$，连接导弹位置与各目标点所得线段中，与烟幕云团存在公共点的点数为有效遮蔽点数。通过计算$t$时刻下有效遮蔽点数与总目标点数的比值$R(t)$并与70\%进行对比，即可判断烟幕干扰弹在该时刻对真目标实现了有效遮蔽。若$R(t)>0.7$，则认为该时刻满足有效遮蔽条件。
+		
+		\subsubsection{求解流程及结果}
+		
+		采用步进法进行时间推进，时间步长设为$\Delta t = 0.001\,\mathrm{s}$。在每一时间步内，依次判断每个目标点与导弹连线是否与球状烟幕云团相交，统计有效遮蔽点数并计算$R(t)$。
+		
+		总有效遮蔽时间通过累加所有满足$R(t)$大于一定阈值的时间步长获得，其时间积分精度由步长$\Delta t$决定，即最小分辨时间为$0.001\,\mathrm{s}$。
+		
+		本次求解流程中，通过设置不同的烟幕干扰度判断阈值，求解出不同结果。
+		
+		求解流程图如图2所示：
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/Fg2.png}
+			\caption{问题一求解流程图}
+			\label{fig:flowchart_q1}
+		\end{figure}
+		
+		程序模拟结果如下表所示：
+		
+		\begin{table}[H]
+			\centering
+			\caption{问题一：不同判断阈值下的有效遮蔽时长（单位：秒）}
+			\label{tab:results_q1}
+			\begin{tabular}{cccccccccccc}
+				\toprule
+				\textbf{判断阈值 (\%)} & \textbf{100} & \textbf{90} & \textbf{80} & \textbf{70} & \textbf{60} & \textbf{50} & \textbf{40} & \textbf{30} & \textbf{20} & \textbf{10} \\
+				\midrule
+				\textbf{有效遮蔽时长 (s)} & 1.393 & 1.406 & 1.413 & 1.420 & 1.428 & 1.436 & 1.444 & 1.452 & 1.459 & 1.468 \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		
+		选取70\%的烟幕面积遮挡比作为识别目标的临界值时，烟幕干扰弹的有效遮蔽时长为$1.420\,\mathrm{s}$。通过程序模拟动画进一步验证，其演示结果如图3所示。
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/Fg3.png}
+			\caption{问题一程序模拟动画关键帧}
+			\label{fig:simulation_q1}
+		\end{figure}
+		
+		可以看出，程序求解结果正确。当无人机运动与投弹情况满足问题一题设参数时，烟幕干扰弹的有效遮蔽时长为$1.420\,\mathrm{s}$。
+		
+		
+		\subsection{问题二的模型建立与求解}
+		
+		针对问题二，决策目标是确定无人机FY1的最优飞行与投放策略，以最大化单枚烟幕弹对M1导弹的有效遮蔽时长。为解决这个非凸优化问题，设计了一个鲁棒性强的\textbf{“全局粗搜 $\rightarrow$ 局部精调 $\rightarrow$ 精细验证”}三阶段优化框架。该框架通过系统性的搜索与迭代，高效地在广阔的解空间中定位全局最优解或其高质量近似解。
+		
+		\subsubsection{决策变量与目标函数}
+		
+		\begin{enumerate}
+			\item \textbf{决策变量}: 我们的模型需要优化四个关键参数来定义无人机的完整策略：
+			
+			- 无人机飞行速度 $v$ (m/s)\\
+			\indent	- 无人机飞行方向 $\theta$ (弧度)\\
+			\indent	- 烟幕弹投放时间 $t_{\text{drop}}$ (s)\\
+			\indent	- 烟幕弹引信延迟时间 $t_{\text{delay}}$ (s)
+			
+			\item \textbf{约束条件}:
+			\begin{align}
+				\left\{
+				\begin{aligned}
+					\text{无人机速度约束:} &\quad 70 \le v \le 140\,\text{m/s} \\
+					\text{物理可行性约束:} &\quad t_{\text{drop}} > 0,\quad t_{\text{delay}} > 0
+				\end{aligned}
+				\right.
+			\end{align}
+			
+			\item \textbf{目标函数}: 我们的核心目标是最大化最终的有效遮蔽时间 $T_{\text{occlusion}}$。
+			\begin{equation}
+				\max T_{\text{occlusion}}(v, \theta, t_{\text{drop}}, t_{\text{delay}})
+			\end{equation}
+		\end{enumerate}
+		
+		\subsubsection{三阶段优化框架}
+		
+		\paragraph{第一阶段：全局粗搜与可行解窗口定位}
+		此阶段的目标是在整个解空间中快速、广泛地识别出具有潜力的“可行解窗口”，为后续的精细优化提供高质量的起点。本研究创新性地采用了\textbf{逆向建模}的思路。
+		
+		首先离散化烟幕起爆时间 $t_{\text{explode}}$ 和起爆点在初始导弹-目标视线上的相对位置比例 $los\_ratio$。对于每一个 $(t_{\text{explode}}, t_{\text{delay}}, los\_ratio)$ 组合，可以反向推算出唯一确定的理想起爆点坐标 $P_{\text{explode}}$。
+		
+		基于 $P_{\text{explode}}$ 和投放延迟 $t_{\text{delay}}$，可以解析出无人机为了实现此次爆炸所\textbf{必须具备}的三维速度矢量 $\vec{V}_{\text{UAV, required}}$。其计算公式如下：
+		\begin{equation}
+			P_{\text{explode}} = P_{\text{UAV,initial}} + \vec{V}_{\text{UAV, required}} \cdot t_{\text{explode}} + \frac{1}{2} \vec{g} \cdot t_{\text{delay}}^2
+		\end{equation}
+		\begin{equation}
+			\vec{V}_{\text{UAV, required}} = \frac{P_{\text{explode}} - P_{\text{UAV,initial}} - (0, 0, -0.5gt_{\text{delay}}^2)}{t_{\text{explode}}}
+		\end{equation}
+		
+		随后，需要对该速度进行可行性剪枝：检查其水平分量的模长（即无人机速度 $v$）是否在 $[70, 140]$ m/s 的区间内。通过此方法高效地过滤掉大量不可行解。对于每个可行策略，首先使用简化的目标模型（将真目标视为一个质点）快速计算其遮蔽时长。最终，从数百万个搜索点中筛选出数万个可行解，并选取其中遮蔽时长最长且分布稀疏的500个解作为第二阶段的优化起点。
+		
+		\paragraph{第二阶段：多起点局部精调}
+		此阶段的目标是从这些高质量的起点出发，进行精细的局部寻优。
+		采用\textbf{坐标上升法}作为局部优化算法。该算法在每次迭代中，会依次固定其他三个决策变量，仅对其中一个变量在其邻域内进行一维搜索，以找到能使目标函数最大化的值。具体来说，对于当前最优参数 $(v, \theta, t_{\text{drop}}, t_{\text{delay}})$，依次在以下区间内进行线性搜索：
+		
+		- $v_{\text{new}} \in [v-5, v+5]$\\
+		\indent	- $\theta_{\text{new}} \in [\theta-10^\circ, \theta+10^\circ]$\\
+		\indent	- $t_{\text{drop, new}} \in [t_{\text{drop}}-1, t_{\text{drop}}+1]$\\
+		\indent	- $t_{\text{delay, new}} \in [t_{\text{delay}}-1, t_{\text{delay}}+1]$
+		
+		重复此过程直至目标函数值不再有显著提升（收敛阈值设为0.001s）或达到最大迭代次数(10次)。
+		
+		\paragraph{第三阶段：高精度模型验证}
+		为了得到最终的精确遮蔽时间，使用最高精度的模型对第二阶段输出的全局最优候选解进行最终验证。此阶段与前两阶段的核心区别在于对\textbf{真目标的建模方式}，需要考虑真目标的实际几何形状。
+		
+		在圆柱形的真目标表面随机均匀采样1000个点，在每个仿真时间步（0.001s），我们判断这1000条从导弹位置到目标采样点的视线中，被烟幕球体遮挡的比例。累计所有有效遮蔽的时间步，便得到最终的高精度遮蔽时长。
+		
+		\subsubsection{模型求解}
+		\begin{enumerate}
+			\item \textbf{全局粗搜求解}: 对起爆时间、引信延迟和视线比率进行大范围离散化搜索，并调用\code{check\_reachability}函数进行可行性判断，最终获得500个高质量的初始解。
+			
+			\item \textbf{局部精调求解}: 对这500个初始解执行\code{step2\_local\_optimization}函数进行坐标上升优化。图\ref{fig:convergence_q2}展示了优化过程中目标函数（遮蔽时长）的收敛情况。从图中可以看出我们的坐标上升算法非常高效，通常在短短几次迭代内就能收敛。
+			
+			\item \textbf{结果与分析}: 在500个局部最优点中，选取了遮蔽时长最长的解作为全局最优候选解。图\ref{fig:pca_q2}直观展示了从初始解到最终局部最优解的变化过程。初始解（蓝点）广泛分布，经过优化后（箭头方向），它们收敛至多个不同的区域（红点簇），这有力地证明了该问题的非凸性，并凸显了我们采用\textbf{多起点优化}策略的必要性和正确性，极大地降低了模型陷入较差局部最优解的风险。最终选出全局最佳候选解（绿色星标）。
+			
+			\begin{figure}[H]
+				\centering
+				\begin{minipage}{0.48\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
+					\caption{问题二：4维解空间的PCA降维可视化（左图）}
+					\label{fig:pca_q2_left}
+				\end{minipage}
+				\hfill % 这是一个弹性空间，会把两个minipage推开
+				\begin{minipage}{0.48\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
+					\caption{问题二：4维解空间的PCA降维可视化（右图）}
+					\label{fig:pca_q2_right}
+				\end{minipage}
+			\end{figure}
+			
+			\item \textbf{最终验证}: 将最佳候选解输入\code{step3\_final\_validation}函数进行高精度验证，得到最终的优化结果，如表\ref{tab:results_q2}所示。
+		\end{enumerate}
+		
+		% --- 插入您的Q2结果表格 ---
+		\begin{table}[H]
+			\centering
+			\caption{问题二：最优策略与结果}
+			\label{tab:results_q2}
+			\begin{tabular}{@{}lcc@{}}
+				\toprule
+				决策变量               & 最优值      & 单位 \\ \midrule
+				无人机飞行速度 ($v$)     & (填入您的结果) & m/s  \\
+				无人机飞行方向 ($\theta$)    & (填入您的结果) & 度   \\
+				烟幕弹投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒   \\
+				引信延迟时间 ($t_{\text{delay}}$)   & (填入您的结果) & 秒   \\ \midrule
+				\textbf{最终高精度遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒}   \\ \bottomrule
+			\end{tabular}
+		\end{table}
+		
+		\subsection{问题三的模型建立与求解}
+		
+		
+		问题三要求使用无人机FY1投放三枚烟幕弹对M1进行干扰。这使得问题从单点决策演变为\textbf{多目标协同优化}，本研究在问题二成功的三阶段优化框架基础上，对其进行了针对性的扩展和升级。
+		
+		\subsubsection{决策变量与目标函数的演进}
+		
+		\begin{enumerate}
+			\item \textbf{决策变量扩展}: 无人机保持统一的飞行速度 $v$ 和方向 $\theta$。决策变量从4个扩展到8个，以控制三枚烟幕弹的投放：
+			
+			- $v, \theta$\\
+			\indent - 第一枚弹的投放与延迟时间 $(t_{\text{drop1}}, t_{\text{delay1}})$\\
+			\indent - 第二枚弹的投放与延迟时间 $(t_{\text{drop2}}, t_{\text{delay2}})$\\
+			\indent - 第三枚弹的投放与延迟时间 $(t_{\text{drop3}}, t_{\text{delay3}})$
+			
+			\item \textbf{约束条件更新}: 新增了投放间隔约束，即
+			\begin{equation}
+				t_{\text{drop}(i+1)} - t_{\text{drop}(i)} \ge 1.0 s
+			\end{equation}
+			
+			\item \textbf{目标函数升级——协同效应建模}:
+			为准确评估三枚弹的\textbf{协同效应}，本研究将目标函数 $T_{\text{total\_occlusion}}$ 定义为\textbf{三个遮蔽时间区间的并集总长度}。在数值仿真中，在每个时间步检查是否有\textbf{至少一个}烟幕云团正在提供有效遮蔽。这个新的目标函数能够正确地奖励那些通过时序配合来最大化总覆盖时间的策略。
+			\begin{equation}
+				T_{\text{total\_occlusion}} = \text{length} \left( \bigcup_{i=1}^{3} \text{OcclusionInterval}_i \right)
+			\end{equation}
+			
+		\end{enumerate}
+		
+		\subsubsection{优化框架的适应性改进}
+		继续沿用“全局粗搜-局部精调-精细验证”的宏观框架，但对核心模块进行了必要升级：
+		
+		\paragraph{第一阶段:全局粗搜} 保持不变。仍然通过对单枚烟幕弹的逆向建模来快速找到500个高质量的初始“锚点”。
+		
+		\paragraph{第二阶段:局部精调} 这是模型改进的核心。\\
+		\indent - \textbf{初始化}: 将第一阶段得到的每个单弹策略 $(v, \theta, t_{\text{drop}}, t_{\text{delay}})$ 作为“种子”，生成一个初始的八维决策向量。例如，以该策略为中心弹，前后各布置一枚，形成 $(t_{\text{drop}}-1.2, t_{\text{delay}})$, $(t_{\text{drop}}, t_{\text{delay}})$, $(t_{\text{drop}}+1.2, t_{\text{delay}})$ 的初始投放序列。\\
+		\indent - \textbf{高维坐标上升}: 将坐标上升法应用到新的8维决策空间中，在每次迭代中依次对8个变量进行一维邻域搜索。
+		
+		\paragraph{第三阶段:精细验证} 验证模型 \code{step3\_final\_validation\_multi} 被相应地修改，以同时模拟三个烟幕云团的运动和遮蔽效果，并根据新的协同目标函数计算最终的高精度总遮蔽时长。
+		
+		
+		\subsubsection{模型求解}
+		\begin{enumerate}
+			\item \textbf{求解流程}: 首先运行问题二的第一阶段代码，获得500个单弹初始解。随后，将每个解扩展为三弹初始策略，并输入升级后的\code{step2\_local\_optimization\_multi}\\函数进行高维局部优化。
+			
+			\item \textbf{结果与分析}: 最终，我们从500个优化后的局部最优解中，选出使协同遮蔽时间最长的全局最优候选解。如图\ref{fig:3}所示，尽管解空间维度翻倍，本项多起点优化算法依然表现出色，有效地探索了高维空间，并从多个初始点（蓝点）出发，最终收敛到不同的局部最优区域（红点）。
+			
+			\begin{figure}[H]
+				\centering
+				\begin{minipage}{0.48\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
+					\caption{问题二：4维解空间的PCA降维可视化（左图）}
+					\label{fig:4}
+				\end{minipage}
+				\hfill % 这是一个弹性空间，会把两个minipage推开
+				\begin{minipage}{0.48\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{pca_q2.png} % <-- 将 "pca_q2.png" 替换为您的文件名
+					\caption{问题二：4维解空间的PCA降维可视化（右图）}
+					\label{fig:3}
+				\end{minipage}
+			\end{figure}
+			
+			
+			\item \textbf{最终验证与最优策略}: 对最佳候选解进行高精度验证后，得到问题三的最优干扰策略，详细参数与最终性能评估如表\ref{tab:results_q3}所示。
+		\end{enumerate}
+		
+		% --- 插入您的Q3结果表格 ---
+		\begin{table}[H]
+			\centering
+			\caption{问题三：最优干扰策略及最终结果}
+			\label{tab:results_q3}
+			\begin{tabular}{@{}llcc@{}}
+				\toprule
+				参数类别           & 变量                & 最优值      & 单位 \\ \midrule
+				\textbf{UAV统一飞行策略} & 飞行速度 ($v$)        & (填入您的结果) & m/s  \\
+				& 飞行方向 ($\theta$)     & (填入您的结果) & 度   \\ \midrule
+				\textbf{第1枚烟幕弹} & 投放时间 ($t_{\text{drop1}}$) & (填入您的结果) & 秒   \\
+				& 引信延迟 ($t_{\text{delay1}}$) & (填入您的结果) & 秒   \\ \midrule
+				\textbf{第2枚烟幕弹} & 投放时间 ($t_{\text{drop2}}$) & (填入您的结果) & 秒   \\
+				& 引信延迟 ($t_{\text{delay2}}$) & (填入您的结果) & 秒   \\ \midrule
+				\textbf{第3枚烟幕弹} & 投放时间 ($t_{\text{drop3}}$) & (填入您的结果) & 秒   \\
+				& 引信延迟 ($t_{\text{delay3}}$) & (填入您的结果) & 秒   \\ \midrule
+				\textbf{最终性能评估} & \textbf{高精度总遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒}   \\ \bottomrule
+			\end{tabular}
+		\end{table}
+		
+		\subsection{问题四}
+		
+		
+		问题四要求为三架初始位置不同的无人机协同规划干扰策略，是一个高维度的多智能体协同优化问题。决策变量的总维度达到了12维。高效求解这一问题，需要构建一个更为精妙和高效的\textbf{“多目标全局粗搜 $\rightarrow$ 贪心组合选择 $\rightarrow$ 协同局部精调 $\rightarrow$ 最终高精度验证”}四阶段分层优化框架。该框架的核心思想是“\textbf{分解-组合-协同}”。
+		
+		\subsubsection{四阶段分层优化框架}
+		\paragraph{第一阶段：多目标全局粗搜}
+		对三架无人机\textbf{分别独立}地执行问题二中的第一阶段全局粗搜，为每架无人机搜索并识别出50个最高质量的单兵作战策略，为后续组合提供高质量的参数组合。
+		
+		\paragraph{第二阶段：基于边际增益的贪心组合}
+		拥有了每个无人机的优秀策略后，理论组合数高达 $50^3$ 种。为高效筛选，设计一项\textbf{基于边际增益的贪心组合算法}。该算法优先考虑策略间的\textbf{互补性}。其核心逻辑是：
+		
+		\indent - \textbf{种子选择}: 以所有单机策略中最优的参数组合作为起点开启“团队组建”。\\
+		\indent - \textbf{迭代增补}: 对于一个不完整的团队，遍历所有尚未加入的无人机及其策略，选择一个能够使当前团队\textbf{总协同遮蔽时长增益最大}的策略加入。边际增益的计算确保了每一步决策都是为了最大化团队的协同效应。\\
 		\begin{equation}
 			\text{MarginalGain}(S_{\text{new}}) = T_{\text{synergy}}(Team \cup \{S_{\text{new}}\}) - T_{\text{synergy}}(Team)
 		\end{equation}
-		 \indent - \textbf{多起点组合与多样性维护}: 我们以多个不同的顶尖策略作为种子，生成50个不同的精英团队，并剔除相似组合，以保证进入下一阶段的初始解具有足够的多样性。
-
-	
-	\paragraph{第三阶段：高维局部精调}
-	此阶段的目标是对每个精英团队的12个决策变量进行\textbf{联合微调}。我们采用\textbf{坐标上升法}，但将其扩展至12维空间。在每一轮迭代中，算法会依次遍历全部12个决策变量，在其邻域内进行搜索，以找到使总协同遮蔽时长最大的新值。
-	
-	\paragraph{第四阶段：最终高精度验证。}
-	与前几问一致，此阶段对最终方案进行最终验证。我们从第三阶段优化过的所有团队中，选取总协同遮蔽时长最长的组合作为答案，并采用包含1000个采样点的高精度目标模型计算其最终有效遮蔽时长。
-	
-	
-	\subsubsection{模型求解}
-	我们的程序严格按照四个阶段顺序执行。我们记录了贪心组合和局部精调阶段的关键中间数据，为我们方法论的正确性和有效性提供了重要的过程依据。
-	
-	经过完整的四阶段求解流程，我们从一个巨大的12维解空间中，系统性地、高效地定位到了最优的协同干扰策略。对最终组合进行高精度验证后，得到的最优协同干扰策略详情如下表 \ref{tab:q4_results} 所示。
-	
-	\begin{table}[H]
-		\centering
-		\caption{问题四：最优多机协同干扰策略}
-		\label{tab:q4_results}
-		%%\resizebox{\textwidth}{!}{%
-			\begin{tabular}{@{}llcc@{}}
-				\toprule
-				\textbf{无人机} & \textbf{决策变量} & \textbf{最优值} & \textbf{单位} \\
-				\midrule
-				\textbf{FY1} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
-				& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
-				& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
-				& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
-				\midrule
-				\textbf{FY2} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
-				& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
-				& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
-				& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
-				\midrule
-				\textbf{FY3} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
-				& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
-				& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
-				& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
-				\midrule
-				\textbf{最终性能评估} & \textbf{高精度总协同遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒} \\
-				\bottomrule
-		\end{tabular}}
-	\end{table}
-	
-	\newpage
-	
-	
-	\begin{thebibliography}{99}
+		\indent - \textbf{多起点组合与多样性维护}: 以多个不同的顶尖策略作为种子，生成50个不同的精英团队，并剔除相似组合，以保证进入下一阶段的初始解具有足够的多样性。
 		
-		\bibitem{SPSSPRO} Scientific Platform Serving for Statistics Professional 2021. SPSSPRO. (Version 1.0.11) [Online Application Software]. Retrieved from \url{https://www.spsspro.com}.
 		
-		\bibitem{bernstein2002} S. 伯恩斯坦, R. 伯恩斯坦. \textit{统计学原理. 上册, 描述性统计学与概率} [M]. 科学出版社, 2002.
+		\paragraph{第三阶段：高维局部精调}
+		此阶段的目标是对每个精英团队的12个决策变量进行\textbf{联合微调}。我们采用\textbf{坐标上升法}，但将其扩展至12维空间。在每一轮迭代中，算法会依次遍历全部12个决策变量，在其邻域内进行搜索，以找到使总协同遮蔽时长最大的新值。
 		
-		\bibitem{zhong2023} 钟吉强. 重庆市渝北区房租价格影响因素分析与预测 [D]. 西南大学, 2023. DOI: 10.27684/d.cnki.gxndx.2023.003678.
+		\paragraph{第四阶段：最终高精度验证。}
+		与前几问一致，此阶段对最终方案进行最终验证。从第三阶段优化过的所有团队中，选取总协同遮蔽时长最长的组合作为答案，并采用包含1000个采样点的高精度目标模型计算其最终有效遮蔽时长。
 		
-		\bibitem{cui2019} 崔娜娜, 顾亨毓, 沈体艳. 北京住房租买价格的空间分异及关联性研究 [J]. \textit{地理研究}, 2019, 38(6): 1420-1434. DOI: 10.11821/dlyj020180352.
 		
-		\bibitem{trass2009} Trass K. The Housing Bubble [J]. 2009.
+		\subsubsection{模型求解}
+		程序严格按照四个阶段顺序执行，记录了贪心组合与局部精调阶段的关键中间数据，为算法的正确性和有效性提供了重要的过程依据。
 		
-		\bibitem{deng1985} 邓聚龙. 灰色系统理论的关联空间. \textit{模糊数学}, 1985(2): 1-10.
+		经过完整的四阶段求解流程，算法成功定位到最优协同干扰策略。对最终组合进行高精度验证后，得到的最优协同干扰策略详见表 \ref{tab:q4_results}。
 		
-		\bibitem{chen1990} 陈茜影，程宝龙. 灰色点关联系数与点关联度的注记. \textit{系统工程}, 1990.8(5): 59-66.
+		\begin{table}[H]
+			\centering
+			\caption{问题四：最优多机协同干扰策略}
+			\label{tab:q4_results}
+			%%\resizebox{\textwidth}{!}{%
+				\begin{tabular}{@{}llcc@{}}
+					\toprule
+					\textbf{无人机} & \textbf{决策变量} & \textbf{最优值} & \textbf{单位} \\
+					\midrule
+					\textbf{FY1} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
+					& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
+					& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
+					& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
+					\midrule
+					\textbf{FY2} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
+					& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
+					& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
+					& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
+					\midrule
+					\textbf{FY3} & 飞行速度 ($v$) & (填入您的结果) & m/s \\
+					& 飞行方向 ($\theta$) & (填入您的结果) & 度 \\
+					& 投放时间 ($t_{\text{drop}}$) & (填入您的结果) & 秒 \\
+					& 引信延迟 ($t_{\text{delay}}$) & (填入您的结果) & 秒 \\
+					\midrule
+					\textbf{最终性能评估} & \textbf{高精度总协同遮蔽时长} & \textbf{(填入您的结果)} & \textbf{秒} \\
+					\bottomrule
+			\end{tabular}}
+		\end{table}
 		
-		\bibitem{lin2005} 林健，彭敏晶. 基于神经网络集成的预测模型. \textit{管理学报}, 2005.2(4): 434-436.
+		\newpage
 		
-		\bibitem{zhou2016} 周志华. \textit{机器学习}. 北京：清华大学出版社, 2016: 121-140.
 		
-		\bibitem{zhuang2003} 庄作钦. BOXPLOT-描述统计的一个简便工具. \textit{统计教育}, 2003(1).
+		\begin{thebibliography}{99}
+			
+			\bibitem{SPSSPRO} Scientific Platform Serving for Statistics Professional 2021. SPSSPRO. (Version 1.0.11) [Online Application Software]. Retrieved from \url{https://www.spsspro.com}.
+			
+			\bibitem{bernstein2002} S. 伯恩斯坦, R. 伯恩斯坦. \textit{统计学原理. 上册, 描述性统计学与概率} [M]. 科学出版社, 2002.
+			
+			\bibitem{zhong2023} 钟吉强. 重庆市渝北区房租价格影响因素分析与预测 [D]. 西南大学, 2023. DOI: 10.27684/d.cnki.gxndx.2023.003678.
+			
+			\bibitem{cui2019} 崔娜娜, 顾亨毓, 沈体艳. 北京住房租买价格的空间分异及关联性研究 [J]. \textit{地理研究}, 2019, 38(6): 1420-1434. DOI: 10.11821/dlyj020180352.
+			
+			\bibitem{trass2009} Trass K. The Housing Bubble [J]. 2009.
+			
+			\bibitem{deng1985} 邓聚龙. 灰色系统理论的关联空间. \textit{模糊数学}, 1985(2): 1-10.
+			
+			\bibitem{chen1990} 陈茜影，程宝龙. 灰色点关联系数与点关联度的注记. \textit{系统工程}, 1990.8(5): 59-66.
+			
+			\bibitem{lin2005} 林健，彭敏晶. 基于神经网络集成的预测模型. \textit{管理学报}, 2005.2(4): 434-436.
+			
+			\bibitem{zhou2016} 周志华. \textit{机器学习}. 北京：清华大学出版社, 2016: 121-140.
+			
+			\bibitem{zhuang2003} 庄作钦. BOXPLOT-描述统计的一个简便工具. \textit{统计教育}, 2003(1).
+			
+		\end{thebibliography}
 		
-	\end{thebibliography}
-	
-	
-	
-	
-\end{CJK}
+		
+		
+		
+	\end{CJK}
 \end{document}
