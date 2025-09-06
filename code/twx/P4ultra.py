@@ -23,8 +23,8 @@ UAV_INITIAL_POS = {
     'FY2': np.array([12000, 1400, 1400], dtype=float),
     'FY3': np.array([6000, -3000, 700], dtype=float),
 }
-NUM_INDIVIDUAL_STRATEGIES = 500
-NUM_TEAMS_TO_FORM = 500
+NUM_INDIVIDUAL_STRATEGIES = 300
+NUM_TEAMS_TO_FORM = 300
 NUM_OPTIMIZATION_ROUNDS = 10
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
@@ -96,9 +96,9 @@ def stage1_worker(args):
     uav_name, uav_pos, n_top = args
     feasible_solutions = []
     # 注意：这里的搜索空间很大，是性能瓶颈
-    search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 500)
-    search_delays = np.linspace(0, 8.0, 500)
-    search_los_ratios = np.linspace(0, 0.9, 500)
+    search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 300)
+    search_delays = np.linspace(0, 8.0, 300)
+    search_los_ratios = np.linspace(0, 0.9, 300)
     
     for t_explode in search_explode_times:
         for t_delay in search_delays:
