@@ -23,11 +23,11 @@ missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 30
 
 # 步骤1 搜索参数 (与之前相同)
 SEARCH_EXPLODE_TIMES_RANGE = (missile_total_time * 0, missile_total_time * 0.9)
-SEARCH_EXPLODE_TIMES_STEPS = 200
+SEARCH_EXPLODE_TIMES_STEPS = 500
 SEARCH_DELAYS_RANGE = (0, 8.0)
-SEARCH_DELAYS_STEPS = 150
+SEARCH_DELAYS_STEPS = 500
 SEARCH_LOS_RATIO_RANGE = (0, 0.9)
-SEARCH_LOS_RATIO_STEPS = 90
+SEARCH_LOS_RATIO_STEPS = 500
 
 # --- 辅助函数 ---
 # is_line_segment_intersecting_sphere, check_reachability, calculate_simple_occlusion_time (单枚) 保持不变

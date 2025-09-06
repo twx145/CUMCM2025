@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 # 1. 可配置参数 (Parameters You Can Control)
 # ==============================================================================
 # [阶段一] 策略库大小：为每个UAV-Missile组合生成的顶尖单弹策略数量
-TOP_N_STRATEGIES = 50
+TOP_N_STRATEGIES = 500
 
 # [阶段二] 任务分配数量：贪心算法尝试分配的最大弹药总数 (上限为 5 UAV * 3 = 15)
 NUM_GRENADES_TO_ALLOCATE = 15
@@ -132,9 +132,9 @@ def calculate_single_pair_strategies(args):
     m_info = MISSILE_DATA[m_name]
     
     feasible_solutions = []
-    search_explode_times = np.linspace(0, m_info['total_time'] * 0.8, 200)
-    search_delays = np.linspace(0, 8.0, 400)
-    search_los_ratios = np.linspace(0, 0.9, 200)
+    search_explode_times = np.linspace(0, m_info['total_time'] * 0.8, 500)
+    search_delays = np.linspace(0, 8.0, 500)
+    search_los_ratios = np.linspace(0, 0.9, 500)
 
     for t_explode in search_explode_times:
         for t_delay in search_delays:

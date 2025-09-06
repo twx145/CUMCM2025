@@ -1,6 +1,9 @@
 import numpy as np
 import time
 import itertools
+import multiprocessing
+from tqdm import tqdm
+from numba import njit
 
 # --- 0. 基础设置与可调参数 ---
 GRAVITY = 9.8
@@ -16,11 +19,11 @@ UAV_INITIAL_POS = {
     'FY3': np.array([6000, -3000, 700], dtype=float),
 }
 # 阶段一：为每架无人机保留的个体最优策略数
-NUM_INDIVIDUAL_STRATEGIES = 1
+NUM_INDIVIDUAL_STRATEGIES = 500 # 建议适当增加此值以获得更好的组合基础
 # 阶段二：使用贪心算法构建的团队组合数
-NUM_TEAMS_TO_FORM = 1
+NUM_TEAMS_TO_FORM = 500 # 建议适当增加此值以探索更多可能性
 # 阶段三：局部优化的迭代轮数
-NUM_OPTIMIZATION_ROUNDS = 5
+NUM_OPTIMIZATION_ROUNDS = 10
 
 # 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
@@ -35,15 +38,26 @@ missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.n
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
 
-# --- 辅助函数 ---
-def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
-    if np.any(np.isnan(sphere_center)): return False
-    line_vec, point_vec = p2 - p1, sphere_center - p1
+# --- [Numba JIT加速] 辅助函数 ---
+@njit(fastmath=True)
+def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
+    """[Numba JIT加速] 检查线段p1-p2是否与球体相交"""
+    line_vec = p2 - p1
+    point_vec = sphere_center - p1
     line_len_sq = np.dot(line_vec, line_vec)
-    if line_len_sq == 0.0: return np.linalg.norm(point_vec) <= sphere_radius
+    
+    if line_len_sq == 0.0:
+        return np.sqrt(np.sum(point_vec**2)) <= sphere_radius
+        
     t = np.dot(point_vec, line_vec) / line_len_sq
-    closest_point = p1 + np.clip(t, 0, 1) * line_vec
-    return np.linalg.norm(sphere_center - closest_point) <= sphere_radius
+    
+    if t < 0.0: t = 0.0
+    elif t > 1.0: t = 1.0
+        
+    closest_point_on_line = p1 + t * line_vec
+    dist_sq = np.sum((sphere_center - closest_point_on_line)**2)
+    
+    return dist_sq <= sphere_radius**2
 
 
 # --- 核心计算函数 ---
@@ -83,82 +97,77 @@ def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1
         active_missile_pos = missile_positions[active_mask]
 
         for i in range(len(active_missile_pos)):
-            if is_line_segment_intersecting_sphere(active_missile_pos[i], target_point, smoke_positions[i], SMOKE_RADIUS):
+            # 调用Numba加速版函数
+            if is_line_segment_intersecting_sphere_numba(active_missile_pos[i], target_point, smoke_positions[i], SMOKE_RADIUS):
                 occlusion_timeline[np.where(active_mask)[0][i]] = True
     
     return np.sum(occlusion_timeline) * time_step
 
 
-# --- 阶段一：个体全局粗搜 ---
-def stage1_individual_coarse_search(uav_name, uav_pos, n_top):
-    print(f"  - [阶段1] 正在为 {uav_name} 进行全局粗搜...")
+# --- [并行Worker] 阶段一：个体全局粗搜 ---
+def stage1_individual_coarse_search(args):
+    """[并行Worker] 为单个UAV进行全局粗搜"""
+    uav_name, uav_pos, n_top = args
+    
     feasible_solutions = []
-    search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 150)
-    search_delays = np.linspace(0, 8.0, 100)
-    search_los_ratios = np.linspace(0, 0.9, 50)
+    search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 500)
+    search_delays = np.linspace(0, 8.0, 500)
+    search_los_ratios = np.linspace(0, 0.9, 500)
     for t_explode in search_explode_times:
         for t_delay in search_delays:
+            t_drop = t_explode - t_delay
+            if t_drop <= 0: continue
             for los_ratio in search_los_ratios:
-                if t_explode <= t_delay: continue
                 missile_pos_at_explode = missile_initial_pos + missile_velocity_vector * t_explode
                 los_vector = simple_target_point - missile_pos_at_explode
                 ideal_explode_pos = missile_pos_at_explode + los_ratio * los_vector
-                t_drop = t_explode - t_delay
-                if t_drop <= 0: continue
                 required_vel_3d = (ideal_explode_pos - uav_pos - np.array([0,0,-0.5*GRAVITY*t_delay**2])) / t_explode
                 required_vel_xy = required_vel_3d[:2]
                 required_speed = np.linalg.norm(required_vel_xy)
                 if UAV_V_MIN <= required_speed <= UAV_V_MAX:
                     strat = { 'uav_name': uav_name, 'v': required_speed, 'theta_rad': np.arctan2(required_vel_xy[1], required_vel_xy[0]), 't_drop': t_drop, 't_delay': t_delay }
                     strat['occlusion_time'] = get_occlusion_timeline([strat], {uav_name: uav_pos}, simple_target_point)
-                    if strat['occlusion_time'] > 0: feasible_solutions.append(strat)
+                    if strat['occlusion_time'] > 1.0: feasible_solutions.append(strat)
     
     sorted_solutions = sorted(feasible_solutions, key=lambda x: x['occlusion_time'], reverse=True)
-    return sorted_solutions[:n_top]
+    return uav_name, sorted_solutions[:n_top]
 
-# --- 阶段二：贪心组合 ---
+# --- 阶段二、三、四函数保持不变 ---
 def stage2_greedy_combination(individual_strats, n_teams):
+    # ... (此函数代码与原版完全相同)
     print(f"\n--- [阶段2] 开始：基于边际增益的贪心算法组合 {n_teams} 个团队 ---")
     all_strats_sorted = sorted(itertools.chain(*individual_strats.values()), key=lambda x: x['occlusion_time'], reverse=True)
-    
     teams = []
     for i in range(min(n_teams, len(all_strats_sorted))):
         seed_strat = all_strats_sorted[i]
         current_uavs = [seed_strat['uav_name']]
         team_strats = [seed_strat]
-        
-        for _ in range(2): # 贪心选择剩下2个成员
+        for _ in range(2):
             best_gain = -1; best_strat_to_add = None
-            
             for uav_name_to_add in UAV_NAMES:
                 if uav_name_to_add in current_uavs: continue
                 for strat_to_add in individual_strats[uav_name_to_add]:
                     current_time = get_occlusion_timeline(team_strats + [strat_to_add], UAV_INITIAL_POS, simple_target_point)
                     if current_time > best_gain:
                         best_gain = current_time; best_strat_to_add = strat_to_add
-            
             if best_strat_to_add:
                 team_strats.append(best_strat_to_add)
                 current_uavs.append(best_strat_to_add['uav_name'])
-
         if len(team_strats) == 3:
             team = {s['uav_name']: s for s in team_strats}
             team['occlusion_time'] = get_occlusion_timeline(team_strats, UAV_INITIAL_POS, simple_target_point)
             teams.append(team)
-
     unique_teams = []
     for team in sorted(teams, key=lambda x: x['occlusion_time'], reverse=True):
         if not any(all(abs(team[n]['t_drop'] - ut[n]['t_drop']) < 0.2 for n in UAV_NAMES) for ut in unique_teams):
             unique_teams.append(team)
-
     print(f"阶段2完成。成功组合了 {len(unique_teams)} 个独特的团队。")
     return unique_teams
 
-# --- 阶段三：团队协同调优 ---
 def stage3_local_optimization_team(team_composition):
+    # ... (此函数代码与原版完全相同)
     params = {name: strat.copy() for name, strat in team_composition.items() if name in UAV_NAMES}
     current_max_time = team_composition.get('occlusion_time', get_occlusion_timeline(list(params.values()), UAV_INITIAL_POS, simple_target_point))
-    
     for i in range(NUM_OPTIMIZATION_ROUNDS):
         last_occlusion_time = current_max_time
         for uav_name in UAV_NAMES:
@@ -166,31 +175,26 @@ def stage3_local_optimization_team(team_composition):
                 original_val = params[uav_name][key]
                 step = 5 if key == 'v' else np.radians(10) if key == 'theta_rad' else 1.0
                 search_range = np.linspace(original_val - step/2, original_val + step/2, 5)
-                
                 for test_val in search_range:
                     test_params_list = []
                     for name in UAV_NAMES:
                         strat_copy = params[name].copy()
                         if name == uav_name:
-                            # 约束检查
                             if key == 'v' and not (UAV_V_MIN <= test_val <= UAV_V_MAX): continue
                             strat_copy[key] = test_val
                         test_params_list.append(strat_copy)
-                    
                     t = get_occlusion_timeline(test_params_list, UAV_INITIAL_POS, simple_target_point)
                     if t > current_max_time:
                         current_max_time = t
                         params[uav_name][key] = test_val
         if current_max_time - last_occlusion_time < 0.1: break
-    
     params['occlusion_time'] = current_max_time
     return params
 
-# --- 阶段四：最终精度验证 ---
-def stage4_final_validation_team(final_team, n_points=100, threshold_percent=70.0):
+def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70.0):
+    # ... (此函数代码与原版完全相同, 但增加了采样点数以提高精度)
     print(f"\n--- [阶段4] 开始：对冠军团队进行最终高精度验证 (阈值: {threshold_percent}%) ---")
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points))
-    
     target_points = []
     for _ in range(int(n_points * 0.6)):
         theta, z = 2*np.pi*np.random.rand(), true_target_height*np.random.rand()
@@ -200,11 +204,8 @@ def stage4_final_validation_team(final_team, n_points=100, threshold_percent=70.
         z = 0 if np.random.rand() < 0.5 else true_target_height
         target_points.append([true_target_base_center[0]+r*np.cos(theta), true_target_base_center[1]+r*np.sin(theta), z])
     target_points = np.array(target_points)
-    
-    smoke_events = []
-    final_team_details = {}
+    smoke_events, final_team_details = [], {}
     min_explode_time, max_end_time = float('inf'), float('-inf')
-
     for uav_name in UAV_NAMES:
         strat = final_team[uav_name]
         v, theta_rad, t_drop, t_delay = strat['v'], strat['theta_rad'], strat['t_drop'], strat['t_delay']
@@ -212,12 +213,10 @@ def stage4_final_validation_team(final_team, n_points=100, threshold_percent=70.
         t_explode = t_drop + t_delay
         p_drop = UAV_INITIAL_POS[uav_name] + uav_velocity * t_drop
         p_explode = p_drop + uav_velocity*t_delay + np.array([0,0,-0.5*GRAVITY*t_delay**2])
-        
         smoke_events.append({'t_explode': t_explode, 'p_explode': p_explode})
         final_team_details[uav_name] = {**strat, 'p_drop': p_drop, 'p_explode': p_explode, 't_explode': t_explode}
         min_explode_time = min(min_explode_time, t_explode)
         max_end_time = max(max_end_time, t_explode + SMOKE_DURATION)
-
     total_occluded_time = 0.0
     time_step = 0.01
     for t in np.arange(min_explode_time, max_end_time, time_step):
@@ -226,12 +225,11 @@ def stage4_final_validation_team(final_team, n_points=100, threshold_percent=70.
         for se in smoke_events:
             if se['t_explode'] <= t < se['t_explode'] + SMOKE_DURATION:
                 smoke_pos = se['p_explode'] + np.array([0, 0, -3.0 * (t - se['t_explode'])])
-                occluded_lines_count = sum(1 for tp in target_points if is_line_segment_intersecting_sphere(missile_pos, tp, smoke_pos, SMOKE_RADIUS))
+                occluded_lines_count = sum(1 for tp in target_points if is_line_segment_intersecting_sphere_numba(missile_pos, tp, smoke_pos, SMOKE_RADIUS))
                 if occluded_lines_count >= required_occluded_count:
                     is_occluded_this_step = True
                     break
         if is_occluded_this_step: total_occluded_time += time_step
-    
     return total_occluded_time, final_team_details
 
 # --- 主程序 ---
@@ -239,10 +237,24 @@ if __name__ == "__main__":
     start_total_time = time.time()
     
     print("="*60)
-    print("        第四问：三机协同干扰问题求解器启动")
+    print("        第四问：三机协同干扰问题求解器启动 (多核优化版)")
     print("="*60)
     
-    individual_strategies = {name: stage1_individual_coarse_search(name, UAV_INITIAL_POS[name], NUM_INDIVIDUAL_STRATEGIES) for name in UAV_NAMES}
+    # --- [并行化改造] 阶段一调用 ---
+    print("\n--- [阶段1] 开始：为所有UAV并行进行全局粗搜 ---")
+    tasks = [(name, UAV_INITIAL_POS[name], NUM_INDIVIDUAL_STRATEGIES) for name in UAV_NAMES]
+    
+    individual_strategies = {}
+    # 使用进程池并行执行任务
+    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
+        # 使用tqdm显示进度条
+        results = list(tqdm(pool.imap(stage1_individual_coarse_search, tasks), total=len(tasks), desc="全局粗搜"))
+    
+    # 将并行结果重新组合成字典
+    for uav_name, strategies in results:
+        individual_strategies[uav_name] = strategies
+    print("--- [阶段1] 完成：所有UAV的个体策略已生成 ---")
+    
     initial_teams = stage2_greedy_combination(individual_strategies, NUM_TEAMS_TO_FORM)
 
     if not initial_teams:
@@ -260,11 +272,11 @@ if __name__ == "__main__":
         
         final_time, final_details = stage4_final_validation_team(champion_team, threshold_percent=OCCLUSION_THRESHOLD_PERCENT)
         
+        # ... (结果打印部分与原版完全相同)
         print("\n" + "="*60)
         print("        第四问：最优协同干扰策略及最终结果")
         print("="*60)
         print(f"\n搜索概况: 从 {len(initial_teams)} 个高质量团队组合出发，找到的最佳策略如下。")
-        
         for uav_name in UAV_NAMES:
             strat = final_details[uav_name]
             print(f"\n--- 无人机 {uav_name} 策略 ---")
@@ -274,7 +286,6 @@ if __name__ == "__main__":
             print(f"  引信延迟 (t_delay)    : {strat['t_delay']:.4f} 秒")
             print(f"  投放点坐标 (P_drop)   : ({strat['p_drop'][0]:.2f}, {strat['p_drop'][1]:.2f}, {strat['p_drop'][2]:.2f})")
             print(f"  起爆点坐标 (P_explode): ({strat['p_explode'][0]:.2f}, {strat['p_explode'][1]:.2f}, {strat['p_explode'][2]:.2f})")
-
         print("\n--- 最终性能评估 ---")
         print(f"  遮蔽有效性阈值          : {OCCLUSION_THRESHOLD_PERCENT:.1f}%")
         print(f"  最终高精度总有效遮蔽时长: {final_time:.4f} 秒")
