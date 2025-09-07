@@ -12,6 +12,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}单一无人机投放一枚干扰弹的空间物理模型}{4}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 空间坐标系与物体分布状态}}{4}{figure.1}\protected@file@percent }
 \newlabel{fig:spatial_distribution}{{1}{4}{空间坐标系与物体分布状态}{figure.1}{}}
+\citation{1}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}导弹飞行的空间物理模型}{5}{subsubsection.4.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}有效遮蔽时间的确定}{5}{subsubsection.4.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}求解流程及结果}{6}{subsubsection.4.1.4}\protected@file@percent }
@@ -26,12 +27,14 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}三阶段优化框架}{8}{subsubsection.4.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第一阶段：全局粗搜与可行解窗口定位}{8}{subsubsection.4.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第二阶段：多起点局部精调}{8}{equation.4.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{第三阶段：高精度模型验证}{8}{equation.4.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第三阶段：高精度模型测算}{8}{equation.4.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 问题二求解流程图}}{9}{figure.4}\protected@file@percent }
+\newlabel{fig:flowchart_q2}{{4}{9}{问题二求解流程图}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}模型求解}{9}{subsubsection.4.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 问题二：4维解空间的PCA降维可视化（左图）}}{9}{figure.4}\protected@file@percent }
-\newlabel{fig:pca_q2_left}{{4}{9}{问题二：4维解空间的PCA降维可视化（左图）}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 问题二：4维解空间的PCA降维可视化（右图）}}{9}{figure.5}\protected@file@percent }
-\newlabel{fig:pca_q2_right}{{5}{9}{问题二：4维解空间的PCA降维可视化（右图）}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 目标函数（遮蔽时长）的收敛情况}}{10}{figure.5}\protected@file@percent }
+\newlabel{fig:pca_q2_left}{{5}{10}{目标函数（遮蔽时长）的收敛情况}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 坐标上升法求解过程}}{10}{figure.6}\protected@file@percent }
+\newlabel{fig:pca_q2_right}{{6}{10}{坐标上升法求解过程}{figure.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 问题二：最优策略与结果}}{10}{table.2}\protected@file@percent }
 \newlabel{tab:results_q2}{{2}{10}{问题二：最优策略与结果}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}问题三的模型建立与求解}{10}{subsection.4.3}\protected@file@percent }
@@ -39,31 +42,52 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}优化框架的适应性改进}{11}{subsubsection.4.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第一阶段:全局粗搜}{11}{subsubsection.4.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第二阶段:局部精调}{11}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{第三阶段:精细验证}{11}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}模型求解}{11}{subsubsection.4.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 问题二：4维解空间的PCA降维可视化（左图）}}{12}{figure.6}\protected@file@percent }
-\newlabel{fig:4}{{6}{12}{问题二：4维解空间的PCA降维可视化（左图）}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 问题二：4维解空间的PCA降维可视化（右图）}}{12}{figure.7}\protected@file@percent }
-\newlabel{fig:3}{{7}{12}{问题二：4维解空间的PCA降维可视化（右图）}{figure.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 问题三：最优干扰策略及最终结果}}{12}{table.3}\protected@file@percent }
-\newlabel{tab:results_q3}{{3}{12}{问题三：最优干扰策略及最终结果}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}问题四}{12}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第三阶段:精细测算}{11}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 问题二求解流程图}}{12}{figure.7}\protected@file@percent }
+\newlabel{fig:flowchart_q3}{{7}{12}{问题二求解流程图}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}模型求解}{12}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 目标函数（遮蔽时长）的收敛情况}}{12}{figure.8}\protected@file@percent }
+\newlabel{fig:pca_q3_left}{{8}{12}{目标函数（遮蔽时长）的收敛情况}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 坐标上升法求解过程}}{12}{figure.9}\protected@file@percent }
+\newlabel{fig:pca_q3_right}{{9}{12}{坐标上升法求解过程}{figure.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 问题三：最优干扰策略及最终结果}}{13}{table.3}\protected@file@percent }
+\newlabel{tab:results_q3}{{3}{13}{问题三：最优干扰策略及最终结果}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces 问题三程序模拟动画关键帧}}{13}{figure.10}\protected@file@percent }
+\newlabel{fig:simulation_q3}{{10}{13}{问题三程序模拟动画关键帧}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}问题四}{13}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}四阶段分层优化框架}{13}{subsubsection.4.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第一阶段：多目标全局粗搜}{13}{subsubsection.4.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{第二阶段：基于边际增益的贪心组合}{13}{subsubsection.4.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{第三阶段：高维局部精调}{13}{equation.4.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{第四阶段：最终高精度验证。}{13}{equation.4.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}模型求解}{13}{subsubsection.4.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 问题四：最优多机协同干扰策略}}{14}{table.4}\protected@file@percent }
-\newlabel{tab:q4_results}{{4}{14}{问题四：最优多机协同干扰策略}{table.4}{}}
-\bibcite{SPSSPRO}{1}
-\bibcite{bernstein2002}{2}
-\bibcite{zhong2023}{3}
-\bibcite{cui2019}{4}
-\bibcite{trass2009}{5}
-\bibcite{deng1985}{6}
-\bibcite{chen1990}{7}
-\bibcite{lin2005}{8}
-\bibcite{zhou2016}{9}
-\bibcite{zhuang2003}{10}
-\gdef \@abspage@last{15}
+\@writefile{toc}{\contentsline {paragraph}{第三阶段：高维局部精调}{14}{equation.4.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第四阶段：最终高精度测算。}{14}{equation.4.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces 问题四求解流程图}}{14}{figure.11}\protected@file@percent }
+\newlabel{fig:flowchart_q4}{{11}{14}{问题四求解流程图}{figure.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}模型求解}{14}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 目标函数（遮蔽时长）的收敛情况}}{15}{figure.12}\protected@file@percent }
+\newlabel{fig:pca_q4_left}{{12}{15}{目标函数（遮蔽时长）的收敛情况}{figure.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces 坐标上升法求解过程}}{15}{figure.13}\protected@file@percent }
+\newlabel{fig:pca_q4_right}{{13}{15}{坐标上升法求解过程}{figure.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 问题四：最优多机协同干扰策略}}{15}{table.4}\protected@file@percent }
+\newlabel{tab:q4_results}{{4}{15}{问题四：最优多机协同干扰策略}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}问题五的模型建立与求解}{15}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}四阶段分层优化框架}{16}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第一阶段：多目标全局粗搜}{16}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第二阶段：基于边际增益的贪心任务分配}{16}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第三阶段：子问题降维与协同优化}{16}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{第四阶段：最终高精度测算}{17}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 问题五求解流程图}}{17}{figure.14}\protected@file@percent }
+\newlabel{fig:flowchart_q5}{{14}{17}{问题五求解流程图}{figure.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}模型求解与结果}{17}{subsubsection.4.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 问题五：最优多机协同干扰策略}}{18}{table.5}\protected@file@percent }
+\newlabel{tab:q51_results}{{5}{18}{问题五：最优多机协同干扰策略}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces 问题五：最优多机协同干扰策略}}{18}{table.6}\protected@file@percent }
+\newlabel{tab:q52_results}{{6}{18}{问题五：最优多机协同干扰策略}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 问题五：最优多机协同干扰策略}}{18}{table.7}\protected@file@percent }
+\newlabel{tab:q53_results}{{7}{18}{问题五：最优多机协同干扰策略}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {五}、模型的评价与推广}{19}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}模型的优点}{19}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}模型的不足}{19}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}模型的推广}{19}{subsection.5.3}\protected@file@percent }
+\bibcite{1}{1}
+\bibcite{2}{2}
+\gdef \@abspage@last{22}
