@@ -5,23 +5,18 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-# --- 0. 基础设置与可调参数 ---
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 DROP_INTERVAL = 1.0
 
-# 多起点优化的起点数量
 NUM_INITIAL_STARTS = 500
 
-# !!! 1. 新增：可调的局部优化迭代次数 !!!
 OPTIMIZATION_ITERATIONS = 10
 
-# 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
-# 初始位置等 (与之前相同)
 uav_initial_pos = np.array([17800, 0, 1800], dtype=float)
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
 false_target_pos = np.array([0, 0, 0], dtype=float)
@@ -31,7 +26,6 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# 步骤1 搜索参数 (与之前相同)
 SEARCH_EXPLODE_TIMES_RANGE = (missile_total_time * 0, missile_total_time * 0.9)
 SEARCH_EXPLODE_TIMES_STEPS = 500
 SEARCH_DELAYS_RANGE = (0, 5.0)
@@ -39,8 +33,6 @@ SEARCH_DELAYS_STEPS = 500
 SEARCH_LOS_RATIO_RANGE = (0, 0.9)
 SEARCH_LOS_RATIO_STEPS = 500
 
-# --- 辅助函数 (与之前版本完全相同) ---
-# ... (此处省略 check_reachability, is_line_segment_intersecting_sphere, 等核心计算函数)
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False
     line_vec, point_vec = p2 - p1, sphere_center - p1
@@ -106,9 +98,7 @@ def calculate_simple_total_occlusion_time(params):
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time
 
-# --- 步骤 1 (不变) ---
 def step1_find_top_N_windows(n):
-    # ... (与上一版完全相同)
     print(f"--- [步骤 1] 开始：搜索 Top {n} 个最优初始解 ---")
     feasible_solutions = []
     search_explode_times = np.linspace(*SEARCH_EXPLODE_TIMES_RANGE, SEARCH_EXPLODE_TIMES_STEPS)
@@ -132,8 +122,6 @@ def step1_find_top_N_windows(n):
     print(f"步骤1完成。从{len(feasible_solutions)}个可行解中筛选出 {len(top_n_solutions)} 个高质量初始解。")
     return top_n_solutions
 
-
-# --- 步骤 2 (修改为返回收敛历史) ---
 def step2_local_optimization_multi(initial_params):
     t_drop_center = initial_params['t_drop']; base_delay = initial_params['t_delay']
     t_drop_early = t_drop_center - DROP_INTERVAL - 0.2; t_drop_late = t_drop_center + DROP_INTERVAL + 0.2
@@ -141,11 +129,10 @@ def step2_local_optimization_multi(initial_params):
     params = {'v': initial_params['v'], 'theta_rad': initial_params['theta_rad'], 'drop1': (t_drop_early, base_delay), 'drop2': (t_drop_center, base_delay), 'drop3': (t_drop_late, base_delay)}
     
     current_max_time = calculate_simple_total_occlusion_time(params)
-    convergence_history = [current_max_time] # 初始化收敛历史
+    convergence_history = [current_max_time] 
 
     for i in range(OPTIMIZATION_ITERATIONS):
         last_occlusion_time = current_max_time
-        # (内部优化循环不变)
         for v_test in np.linspace(max(UAV_V_MIN, params['v']-5), min(UAV_V_MAX, params['v']+5), 11):
             test_params = params.copy(); test_params['v'] = v_test; t = calculate_simple_total_occlusion_time(test_params)
             if t > current_max_time: current_max_time, params['v'] = t, v_test
@@ -166,16 +153,14 @@ def step2_local_optimization_multi(initial_params):
                 t = calculate_simple_total_occlusion_time(test_params)
                 if t > current_max_time: current_max_time, params[key] = t, (t_drop_base, t_delay_test)
 
-        convergence_history.append(current_max_time) # 记录本轮迭代后的结果
+        convergence_history.append(current_max_time) 
         if current_max_time - last_occlusion_time < 0.001: 
             break
             
     params['occlusion_time'] = current_max_time
     return params, convergence_history
 
-# --- 步骤 3 (不变) ---
 def step3_final_validation_multi(final_params, n_points=1000, threshold_percent=70.0):
-    # ... (与上一版完全相同)
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points)); target_points = []
     for _ in range(int(n_points * 0.6)):
         theta, z = 2 * np.pi * np.random.rand(), true_target_height * np.random.rand()
@@ -204,9 +189,7 @@ def step3_final_validation_multi(final_params, n_points=1000, threshold_percent=
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_params, smoke_events
 
-# --- 结果保存与可视化 (修改CSV保存函数) ---
 def save_results_to_csv(results_list, initial_list, histories_list, filename="optimization_results.csv"):
-    # --- 核心修改：动态生成表头 ---
     base_header = [
         'start_point_id', 'initial_score_single_grenade', 'optimized_score_3_grenades', 
         'v', 'theta_deg', 't_drop1', 't_delay1', 't_drop2', 't_delay2', 't_drop3', 't_delay3'
@@ -218,8 +201,6 @@ def save_results_to_csv(results_list, initial_list, histories_list, filename="op
         writer = csv.writer(f)
         writer.writerow(header)
         for i, (res, initial, history) in enumerate(zip(results_list, initial_list, histories_list)):
-            # --- 核心修改：填充收敛历史数据 ---
-            # 如果提前收敛，用最后一个值填充剩余部分
             padded_history = history + [history[-1]] * (OPTIMIZATION_ITERATIONS - len(history))
 
             row = [
@@ -237,7 +218,6 @@ def save_results_to_csv(results_list, initial_list, histories_list, filename="op
     print(f"\n所有 {len(results_list)} 个优化结果及其收敛历史已保存到文件: {filename}")
 
 def visualize_optimization_journey(initial_list, final_list):
-    # ... (与上一版完全相同)
     print("\n--- 正在生成8维解空间降维可视化图 ---")
     def params_to_vector(params):
         return [params['v'], np.degrees(params['theta_rad']), params['drop1'][0], params['drop1'][1], params['drop2'][0], params['drop2'][1], params['drop3'][0], params['drop3'][1]]
@@ -256,7 +236,6 @@ def visualize_optimization_journey(initial_list, final_list):
     plt.title('8维解空间的PCA降维可视化', fontsize=16); plt.xlabel('主成分 1', fontsize=12); plt.ylabel('主成分 2', fontsize=12)
     plt.legend(fontsize=12); plt.grid(True, linestyle='--', alpha=0.5); plt.show()
 
-# --- 主程序 (修改以处理新的返回值) ---
 if __name__ == "__main__":
     start_total_time = time.time()
     
@@ -266,18 +245,16 @@ if __name__ == "__main__":
         print("错误：第一步未能找到任何可行的初始解。")
     else:
         local_optima_list = []
-        histories_list = [] # 新增：用于存储所有收敛历史
+        histories_list = [] 
         for i, initial_sol in enumerate(initial_solutions_list):
             print(f"\n--- 对第 {i+1}/{len(initial_solutions_list)} 个初始解进行局部优化 (初始单弹时长: {initial_sol['occlusion_time']:.2f}s) ---")
-            
-            # --- 核心修改：接收两个返回值 ---
+           
             optimized_solution, history = step2_local_optimization_multi(initial_sol)
             
             local_optima_list.append(optimized_solution)
-            histories_list.append(history) # 存储收敛历史
+            histories_list.append(history) 
             print(f"--- 优化完成，得到的局部最优时长: {optimized_solution['occlusion_time']:.4f}s ---")
         
-        # --- 核心修改：将收敛历史传入保存函数 ---
         save_results_to_csv(local_optima_list, initial_solutions_list, histories_list)
 
         visualize_optimization_journey(initial_solutions_list, local_optima_list)
@@ -289,7 +266,6 @@ if __name__ == "__main__":
             threshold_percent=OCCLUSION_THRESHOLD_PERCENT
         )
         
-        # (最终打印部分不变)
         print("\n" + "="*60)
         print("        第三问：最优干扰策略及最终结果 (多起点优化)")
         print("="*60)

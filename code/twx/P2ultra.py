@@ -5,22 +5,17 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-# --- 0. 基础设置与可调参数 ---
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 
-# 多起点优化的起点数量
 NUM_INITIAL_STARTS = 500
 
-# 局部优化的迭代次数
 OPTIMIZATION_ITERATIONS = 10
 
-# 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
-# 初始位置
 uav_initial_pos = np.array([17800, 0, 1800], dtype=float)
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
 false_target_pos = np.array([0, 0, 0], dtype=float)
@@ -28,11 +23,9 @@ true_target_base_center = np.array([0, 200, 0], dtype=float)
 true_target_height = 10
 simple_target_point = true_target_base_center + np.array([0, 0, true_target_height / 2])
 
-# 导弹轨迹计算
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# 步骤1 搜索参数
 SEARCH_EXPLODE_TIMES_RANGE = (missile_total_time * 0, missile_total_time * 0.9)
 SEARCH_EXPLODE_TIMES_STEPS = 200
 SEARCH_DELAYS_RANGE = (0, 8.0)
@@ -40,8 +33,6 @@ SEARCH_DELAYS_STEPS = 150
 SEARCH_LOS_RATIO_RANGE = (0, 0.9)
 SEARCH_LOS_RATIO_STEPS = 90
 
-# --- 辅助函数 ---
-# ... (此处省略 check_reachability, is_line_segment_intersecting_sphere, calculate_simple_occlusion_time 函数)
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False
     line_vec, point_vec = p2 - p1, sphere_center - p1
@@ -81,7 +72,6 @@ def check_reachability(t_explode, t_delay, los_ratio):
     else:
         return False, None, None
 
-# --- 步骤 1 (修改为返回 Top N) ---
 def step1_find_top_N_windows(n):
     print(f"--- [步骤 1] 开始：搜索 Top {n} 个最优初始解 ---")
     feasible_solutions = []
@@ -107,10 +97,9 @@ def step1_find_top_N_windows(n):
     print(f"步骤1完成。从{len(feasible_solutions)}个可行解中筛选出 {len(top_n_solutions)} 个高质量初始解。")
     return top_n_solutions
 
-# --- 步骤 2 (修改为返回收敛历史) ---
 def step2_local_optimization(initial_params):
     params = initial_params.copy()
-    convergence_history = [params['occlusion_time']] # 初始化收敛历史
+    convergence_history = [params['occlusion_time']] 
 
     for i in range(OPTIMIZATION_ITERATIONS):
         last_occlusion_time = params['occlusion_time']
@@ -131,9 +120,7 @@ def step2_local_optimization(initial_params):
         if params['occlusion_time'] - last_occlusion_time < 0.001: break
     return params, convergence_history
 
-# --- 步骤 3 (不变) ---
 def step3_final_validation(final_params, n_points=1000, threshold_percent=70.0):
-    # ... (与上一版完全相同)
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points)); points = []
     for _ in range(int(n_points * 0.6)):
         theta, z = 2 * np.pi * np.random.rand(), true_target_height * np.random.rand()
@@ -158,10 +145,9 @@ def step3_final_validation(final_params, n_points=1000, threshold_percent=70.0):
             total_occluded_time += time_step
     return total_occluded_time, final_params, p_drop, p_explode
 
-# --- 新增：结果保存与可视化 ---
 def save_results_to_csv(results_list, initial_list, histories_list, filename="problem2_optimization_results.csv"):
     base_header = ['start_point_id', 'initial_score', 'optimized_score', 'v', 'theta_deg', 't_drop', 't_delay']
-    iter_header = [f'iter_{i}_score' for i in range(OPTIMIZATION_ITERATIONS + 1)] # iter_0 is initial
+    iter_header = [f'iter_{i}_score' for i in range(OPTIMIZATION_ITERATIONS + 1)]
     header = base_header + iter_header
     with open(filename, 'w', newline='') as f:
         writer = csv.writer(f)
@@ -200,7 +186,7 @@ def visualize_optimization_journey(initial_list, final_list):
     plt.title('4维解空间的PCA降维可视化 (问题二)', fontsize=16); plt.xlabel('主成分 1'); plt.ylabel('主成分 2')
     plt.legend(); plt.grid(True, linestyle='--', alpha=0.5); plt.show()
 
-# --- 主程序 (采用多起点优化逻辑) ---
+
 if __name__ == "__main__":
     start_total_time = time.time()
     
@@ -228,7 +214,7 @@ if __name__ == "__main__":
             threshold_percent=OCCLUSION_THRESHOLD_PERCENT
         )
         
-        # 最终打印详细报告
+        
         v, theta_rad, t_drop, t_delay = final_params['v'], final_params['theta_rad'], final_params['t_drop'], final_params['t_delay']
         t_explode = t_drop + t_delay
         print("\n" + "="*60)

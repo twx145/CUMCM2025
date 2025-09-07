@@ -9,9 +9,6 @@ import multiprocessing
 from tqdm import tqdm
 from numba import njit
 
-# ==============================================================================
-# 0. 基础设置与可调参数 (与原版相同)
-# ==============================================================================
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
@@ -36,12 +33,8 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# ==============================================================================
-# 1. Numba 加速的核心数学函数
-# ==============================================================================
 @njit(fastmath=True)
 def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
-    """[Numba JIT加速] 检查线段p1-p2是否与球体相交"""
     line_vec = p2 - p1
     point_vec = sphere_center - p1
     line_len_sq = np.dot(line_vec, line_vec)
@@ -60,7 +53,6 @@ def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radi
     return dist_sq <= sphere_radius**2
 
 def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1):
-    # 此函数逻辑不变，但其内部调用的 intersection 函数已被Numba加速
     if not strategies: return 0
     smoke_events, min_explode_time, max_end_time = [], float('inf'), float('-inf')
     for strat in strategies:
@@ -81,21 +73,13 @@ def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1
         for se in smoke_events:
             if se['t_explode'] <= t_abs < se['t_explode'] + SMOKE_DURATION:
                 smoke_pos = se['p_explode'] + np.array([0, 0, -3.0 * (t_abs - se['t_explode'])])
-                # 调用Numba加速版
                 if is_line_segment_intersecting_sphere_numba(missile_pos, target_point, smoke_pos, SMOKE_RADIUS):
                     occlusion_timeline[t_idx] = True; break
     return np.sum(occlusion_timeline) * time_step
 
-# ==============================================================================
-# 2. 并行化改造后的四阶段求解函数
-# ==============================================================================
-
-# --- [并行化改造] 阶段一的工作函数 ---
 def stage1_worker(args):
-    """[并行Worker] 为单个无人机进行全局粗搜"""
     uav_name, uav_pos, n_top = args
     feasible_solutions = []
-    # 注意：这里的搜索空间很大，是性能瓶颈
     search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 300)
     search_delays = np.linspace(0, 8.0, 300)
     search_los_ratios = np.linspace(0, 0.9, 300)
@@ -118,9 +102,7 @@ def stage1_worker(args):
                         
     return uav_name, sorted(feasible_solutions, key=lambda x: x['occlusion_time'], reverse=True)[:n_top]
 
-# --- [并行化改造] 阶段一的协调函数 ---
 def stage1_individual_coarse_search_parallel(n_top):
-    """[并行Coordinator] 创建并分发任务给所有CPU核心"""
     print("\n--- [阶段一] 开始：为所有无人机并行进行全局粗搜 ---")
     tasks = [(name, UAV_INITIAL_POS[name], n_top) for name in UAV_NAMES]
     
@@ -134,9 +116,7 @@ def stage1_individual_coarse_search_parallel(n_top):
     print("--- [阶段一] 完成：所有无人机的顶尖策略已生成 ---")
     return individual_strategies
 
-# --- 阶段二、三、四及辅助函数保持不变 ---
 def stage2_greedy_combination(individual_strats, n_teams):
-    # ... (此函数代码与原版完全相同)
     print(f"\n--- [阶段2] 开始：基于边际增益的贪心算法组合 {n_teams} 个团队 ---")
     all_strats_sorted = sorted(itertools.chain(*individual_strats.values()), key=lambda x: x['occlusion_time'], reverse=True)
     teams = []
@@ -164,7 +144,6 @@ def stage2_greedy_combination(individual_strats, n_teams):
     return unique_teams
 
 def stage3_local_optimization_team(team_composition):
-    # ... (此函数代码与原版完全相同)
     params = {name: strat.copy() for name, strat in team_composition.items() if name in UAV_NAMES}
     current_max_time = team_composition.get('occlusion_time', get_occlusion_timeline(list(params.values()), UAV_INITIAL_POS, simple_target_point))
     convergence_history = [current_max_time]
@@ -186,7 +165,6 @@ def stage3_local_optimization_team(team_composition):
     return params, convergence_history
 
 def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70.0):
-    # ... (此函数代码与原版完全相同，但会受益于Numba加速)
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points)); target_points = []
     for _ in range(int(n_points * 0.6)):
         theta, z = 2*np.pi*np.random.rand(), true_target_height*np.random.rand(); target_points.append([true_target_base_center[0]+7*np.cos(theta), true_target_base_center[1]+7*np.sin(theta), z])
@@ -212,9 +190,7 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_team_details
 
-# --- 日志和可视化函数保持不变 ---
 def save_greedy_teams_to_csv(teams, filename="stage2_greedy_selections.csv"):
-    # ... (此函数代码与原版完全相同)
     if not teams: return
     header = ['team_id', 'initial_total_score']
     for name in UAV_NAMES: header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
@@ -228,7 +204,6 @@ def save_greedy_teams_to_csv(teams, filename="stage2_greedy_selections.csv"):
     print(f"\n[日志] 阶段2：{len(teams)} 组贪心算法选择的团队参数已保存到 {filename}")
 
 def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, filename="stage3_optimization_process.csv"):
-    # ... (此函数代码与原版完全相同)
     if not optimized_teams: return
     base_header = ['team_id', 'initial_score', 'final_score']
     for name in UAV_NAMES: base_header.extend([f'{name}_v', f'{name}_theta_deg', f'{name}_t_drop', f'{name}_t_delay'])
@@ -245,7 +220,6 @@ def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, 
     print(f"[日志] 阶段3：{len(optimized_teams)} 组团队的详细优化过程已保存到 {filename}")
 
 def visualize_optimization_journey(initial_teams, optimized_teams):
-    # ... (此函数代码与原版完全相同)
     print("\n--- [可视化] 正在生成12维解空间的PCA降维图 ---")
     def team_to_vector(team):
         vec = []
@@ -277,9 +251,6 @@ def visualize_optimization_journey(initial_teams, optimized_teams):
     plt.legend(fontsize=12, loc='best')
     plt.show()
 
-# ==============================================================================
-# 3. 主程序入口 (Main Execution Block)
-# ==============================================================================
 if __name__ == "__main__":
     start_total_time = time.time()
     
@@ -287,10 +258,8 @@ if __name__ == "__main__":
     print("        第四问：三机协同干扰问题求解器启动 (CPU并行+Numba加速)")
     print("="*60)
     
-    # --- 调用并行化版本的阶段一 ---
     individual_strategies = stage1_individual_coarse_search_parallel(n_top=NUM_INDIVIDUAL_STRATEGIES)
     
-    # --- 后续阶段保持不变 ---
     initial_teams = stage2_greedy_combination(individual_strategies, NUM_TEAMS_TO_FORM)
     
     save_greedy_teams_to_csv(initial_teams)

@@ -5,30 +5,23 @@ import multiprocessing
 from tqdm import tqdm
 from numba import njit
 
-# --- 0. 基础设置与可调参数 ---
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 
-# --- 第四问特定参数 ---
 UAV_NAMES = ['FY1', 'FY2', 'FY3']
 UAV_INITIAL_POS = {
     'FY1': np.array([17800, 0, 1800], dtype=float),
     'FY2': np.array([12000, 1400, 1400], dtype=float),
     'FY3': np.array([6000, -3000, 700], dtype=float),
 }
-# 阶段一：为每架无人机保留的个体最优策略数
-NUM_INDIVIDUAL_STRATEGIES = 500 # 建议适当增加此值以获得更好的组合基础
-# 阶段二：使用贪心算法构建的团队组合数
-NUM_TEAMS_TO_FORM = 500 # 建议适当增加此值以探索更多可能性
-# 阶段三：局部优化的迭代轮数
+NUM_INDIVIDUAL_STRATEGIES = 500 
+NUM_TEAMS_TO_FORM = 500 
 NUM_OPTIMIZATION_ROUNDS = 10
 
-# 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
-# 全局实体位置
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
 false_target_pos = np.array([0, 0, 0], dtype=float)
 true_target_base_center = np.array([0, 200, 0], dtype=float)
@@ -38,10 +31,8 @@ missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.n
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
 
-# --- [Numba JIT加速] 辅助函数 ---
 @njit(fastmath=True)
 def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
-    """[Numba JIT加速] 检查线段p1-p2是否与球体相交"""
     line_vec = p2 - p1
     point_vec = sphere_center - p1
     line_len_sq = np.dot(line_vec, line_vec)
@@ -60,9 +51,7 @@ def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radi
     return dist_sq <= sphere_radius**2
 
 
-# --- 核心计算函数 ---
 def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1):
-    """通用函数：计算一个或多个策略的并集遮蔽时长（简化模型）"""
     if not strategies: return 0
     
     smoke_events = []
@@ -97,16 +86,13 @@ def get_occlusion_timeline(strategies, uav_pos_dict, target_point, time_step=0.1
         active_missile_pos = missile_positions[active_mask]
 
         for i in range(len(active_missile_pos)):
-            # 调用Numba加速版函数
             if is_line_segment_intersecting_sphere_numba(active_missile_pos[i], target_point, smoke_positions[i], SMOKE_RADIUS):
                 occlusion_timeline[np.where(active_mask)[0][i]] = True
     
     return np.sum(occlusion_timeline) * time_step
 
 
-# --- [并行Worker] 阶段一：个体全局粗搜 ---
 def stage1_individual_coarse_search(args):
-    """[并行Worker] 为单个UAV进行全局粗搜"""
     uav_name, uav_pos, n_top = args
     
     feasible_solutions = []
@@ -132,9 +118,7 @@ def stage1_individual_coarse_search(args):
     sorted_solutions = sorted(feasible_solutions, key=lambda x: x['occlusion_time'], reverse=True)
     return uav_name, sorted_solutions[:n_top]
 
-# --- 阶段二、三、四函数保持不变 ---
 def stage2_greedy_combination(individual_strats, n_teams):
-    # ... (此函数代码与原版完全相同)
     print(f"\n--- [阶段2] 开始：基于边际增益的贪心算法组合 {n_teams} 个团队 ---")
     all_strats_sorted = sorted(itertools.chain(*individual_strats.values()), key=lambda x: x['occlusion_time'], reverse=True)
     teams = []
@@ -165,7 +149,6 @@ def stage2_greedy_combination(individual_strats, n_teams):
     return unique_teams
 
 def stage3_local_optimization_team(team_composition):
-    # ... (此函数代码与原版完全相同)
     params = {name: strat.copy() for name, strat in team_composition.items() if name in UAV_NAMES}
     current_max_time = team_composition.get('occlusion_time', get_occlusion_timeline(list(params.values()), UAV_INITIAL_POS, simple_target_point))
     for i in range(NUM_OPTIMIZATION_ROUNDS):
@@ -192,7 +175,6 @@ def stage3_local_optimization_team(team_composition):
     return params
 
 def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70.0):
-    # ... (此函数代码与原版完全相同, 但增加了采样点数以提高精度)
     print(f"\n--- [阶段4] 开始：对冠军团队进行最终高精度验证 (阈值: {threshold_percent}%) ---")
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points))
     target_points = []
@@ -232,7 +214,6 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_team_details
 
-# --- 主程序 ---
 if __name__ == "__main__":
     start_total_time = time.time()
     
@@ -240,17 +221,13 @@ if __name__ == "__main__":
     print("        第四问：三机协同干扰问题求解器启动 (多核优化版)")
     print("="*60)
     
-    # --- [并行化改造] 阶段一调用 ---
     print("\n--- [阶段1] 开始：为所有UAV并行进行全局粗搜 ---")
     tasks = [(name, UAV_INITIAL_POS[name], NUM_INDIVIDUAL_STRATEGIES) for name in UAV_NAMES]
     
     individual_strategies = {}
-    # 使用进程池并行执行任务
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        # 使用tqdm显示进度条
         results = list(tqdm(pool.imap(stage1_individual_coarse_search, tasks), total=len(tasks), desc="全局粗搜"))
     
-    # 将并行结果重新组合成字典
     for uav_name, strategies in results:
         individual_strategies[uav_name] = strategies
     print("--- [阶段1] 完成：所有UAV的个体策略已生成 ---")
@@ -272,7 +249,6 @@ if __name__ == "__main__":
         
         final_time, final_details = stage4_final_validation_team(champion_team, threshold_percent=OCCLUSION_THRESHOLD_PERCENT)
         
-        # ... (结果打印部分与原版完全相同)
         print("\n" + "="*60)
         print("        第四问：最优协同干扰策略及最终结果")
         print("="*60)

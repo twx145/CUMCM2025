@@ -9,9 +9,6 @@ import multiprocessing
 from tqdm import tqdm
 from numba import njit
 
-# ==============================================================================
-# 0. 基础设置与可调参数
-# ==============================================================================
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
@@ -37,9 +34,6 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# ==============================================================================
-# 1. Numba 加速的核心数学与遮蔽计算函数 (无变化)
-# ==============================================================================
 @njit(fastmath=True)
 def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
     line_vec = p2 - p1
@@ -82,9 +76,6 @@ def get_occlusion_timeline(team_strategies, uav_pos_dict, target_point, time_ste
                     occlusion_timeline[t_idx] = True; break
     return np.sum(occlusion_timeline) * time_step
 
-# ==============================================================================
-# 2. 四阶段求解过程 (无核心逻辑变化)
-# ==============================================================================
 def stage1_worker(args):
     uav_name, uav_pos, n_top = args; feasible_solutions = []
     search_explode_times = np.linspace(missile_total_time * 0.1, missile_total_time * 0.9, 300)
@@ -198,11 +189,6 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_team_details
 
-# ==============================================================================
-# 3. 日志与可视化 (集成文件与图片保存)
-# ==============================================================================
-
-# --- [新增] 保存阶段二的初始团队 ---
 def save_initial_teams_to_csv(initial_teams, filename="stage2_initial_teams_2UAV_6G.csv"):
     if not initial_teams: return
     header = ['team_id', 'initial_score']
@@ -244,7 +230,6 @@ def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, 
             writer.writerow(row)
     print(f"\n[日志] 阶段三：{len(optimized_teams)} 组团队的详细优化过程已保存到 {filename}")
 
-# --- [修改] 可视化函数，增加图片保存 ---
 def visualize_optimization_journey(initial_teams, optimized_teams):
     print("\n--- [可视化] 正在生成16维解空间的PCA降维图 ---")
     def team_to_vector(team):
@@ -269,17 +254,13 @@ def visualize_optimization_journey(initial_teams, optimized_teams):
     plt.title('16维协同策略空间的PCA降维可视化 (2 UAVs, 6 Grenades)', fontsize=18, pad=20)
     plt.xlabel('主成分 1 (Principal Component 1)', fontsize=14); plt.ylabel('主成分 2 (Principal Component 2)', fontsize=14)
     plt.legend(fontsize=12, loc='best')
-    
-    # --- 核心修改：保存图片文件 ---
+
     image_filename = "optimization_journey_pca_2UAV_6G.png"
     plt.savefig(image_filename, dpi=300, bbox_inches='tight')
     print(f"[可视化] PCA降维图已保存为: {image_filename}")
     
     plt.show()
 
-# ==============================================================================
-# 4. 主程序入口
-# ==============================================================================
 if __name__ == "__main__":
     start_total_time = time.time()
     

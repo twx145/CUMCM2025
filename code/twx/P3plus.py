@@ -1,20 +1,17 @@
 import numpy as np
 import time
 
-# --- 0. 基础设置与可调参数 ---
+
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
-DROP_INTERVAL = 1.0 # 最小投放间隔
+DROP_INTERVAL = 1.0 
 
-# 多起点优化的起点数量
 NUM_INITIAL_STARTS = 500
 
-# 最终验证的遮蔽阈值
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
-# 初始位置等 (与之前相同)
 uav_initial_pos = np.array([17800, 0, 1800], dtype=float)
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
 false_target_pos = np.array([0, 0, 0], dtype=float)
@@ -24,7 +21,6 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# 步骤1 搜索参数 (与之前相同)
 SEARCH_EXPLODE_TIMES_RANGE = (missile_total_time * 0, missile_total_time * 0.9)
 SEARCH_EXPLODE_TIMES_STEPS = 1000
 SEARCH_DELAYS_RANGE = (0, 5.0)
@@ -32,8 +28,6 @@ SEARCH_DELAYS_STEPS = 1000
 SEARCH_LOS_RATIO_RANGE = (0, 0.9)
 SEARCH_LOS_RATIO_STEPS = 1000
 
-# --- 辅助函数 (与之前版本完全相同) ---
-# ... (此处省略 check_reachability, is_line_segment_intersecting_sphere, calculate_simple_occlusion_time 等函数)
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False
     line_vec, point_vec = p2 - p1, sphere_center - p1
@@ -99,9 +93,7 @@ def calculate_simple_total_occlusion_time(params):
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time
 
-# --- 步骤 1 (不变) ---
 def step1_find_top_N_windows(n):
-    # ... (与上一版完全相同)
     print(f"--- [步骤 1] 开始：搜索 Top {n} 个最优初始解 ---")
     feasible_solutions = []
     search_explode_times = np.linspace(*SEARCH_EXPLODE_TIMES_RANGE, SEARCH_EXPLODE_TIMES_STEPS)
@@ -125,11 +117,9 @@ def step1_find_top_N_windows(n):
     print(f"步骤1完成。从{len(feasible_solutions)}个可行解中筛选出 {len(top_n_solutions)} 个高质量初始解。")
     return top_n_solutions
 
-# --- 步骤 2 (应用新的初始化策略) ---
 def step2_local_optimization_multi(initial_params):
     print("\n--- [步骤 2] 开始：对3枚烟幕弹进行8维协同优化 (采用'中心饱和'初始策略) ---")
     
-    # --- 核心修改在此处 ---
     t_drop_center = initial_params['t_drop']
     base_delay = initial_params['t_delay']
     t_drop_early = t_drop_center - DROP_INTERVAL - 0.2
@@ -146,11 +136,10 @@ def step2_local_optimization_multi(initial_params):
         'drop2': (t_drop_center, base_delay),
         'drop3': (t_drop_late, base_delay),
     }
-    # --- 初始化结束 ---
+
     
     current_max_time = calculate_simple_total_occlusion_time(params)
     
-    # 后续的优化循环与之前完全相同
     for i in range(5):
         last_occlusion_time = current_max_time
         for v_test in np.linspace(max(UAV_V_MIN, params['v']-5), min(UAV_V_MAX, params['v']+5), 11):
@@ -178,9 +167,8 @@ def step2_local_optimization_multi(initial_params):
     params['occlusion_time'] = current_max_time
     return params
 
-# --- 步骤 3 (不变) ---
 def step3_final_validation_multi(final_params, n_points=1000, threshold_percent=70.0):
-    # ... (与上一版完全相同，此处省略)
+    
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points))
     target_points = []
     for _ in range(int(n_points * 0.6)):
@@ -217,9 +205,8 @@ def step3_final_validation_multi(final_params, n_points=1000, threshold_percent=
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_params, smoke_events
 
-# --- 主程序 (不变) ---
 if __name__ == "__main__":
-    # ... (与上一版完全相同，此处省略)
+    
     start_total_time = time.time()
     initial_solutions_list = step1_find_top_N_windows(n=NUM_INITIAL_STARTS)
     if not initial_solutions_list:

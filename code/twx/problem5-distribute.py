@@ -9,21 +9,16 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-# ==============================================================================
-# 0. 基础设置与第五问场景参数
-# ==============================================================================
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
-DROP_INTERVAL = 1.0  # From P3
+DROP_INTERVAL = 1.0  
 
-# 降低搜索精度以加速，在最终提交前可适当提高
 P2_SEARCH_STEPS_COARSE = 1000
 P3_OPTIMIZATION_ITERATIONS = 10
 P4_OPTIMIZATION_ROUNDS = 10
 
-# --- 场景实体定义 ---
 UAV_NAMES = ['FY1', 'FY2', 'FY3', 'FY4', 'FY5']
 MISSILE_NAMES = ['M1', 'M2', 'M3']
 
@@ -41,14 +36,12 @@ MISSILE_INITIAL_POS = {
     'M3': np.array([18000, -600, 1900], dtype=float),
 }
 
-# --- 目标定义 ---
 false_target_pos = np.array([0, 0, 0], dtype=float)
 true_target_base_center = np.array([0, 200, 0], dtype=float)
 true_target_height = 10
 simple_target_point = true_target_base_center + np.array([0, 0, true_target_height / 2])
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
-# --- 动态计算导弹轨迹信息 ---
 MISSILE_INFO = {}
 for name, pos in MISSILE_INITIAL_POS.items():
     velocity_vector = (false_target_pos - pos) / np.linalg.norm(false_target_pos - pos) * 300.0
@@ -59,9 +52,6 @@ for name, pos in MISSILE_INITIAL_POS.items():
         'total_time': total_time
     }
 
-# ==============================================================================
-# 1. 核心物理与数学函数 (Numba JIT 加速)
-# ==============================================================================
 @njit(fastmath=True)
 def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
     line_vec = p2 - p1
@@ -111,11 +101,6 @@ def get_occlusion_timeline(strategies, uav_pos_dict, missile_name, target_point,
             
     return total_occluded_time
 
-# ==============================================================================
-# 2. 前序问题求解器封装 (P2, P3, P4 Logic)
-# ==============================================================================
-
-# --- P2 Style Solver: 单机单弹全局优化 ---
 def solve_p2_style_worker(args):
     uav_name, missile_name = args
     uav_pos = UAV_INITIAL_POS[uav_name]
@@ -159,7 +144,6 @@ def solve_p2_style_worker(args):
     best_coarse_solution = max(feasible_solutions, key=lambda x: x['occlusion_time'])
     return uav_name, missile_name, best_coarse_solution, best_coarse_solution['occlusion_time']
 
-# --- P4 Style Solver: 多机单弹协同优化 ---
 def solve_p4_style(uav_names_in_squad, missile_name, initial_strategies):
     params = {s['uav_name']: s for s in initial_strategies}
     current_max_time = get_occlusion_timeline(list(params.values()), UAV_INITIAL_POS, missile_name, simple_target_point)
@@ -193,11 +177,9 @@ def solve_p4_style(uav_names_in_squad, missile_name, initial_strategies):
     params['occlusion_time'] = current_max_time
     return params
 
-# --- P3 Style Solver: 单机三弹策略升级 ---
 def upgrade_to_three_smokes_worker(args):
     uav_name, single_smoke_params, missile_name = args
     
-    # 从单弹策略生成三弹初始策略
     t_drop_center = single_smoke_params['t_drop']
     base_delay = single_smoke_params['t_delay']
     t_drop_early = max(0.1, t_drop_center - DROP_INTERVAL - 0.2)
@@ -214,7 +196,6 @@ def upgrade_to_three_smokes_worker(args):
         ]
     }
     
-    # 将三弹策略转换为通用格式进行计算
     def eval_3_smoke(p):
         strats = [{'uav_name': uav_name, 'v': p['v'], 'theta_rad': p['theta_rad'], **d} for d in p['drops']]
         return get_occlusion_timeline(strats, UAV_INITIAL_POS, missile_name, simple_target_point)
@@ -223,7 +204,6 @@ def upgrade_to_three_smokes_worker(args):
 
     for _ in range(P3_OPTIMIZATION_ITERATIONS):
         last_occlusion_time = current_max_time
-        # 优化 v 和 theta
         for v_test in np.linspace(max(UAV_V_MIN, params['v'] - 5), min(UAV_V_MAX, params['v'] + 5), 5):
             test_params = params.copy(); test_params['v'] = v_test
             if (t := eval_3_smoke(test_params)) > current_max_time: current_max_time, params['v'] = t, v_test
@@ -231,7 +211,6 @@ def upgrade_to_three_smokes_worker(args):
             test_params = params.copy(); test_params['theta_rad'] = theta_test
             if (t := eval_3_smoke(test_params)) > current_max_time: current_max_time, params['theta_rad'] = t, theta_test
 
-        # 优化每次投放
         for i in range(3):
             original_drop = params['drops'][i]
             for t_drop_test in np.linspace(max(0.1, original_drop['t_drop'] - 1), original_drop['t_drop'] + 1, 5):
@@ -248,9 +227,6 @@ def upgrade_to_three_smokes_worker(args):
     params['occlusion_time'] = current_max_time
     return uav_name, params
 
-# ==============================================================================
-# 4. 主程序入口 (Main Execution Block)
-# ==============================================================================
 if __name__ == "__main__":
     start_total_time = time.time()
     
@@ -258,7 +234,6 @@ if __name__ == "__main__":
     print("        第五问：五机三弹协同干扰问题求解器启动")
     print("="*80)
     
-    # --- [阶段一] 全局能力评估与任务分配 ---
     print("\n--- [阶段一] 开始：全局能力评估 (并行计算15种 UAV-Missile 组合) ---")
     tasks_p2 = [(uav, missile) for uav in UAV_NAMES for missile in MISSILE_NAMES]
     effectiveness_matrix = np.zeros((len(UAV_NAMES), len(MISSILE_NAMES)))
@@ -280,20 +255,16 @@ if __name__ == "__main__":
     squads = {m: [] for m in MISSILE_NAMES}
     assigned_uavs = set()
 
-    # --- 阶段 1: 分配主力防守员 (确保每个导弹至少有1个) ---
-    # 创建所有可能的分配组合，并按效果分排序
     all_potential_assignments = []
     for i, uav_name in enumerate(UAV_NAMES):
         for j, missile_name in enumerate(MISSILE_NAMES):
             score = effectiveness_matrix[i, j]
-            # 只有有意义的组合才加入列表
             if score > 0:
                 all_potential_assignments.append({'score': score, 'uav': uav_name, 'missile': missile_name})
     
     all_potential_assignments.sort(key=lambda x: x['score'], reverse=True)
     
     covered_missiles = set()
-    # 从最优组合开始，为每个导弹分配一个不重复的、最强的无人机
     for assignment in all_potential_assignments:
         uav = assignment['uav']
         missile = assignment['missile']
@@ -303,11 +274,9 @@ if __name__ == "__main__":
             assigned_uavs.add(uav)
             covered_missiles.add(missile)
             
-        # 如果所有导弹都已覆盖，则第一阶段完成
         if len(covered_missiles) == len(MISSILE_NAMES):
             break
             
-    # --- 阶段 2: 分配辅助防守员 (利用剩余UAV，且每个导弹最多2个) ---
     remaining_uavs = [uav for uav in UAV_NAMES if uav not in assigned_uavs]
     
     for uav in remaining_uavs:
@@ -315,7 +284,6 @@ if __name__ == "__main__":
         max_score = -1
         uav_idx = UAV_NAMES.index(uav)
         
-        # 寻找一个防守员少于2个，且对自己最有利的目标
         for j, missile in enumerate(MISSILE_NAMES):
             if len(squads[missile]) < 2:
                 current_score = effectiveness_matrix[uav_idx, j]
@@ -323,12 +291,10 @@ if __name__ == "__main__":
                     max_score = current_score
                     best_target_for_secondary = missile
         
-        # 如果找到了合适的目标，就加入
         if best_target_for_secondary:
             squads[best_target_for_secondary].append(uav)
             assigned_uavs.add(uav)
 
-    # --- 重新生成 assignments_by_uav 字典以供后续阶段使用 ---
     assignments_by_uav = {}
     for missile, uav_list in squads.items():
         for uav in uav_list:

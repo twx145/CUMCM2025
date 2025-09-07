@@ -9,29 +9,23 @@ import multiprocessing
 from tqdm import tqdm
 from numba import njit
 
-# ==============================================================================
-# 0. 基础设置与可调参数
-# ==============================================================================
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
 SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
-DROP_INTERVAL = 1.0  # 引入P3的参数，用于初始化多弹策略
+DROP_INTERVAL = 1.0  
 
-# --- 问题设定：2架无人机，每架3枚烟幕弹 ---
 UAV_NAMES = ['FY1', 'FY2']
 UAV_INITIAL_POS = {
     'FY1': np.array([17800, 0, 1800], dtype=float),
     'FY2': np.array([12000, 1400, 1400], dtype=float),
 }
 
-# --- 算法控制参数 ---
-NUM_INDIVIDUAL_STRATEGIES = 300  # 阶段一：为每架无人机生成的单弹候选策略数
-NUM_TEAMS_TO_FORM = 300        # 阶段二：要组合出的初始团队数量
-NUM_OPTIMIZATION_ROUNDS = 15     # 阶段三：局部优化的迭代轮数
-OCCLUSION_THRESHOLD_PERCENT = 70.0 # 阶段四：最终验证的遮蔽阈值
+NUM_INDIVIDUAL_STRATEGIES = 300 
+NUM_TEAMS_TO_FORM = 300        
+NUM_OPTIMIZATION_ROUNDS = 15     
+OCCLUSION_THRESHOLD_PERCENT = 70.0 
 
-# --- 场景固定参数 (与之前相同) ---
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
 false_target_pos = np.array([0, 0, 0], dtype=float)
 true_target_base_center = np.array([0, 200, 0], dtype=float)
@@ -40,9 +34,6 @@ simple_target_point = true_target_base_center + np.array([0, 0, true_target_heig
 missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.norm(false_target_pos - missile_initial_pos) * 300.0
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
-# ==============================================================================
-# 1. Numba 加速的核心数学与遮蔽计算函数
-# ==============================================================================
 @njit(fastmath=True)
 def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radius):
     line_vec = p2 - p1
@@ -56,23 +47,16 @@ def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radi
     return dist_sq <= sphere_radius**2
 
 def get_occlusion_timeline(team_strategies, uav_pos_dict, target_point, time_step=0.1):
-    """
-    [核心修改] 计算一个“双机三弹”团队的总遮蔽时长。
-    team_strategies: 字典，键为UAV_NAMES，值为该无人机的策略字典。
-                     每个策略字典包含 v, theta_rad, drop1, drop2, drop3。
-    """
     smoke_events, min_explode_time, max_end_time = [], float('inf'), float('-inf')
 
-    # 遍历团队中的每一架无人机
     for uav_name, strat in team_strategies.items():
         if uav_name not in uav_pos_dict: continue
         uav_pos = uav_pos_dict[uav_name]
         v, theta_rad = strat['v'], strat['theta_rad']
         uav_velocity = np.array([np.cos(theta_rad) * v, np.sin(theta_rad) * v, 0])
         
-        # 遍历该无人机的所有（三枚）烟幕弹
         drops = [strat.get('drop1'), strat.get('drop2'), strat.get('drop3')]
-        if 't_drop' in strat: # 兼容单弹策略
+        if 't_drop' in strat: 
              drops = [(strat['t_drop'], strat['t_delay'])]
 
         for drop in drops:
@@ -100,11 +84,6 @@ def get_occlusion_timeline(team_strategies, uav_pos_dict, target_point, time_ste
                     break
     return np.sum(occlusion_timeline) * time_step
 
-# ==============================================================================
-# 2. 四阶段求解过程
-# ==============================================================================
-
-# --- 阶段一：并行化全局粗搜 (与P4类似，为每架无人机寻找最优“单弹”策略) ---
 def stage1_worker(args):
     uav_name, uav_pos, n_top = args
     feasible_solutions = []
@@ -140,16 +119,13 @@ def stage1_individual_coarse_search_parallel(n_top):
     print("--- [阶段一] 完成：所有无人机的顶尖单弹策略已生成 ---")
     return individual_strategies
 
-# --- 阶段二：团队组建与策略扩展 (核心修改) ---
 def stage2_team_formation_and_expansion(individual_strats, n_teams):
     print(f"\n--- [阶段二] 开始：组合与扩展 {n_teams} 个“双机三弹”初始团队 ---")
     
-    # 1. 贪心组合最佳的“双机单弹”团队
     best_pairs = []
     strat_fy1 = individual_strats['FY1']
     strat_fy2 = individual_strats['FY2']
     
-    # 将所有可能的组合及其得分计算出来
     all_combinations = []
     for s1 in tqdm(strat_fy1, desc="计算组合得分", leave=False):
         for s2 in strat_fy2:
@@ -157,11 +133,9 @@ def stage2_team_formation_and_expansion(individual_strats, n_teams):
             score = get_occlusion_timeline(team, UAV_INITIAL_POS, simple_target_point)
             all_combinations.append({'team': team, 'score': score})
 
-    # 排序并筛选出Top N
     sorted_combinations = sorted(all_combinations, key=lambda x: x['score'], reverse=True)
     top_single_grenade_teams = [c['team'] for c in sorted_combinations[:n_teams]]
 
-    # 2. 将“双机单弹”团队扩展为“双机三弹”团队
     expanded_teams = []
     for team in top_single_grenade_teams:
         expanded_team = {}
@@ -169,7 +143,6 @@ def stage2_team_formation_and_expansion(individual_strats, n_teams):
             t_drop_center = strat['t_drop']
             base_delay = strat['t_delay']
             
-            # 从单弹参数扩展为三弹参数
             expanded_strat = {
                 'v': strat['v'],
                 'theta_rad': strat['theta_rad'],
@@ -177,7 +150,6 @@ def stage2_team_formation_and_expansion(individual_strats, n_teams):
                 'drop2': (t_drop_center, base_delay),
                 'drop3': (t_drop_center + DROP_INTERVAL, base_delay),
             }
-            # 确保投放时间为正
             if expanded_strat['drop1'][0] < 0.1:
                 expanded_strat['drop1'] = (0.1, base_delay)
                 expanded_strat['drop2'] = (0.1 + DROP_INTERVAL, base_delay)
@@ -185,14 +157,12 @@ def stage2_team_formation_and_expansion(individual_strats, n_teams):
             
             expanded_team[uav_name] = expanded_strat
         
-        # 计算扩展后团队的初始得分
         expanded_team['occlusion_time'] = get_occlusion_timeline(expanded_team, UAV_INITIAL_POS, simple_target_point)
         expanded_teams.append(expanded_team)
 
     print(f"--- [阶段二] 完成：成功生成了 {len(expanded_teams)} 个初始“双机三弹”团队。---")
     return expanded_teams
 
-# --- 阶段三：局部协同优化 (核心修改) ---
 def stage3_local_optimization_team(team_composition):
     params = {name: strat.copy() for name, strat in team_composition.items() if name in UAV_NAMES}
     current_max_time = team_composition.get('occlusion_time', get_occlusion_timeline(params, UAV_INITIAL_POS, simple_target_point))
@@ -200,9 +170,7 @@ def stage3_local_optimization_team(team_composition):
 
     for i in range(NUM_OPTIMIZATION_ROUNDS):
         last_occlusion_time = current_max_time
-        # 遍历每架无人机进行参数微调
         for uav_name in UAV_NAMES:
-            # 1. 优化 v 和 theta_rad
             for key in ['v', 'theta_rad']:
                 original_val = params[uav_name][key]
                 step = 2.0 if key == 'v' else np.radians(4)
@@ -215,12 +183,10 @@ def stage3_local_optimization_team(team_composition):
                         current_max_time = t
                         params[uav_name][key] = test_val
             
-            # 2. 优化三组 drop/delay 参数
             for j in range(1, 4):
                 drop_key = f'drop{j}'
                 t_drop_base, t_delay_base = params[uav_name][drop_key]
 
-                # 优化 t_drop
                 for t_drop_test in np.linspace(max(0.1, t_drop_base - 0.5), t_drop_base + 0.5, 5):
                     test_params = params.copy()
                     test_params[uav_name] = test_params[uav_name].copy()
@@ -230,8 +196,7 @@ def stage3_local_optimization_team(team_composition):
                         current_max_time = t
                         params[uav_name][drop_key] = (t_drop_test, t_delay_base)
                 
-                t_drop_base, t_delay_base = params[uav_name][drop_key] # 更新基准
-                # 优化 t_delay
+                t_drop_base, t_delay_base = params[uav_name][drop_key] 
                 for t_delay_test in np.linspace(max(0.1, t_delay_base - 0.5), t_delay_base + 0.5, 5):
                     test_params = params.copy()
                     test_params[uav_name] = test_params[uav_name].copy()
@@ -248,7 +213,6 @@ def stage3_local_optimization_team(team_composition):
     params['occlusion_time'] = current_max_time
     return params, convergence_history
 
-# --- 阶段四：最终高精度验证 (逻辑不变，但数据结构适配) ---
 def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70.0):
     required_occluded_count = int(np.ceil((threshold_percent / 100.0) * n_points)); target_points = []
     for _ in range(int(n_points * 0.6)):
@@ -284,9 +248,6 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
     return total_occluded_time, final_team_details
 
 
-# ==============================================================================
-# 3. 日志与可视化 (更新以适配新数据结构)
-# ==============================================================================
 def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, filename="stage3_optimization_process_2UAV_6G.csv"):
     if not optimized_teams: return
     base_header = ['team_id', 'initial_score', 'final_score']
@@ -342,10 +303,6 @@ def visualize_optimization_journey(initial_teams, optimized_teams):
     plt.title('16维协同策略空间的PCA降维可视化 (2 UAVs, 6 Grenades)', fontsize=18, pad=20)
     plt.xlabel('主成分 1 (Principal Component 1)', fontsize=14); plt.ylabel('主成分 2 (Principal Component 2)', fontsize=14)
     plt.legend(fontsize=12, loc='best'); plt.show()
-
-# ==============================================================================
-# 4. 主程序入口
-# ==============================================================================
 if __name__ == "__main__":
     start_total_time = time.time()
     
