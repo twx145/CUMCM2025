@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  7 SEP 2025 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  7 SEP 2025 17:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,110 +859,125 @@ LaTeX Font Info:    Trying to load font information for C70+rm on input line 12
 File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
 )
 [3]
-<pic/Fg1.png, id=291, 332.7705pt x 275.94pt>
+<pic/Fg1.png, id=287, 332.7705pt x 275.94pt>
 File: pic/Fg1.png Graphic file (type png)
 <use pic/Fg1.png>
-Package pdftex.def Info: pic/Fg1.png  used on input line 155.
+Package pdftex.def Info: pic/Fg1.png  used on input line 152.
 (pdftex.def)             Requested size: 227.62206pt x 188.74828pt.
  [4 <./pic/Fg1.png>] [5]
-<pic/Fg2.png, id=351, 790.45313pt x 227.34938pt>
+<pic/Fg2.png, id=349, 790.45313pt x 227.34938pt>
 File: pic/Fg2.png Graphic file (type png)
 <use pic/Fg2.png>
-Package pdftex.def Info: pic/Fg2.png  used on input line 229.
+Package pdftex.def Info: pic/Fg2.png  used on input line 226.
 (pdftex.def)             Requested size: 364.19667pt x 104.74849pt.
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
-quanjiao) on input line 238.
+quanjiao) on input line 235.
 
-Overfull \hbox (36.71718pt too wide) in paragraph at lines 240--247
+Overfull \hbox (36.71718pt too wide) in paragraph at lines 237--244
  [][] 
  []
 
-<pic/Fg3.png, id=353, 793.46437pt x 229.35687pt>
+<pic/Fg3.png, id=351, 793.46437pt x 229.35687pt>
 File: pic/Fg3.png Graphic file (type png)
 <use pic/Fg3.png>
-Package pdftex.def Info: pic/Fg3.png  used on input line 253.
+Package pdftex.def Info: pic/Fg3.png  used on input line 250.
 (pdftex.def)             Requested size: 364.19667pt x 105.27446pt.
 [6 <./pic/Fg2.png>] [7 <./pic/Fg3.png>] [8]
-<pic/Fg6-Pb2.jpg, id=430, 2174.4989pt x 1204.1236pt>
+<pic/Fg6-Pb2.jpg, id=431, 2174.4989pt x 1204.1236pt>
 File: pic/Fg6-Pb2.jpg Graphic file (type jpg)
 <use pic/Fg6-Pb2.jpg>
-Package pdftex.def Info: pic/Fg6-Pb2.jpg  used on input line 329.
+Package pdftex.def Info: pic/Fg6-Pb2.jpg  used on input line 326.
 (pdftex.def)             Requested size: 364.19667pt x 201.66669pt.
-<pic/Fg4.png, id=433, 1586.92876pt x 864.22874pt>
+<pic/Fg4.png, id=434, 1586.92876pt x 864.22874pt>
 File: pic/Fg4.png Graphic file (type png)
 <use pic/Fg4.png>
-Package pdftex.def Info: pic/Fg4.png  used on input line 346.
+Package pdftex.def Info: pic/Fg4.png  used on input line 343.
 (pdftex.def)             Requested size: 218.51212pt x 168.58327pt.
-<pic/Fg5.png, id=434, 867.24pt x 650.43pt>
+<pic/Fg5.png, id=435, 867.24pt x 650.43pt>
 File: pic/Fg5.png Graphic file (type png)
 <use pic/Fg5.png>
-Package pdftex.def Info: pic/Fg5.png  used on input line 353.
+Package pdftex.def Info: pic/Fg5.png  used on input line 350.
 (pdftex.def)             Requested size: 218.5033pt x 168.58179pt.
- [9 <./pic/Fg6-Pb2.jpg>] [10 <./pic/Fg4.png> <./pic/Fg5.png>]
-<pic/Fg7-Pb3.jpg, id=467, 2095.0772pt x 786.31265pt>
+ [9 <./pic/Fg6-Pb2.jpg>]
+<pic/sim2.jpg, id=447, 4947.48375pt x 1284.8pt>
+File: pic/sim2.jpg Graphic file (type jpg)
+<use pic/sim2.jpg>
+Package pdftex.def Info: pic/sim2.jpg  used on input line 377.
+(pdftex.def)             Requested size: 364.19667pt x 94.57184pt.
+ [10 <./pic/Fg4.png> <./pic/Fg5.png> <./pic/sim2.jpg>] [11]
+<pic/Fg7-Pb3.jpg, id=476, 2095.0772pt x 786.31265pt>
 File: pic/Fg7-Pb3.jpg Graphic file (type jpg)
 <use pic/Fg7-Pb3.jpg>
-Package pdftex.def Info: pic/Fg7-Pb3.jpg  used on input line 421.
+Package pdftex.def Info: pic/Fg7-Pb3.jpg  used on input line 425.
 (pdftex.def)             Requested size: 364.19667pt x 136.6829pt.
- [11]
 <pic/Fg10.png, id=479, 1534.23187pt x 856.70062pt>
 File: pic/Fg10.png Graphic file (type png)
 <use pic/Fg10.png>
-Package pdftex.def Info: pic/Fg10.png  used on input line 436.
+Package pdftex.def Info: pic/Fg10.png  used on input line 440.
 (pdftex.def)             Requested size: 218.51326pt x 168.57886pt.
 <pic/Fg11.png, id=480, 867.24pt x 650.43pt>
 File: pic/Fg11.png Graphic file (type png)
 <use pic/Fg11.png>
-Package pdftex.def Info: pic/Fg11.png  used on input line 442.
+Package pdftex.def Info: pic/Fg11.png  used on input line 446.
 (pdftex.def)             Requested size: 218.5033pt x 168.58179pt.
  [12 <./pic/Fg7-Pb3.jpg> <./pic/Fg10.png> <./pic/Fg11.png>]
-<pic/sim3.jpg, id=495, 5657.135pt x 1284.8pt>
+<pic/sim3.jpg, id=496, 4208.72375pt x 1284.8pt>
 File: pic/sim3.jpg Graphic file (type jpg)
 <use pic/sim3.jpg>
-Package pdftex.def Info: pic/sim3.jpg  used on input line 476.
-(pdftex.def)             Requested size: 409.71692pt x 93.04268pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--495
+Package pdftex.def Info: pic/sim3.jpg  used on input line 480.
+(pdftex.def)             Requested size: 409.71692pt x 125.05675pt.
+ [13 <./pic/sim3.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 496--498
 
  []
 
-[13 <./pic/sim3.jpg>]
-<pic/Fg8-Pb4.jpg, id=507, 2315.65125pt x 862.72313pt>
+<pic/Fg8-Pb4.jpg, id=511, 2315.65125pt x 862.72313pt>
 File: pic/Fg8-Pb4.jpg Graphic file (type jpg)
 <use pic/Fg8-Pb4.jpg>
-Package pdftex.def Info: pic/Fg8-Pb4.jpg  used on input line 511.
+Package pdftex.def Info: pic/Fg8-Pb4.jpg  used on input line 514.
 (pdftex.def)             Requested size: 364.19667pt x 135.68214pt.
-
-
-LaTeX Warning: File `pic/Fg12.png' not found on input line 524.
-
-
-! Package pdftex.def Error: File `pic/Fg12.png' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.524 ...th, height=0.25\textheight]{pic/Fg12.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<pic/Fg13.png, id=508, 1011.78pt x 722.7pt>
+<pic/Fg13.png, id=512, 1011.78pt x 722.7pt>
 File: pic/Fg13.png Graphic file (type png)
 <use pic/Fg13.png>
-Package pdftex.def Info: pic/Fg13.png  used on input line 530.
+Package pdftex.def Info: pic/Fg13.png  used on input line 527.
 (pdftex.def)             Requested size: 218.51653pt x 168.57738pt.
-[14 <./pic/Fg8-Pb4.jpg>] [15{d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/
-enc/dvips/cm-super/cm-super-ts1.enc} <./pic/Fg13.png>] [16]
-<pic/Pb5.jpg, id=534, 2279.89265pt x 921.81891pt>
+File: pic/Fg13.png Graphic file (type png)
+<use pic/Fg13.png>
+Package pdftex.def Info: pic/Fg13.png  used on input line 533.
+(pdftex.def)             Requested size: 218.51653pt x 168.57738pt.
+[14 <./pic/Fg8-Pb4.jpg>]
+<pic/sim4.jpg, id=521, 5237.5675pt x 1284.8pt>
+File: pic/sim4.jpg Graphic file (type jpg)
+<use pic/sim4.jpg>
+Package pdftex.def Info: pic/sim4.jpg  used on input line 572.
+(pdftex.def)             Requested size: 364.19667pt x 89.33745pt.
+ [15 <./pic/Fg13.png> <./pic/sim4.jpg>] [16{d:/2--LaTex/TeXLive/texlive/2024/te
+xmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<pic/Pb5.jpg, id=540, 2279.89265pt x 921.81891pt>
 File: pic/Pb5.jpg Graphic file (type jpg)
 <use pic/Pb5.jpg>
-Package pdftex.def Info: pic/Pb5.jpg  used on input line 599.
+Package pdftex.def Info: pic/Pb5.jpg  used on input line 609.
 (pdftex.def)             Requested size: 364.19667pt x 147.24084pt.
- [17 <./pic/Pb5.jpg>] [18] [19]
-Underfull \hbox (badness 2478) in paragraph at lines 717--718
+
+[17 <./pic/Pb5.jpg>]
+<pic/P51.png, id=550, 1127.412pt x 677.1699pt>
+File: pic/P51.png Graphic file (type png)
+<use pic/P51.png>
+Package pdftex.def Info: pic/P51.png  used on input line 650.
+(pdftex.def)             Requested size: 364.19667pt x 218.74469pt.
+ [18 <./pic/P51.png>] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]\C70/gbsn/bx/n/12/4e ã \C70/gbsn/bx/n/12/65 O\OT1/cmr/m/n/12 .\C70/gbsn/bx/n/
+12/70 ß \C70/gbsn/bx/n/12/5e U r \C70/gbsn/bx/n/12/62 p \C70/gbsn/bx/n/12/4e  
+\C70/gbsn/bx/n/12/76 „ \C70/gbsn/bx/n/12/57 0 \C70/gbsn/m/n/12/97 b \C70/gbsn/b
+x/n/12/76 î \C70/gbsn/bx/n/12/68 ^^G \C70/gbsn/bx/n/12/8b Æ \C70/gbsn/bx/n/12/5
+2 + \C70/gbsn/bx/n/12/7b — \C70/gbsn/bx/n/12/6c Õ \C70/gbsn/m/n/12/78 ^^T \C70/
+gbsn/bx/n/12/7a v\OT1/cmr/m/n/12 [D].\C70/gbsn/bx/n/12/53 N \C70/gbsn/bx/n/12/4
+e - \C70/gbsn/bx/n/12/79 Ñ \C70/gbsn/bx/n/12/62 € \C70/gbsn/bx/n/12/59 '
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 695--696
 []\C70/gbsn/m/n/12/82 ± \C70/gbsn/bx/n/12/8d …\OT1/cmr/m/n/12 ,\C70/gbsn/bx/n/1
 2/5e Ö \C70/gbsn/bx/n/12/5b ˆ \C70/gbsn/bx/n/12/4e ¿\OT1/cmr/m/n/12 ,\C70/gbsn/
 bx/n/12/5f   \C70/gbsn/bx/n/12/4f \ \C70/gbsn/bx/n/12/5b ‡\OT1/cmr/m/n/12 ,\C70
@@ -976,33 +991,36 @@ sn/bx/n/12/7a v\OT1/cmr/m/n/12 [J].\C70/gbsn/m/n/12/6f À \C70/gbsn/bx/n/12/51 I
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
-[]\C70/gbsn/bx/n/12/4e ã \C70/gbsn/bx/n/12/65 O\OT1/cmr/m/n/12 .\C70/gbsn/bx/n/
-12/70 ß \C70/gbsn/bx/n/12/5e U r \C70/gbsn/bx/n/12/62 p \C70/gbsn/bx/n/12/4e  
-\C70/gbsn/bx/n/12/76 „ \C70/gbsn/bx/n/12/57 0 \C70/gbsn/m/n/12/97 b \C70/gbsn/b
-x/n/12/76 î \C70/gbsn/bx/n/12/68 ^^G \C70/gbsn/bx/n/12/8b Æ \C70/gbsn/bx/n/12/5
-2 + \C70/gbsn/bx/n/12/7b — \C70/gbsn/bx/n/12/6c Õ \C70/gbsn/m/n/12/78 ^^T \C70/
-gbsn/bx/n/12/7a v\OT1/cmr/m/n/12 [D].\C70/gbsn/bx/n/12/53 N \C70/gbsn/bx/n/12/4
-e - \C70/gbsn/bx/n/12/79 Ñ \C70/gbsn/bx/n/12/62 € \C70/gbsn/bx/n/12/59 '
+Underfull \hbox (badness 2671) in paragraph at lines 699--700
+[]\C70/gbsn/bx/n/12/5e 8 \C70/gbsn/bx/n/12/53 Ë \C70/gbsn/bx/n/12/6e  \OT1/cmr/
+m/n/12 ,\C70/gbsn/bx/n/12/80 – \C70/gbsn/bx/n/12/8d 5 \C70/gbsn/bx/n/12/51 C\OT
+1/cmr/m/n/12 ,\C70/gbsn/bx/n/12/66 þ \C70/gbsn/bx/n/12/65 O\OT1/cmr/m/n/12 . \C
+70/gbsn/bx/n/12/8d * \C70/gbsn/bx/n/12/5f Ã \C70/gbsn/bx/n/12/7b — \C70/gbsn/bx
+/n/12/6c Õ \C70/gbsn/bx/n/12/76 „ \C70/gbsn/m/n/12/63 ¢ \C70/gbsn/bx/n/12/8b ¨ 
+\C70/gbsn/bx/n/12/4e ^^N \C70/gbsn/m/n/12/78 ^^T \C70/gbsn/bx/n/12/7a v\OT1/cmr
+/m/n/12 [J].\C70/gbsn/bx/n/12/91 Í \C70/gbsn/bx/n/12/5e † \C70/gbsn/bx/n/12/75 
+5 \C70/gbsn/bx/n/12/52 › \C70/gbsn/bx/n/12/9a Ø \C70/gbsn/bx/n/12/7b I \C70/gbs
+n/bx/n/12/4e ^^S \C70/gbsn/bx/n/12/79 Ñ \C70/gbsn/bx/n/12/5b f \C70/gbsn/bx/n/1
+2/68 ! \C70/gbsn/bx/n/12/5b f
  []
 
 [20]
-<pic/zhicheng.png, id=567, 421.575pt x 968.61874pt>
+<pic/zhicheng.png, id=576, 421.575pt x 968.61874pt>
 File: pic/zhicheng.png Graphic file (type png)
 <use pic/zhicheng.png>
-Package pdftex.def Info: pic/zhicheng.png  used on input line 734.
+Package pdftex.def Info: pic/zhicheng.png  used on input line 714.
 (pdftex.def)             Requested size: 182.09486pt x 418.38977pt.
-<pic/zc2.png, id=568, 325.96782pt x 160.34906pt>
+<pic/zc2.png, id=577, 325.96782pt x 160.34906pt>
 File: pic/zc2.png Graphic file (type png)
 <use pic/zc2.png>
-Package pdftex.def Info: pic/zc2.png  used on input line 738.
+Package pdftex.def Info: pic/zc2.png  used on input line 718.
 (pdftex.def)             Requested size: 182.09486pt x 89.57709pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.741 		\newpage
+l.721 		\newpage
                  [1
 
  <./pic/zhicheng.png> <./pic/zc2.png>]
@@ -1010,159 +1028,156 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.746 \end{document}
+l.726 \end{document}
                      [2] (./document.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: C74A847456043BA12B3AB6E9AD5E3369;3527.
+(rerunfilecheck)             Checksum: CFFC608B3702A37BC6E7B8AC7705F624;3437.
  ) 
 Here is how much of TeX's memory you used:
- 22464 strings out of 474116
- 431612 string characters out of 5739165
+ 22476 strings out of 474116
+ 431656 string characters out of 5739165
  1968190 words of memory out of 5000000
- 43851 multiletter control sequences out of 15000+600000
- 658139 words of font info for 396 fonts, out of 8000000 for 9000
+ 43860 multiletter control sequences out of 15000+600000
+ 657869 words of font info for 395 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,18n,83p,819b,1345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,18n,83p,819b,1339s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
+imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
 /Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:
 /Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei
-.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
-s/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
+.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
+s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Wind
 ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
-<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
+<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
 hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
 onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
 indows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.t
 tf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/
-simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c
-:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
+simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Window
+s/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhe
+i.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
 ts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
 dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
 ><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
 msun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/
-Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/
-Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.
+Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/
+Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.
 ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts
-/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windo
+/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windo
 ws/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><
 c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sims
 un.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fo
-nts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wi
-ndows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.tt
+nts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wi
+ndows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.tt
 f><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
 imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
 /Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:
 /Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei
 .ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
-s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><d:/2--L
-aTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-<d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmex10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/2--LaTex/TeXLive/texlive/2024/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/2--LaTex/TeXLive/texliv
-e/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/2--LaTex/TeXLive
-/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/2--LaTex
-/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu20.pfb><d:/2--La
-Tex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu30.pfb><d:/2-
--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4e.pfb><d:
-/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4f.pfb>
-<d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu50.p
-fb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5
-1.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbs
-nu52.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/
-gbsnu53.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbs
-nu/gbsnu54.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/
-gbsnu/gbsnu55.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arph
-ic/gbsnu/gbsnu56.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/a
-rphic/gbsnu/gbsnu57.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type
-1/arphic/gbsnu/gbsnu58.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/t
-ype1/arphic/gbsnu/gbsnu59.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/font
-s/type1/arphic/gbsnu/gbsnu5a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/f
-onts/type1/arphic/gbsnu/gbsnu5b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dis
-t/fonts/type1/arphic/gbsnu/gbsnu5c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-
-dist/fonts/type1/arphic/gbsnu/gbsnu5d.pfb><d:/2--LaTex/TeXLive/texlive/2024/tex
-mf-dist/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><d:/2--LaTex/TeXLive/texlive/2024/
-texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><d:/2--LaTex/TeXLive/texlive/20
-24/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu60.pfb><d:/2--LaTex/TeXLive/texlive
-/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu61.pfb><d:/2--LaTex/TeXLive/texl
-ive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu62.pfb><d:/2--LaTex/TeXLive/t
-exlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu63.pfb><d:/2--LaTex/TeXLiv
-e/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu64.pfb><d:/2--LaTex/TeX
-Live/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><d:/2--LaTex/
-TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><d:/2--LaT
-ex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><d:/2--
-LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu68.pfb><d:/
-2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu69.pfb><
-d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6a.pf
-b><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6b
-.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsn
-u6c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/g
-bsnu6d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsn
-u/gbsnu6e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/g
-bsnu/gbsnu6f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphi
-c/gbsnu/gbsnu70.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/ar
-phic/gbsnu/gbsnu71.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1
-/arphic/gbsnu/gbsnu72.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/ty
-pe1/arphic/gbsnu/gbsnu73.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts
-/type1/arphic/gbsnu/gbsnu74.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fo
-nts/type1/arphic/gbsnu/gbsnu75.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist
-/fonts/type1/arphic/gbsnu/gbsnu76.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-d
-ist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><d:/2--LaTex/TeXLive/texlive/2024/texm
-f-dist/fonts/type1/arphic/gbsnu/gbsnu78.pfb><d:/2--LaTex/TeXLive/texlive/2024/t
-exmf-dist/fonts/type1/arphic/gbsnu/gbsnu79.pfb><d:/2--LaTex/TeXLive/texlive/202
-4/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><d:/2--LaTex/TeXLive/texlive/
-2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><d:/2--LaTex/TeXLive/texli
-ve/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7c.pfb><d:/2--LaTex/TeXLive/te
-xlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7d.pfb><d:/2--LaTex/TeXLive
-/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><d:/2--LaTex/TeXL
-ive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7f.pfb><d:/2--LaTex/T
-eXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu80.pfb><d:/2--LaTe
-x/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu81.pfb><d:/2--L
-aTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><d:/2
---LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu83.pfb><d
-:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu84.pfb
-><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu85.
+s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wind
+ows/Fonts/simhei.ttf><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/2--LaTex/TeXLive/texlive/2024/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/2--LaTex/TeXLive/texli
+ve/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/2--LaTex/TeXLiv
+e/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/2--LaTex
+/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/2-
+-LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy8.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmtt12.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphi
+c/gbsnu/gbsnu20.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/ar
+phic/gbsnu/gbsnu30.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1
+/arphic/gbsnu/gbsnu4e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/ty
+pe1/arphic/gbsnu/gbsnu4f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts
+/type1/arphic/gbsnu/gbsnu50.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fo
+nts/type1/arphic/gbsnu/gbsnu51.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist
+/fonts/type1/arphic/gbsnu/gbsnu52.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-d
+ist/fonts/type1/arphic/gbsnu/gbsnu53.pfb><d:/2--LaTex/TeXLive/texlive/2024/texm
+f-dist/fonts/type1/arphic/gbsnu/gbsnu54.pfb><d:/2--LaTex/TeXLive/texlive/2024/t
+exmf-dist/fonts/type1/arphic/gbsnu/gbsnu55.pfb><d:/2--LaTex/TeXLive/texlive/202
+4/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu56.pfb><d:/2--LaTex/TeXLive/texlive/
+2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu57.pfb><d:/2--LaTex/TeXLive/texli
+ve/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu58.pfb><d:/2--LaTex/TeXLive/te
+xlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb><d:/2--LaTex/TeXLive
+/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5a.pfb><d:/2--LaTex/TeXL
+ive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><d:/2--LaTex/T
+eXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5c.pfb><d:/2--LaTe
+x/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5d.pfb><d:/2--L
+aTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><d:/2
+--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><d
+:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu60.pfb
+><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu61.
 pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
-86.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gb
-snu88.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu
-/gbsnu89.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gb
-snu/gbsnu8b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic
-/gbsnu/gbsnu8c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arp
-hic/gbsnu/gbsnu8d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/
-arphic/gbsnu/gbsnu8e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/typ
-e1/arphic/gbsnu/gbsnu8f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/
-type1/arphic/gbsnu/gbsnu90.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fon
-ts/type1/arphic/gbsnu/gbsnu91.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/
-fonts/type1/arphic/gbsnu/gbsnu92.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-di
-st/fonts/type1/arphic/gbsnu/gbsnu94.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf
--dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><d:/2--LaTex/TeXLive/texlive/2024/te
-xmf-dist/fonts/type1/arphic/gbsnu/gbsnu96.pfb><d:/2--LaTex/TeXLive/texlive/2024
-/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu97.pfb><d:/2--LaTex/TeXLive/texlive/2
-024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><d:/2--LaTex/TeXLive/texliv
-e/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><d:/2--LaTex/TeXLive/tex
-live/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu9a.pfb><d:/2--LaTex/TeXLive/
-texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu9c.pfb><d:/2--LaTex/TeXLi
-ve/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnuff.pfb><d:/2--LaTex/Te
-XLive/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on document.pdf (22 pages, 5031303 bytes).
+62.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gb
+snu63.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu
+/gbsnu64.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gb
+snu/gbsnu65.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic
+/gbsnu/gbsnu66.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arp
+hic/gbsnu/gbsnu67.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/
+arphic/gbsnu/gbsnu68.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/typ
+e1/arphic/gbsnu/gbsnu69.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/
+type1/arphic/gbsnu/gbsnu6a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fon
+ts/type1/arphic/gbsnu/gbsnu6b.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/
+fonts/type1/arphic/gbsnu/gbsnu6c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-di
+st/fonts/type1/arphic/gbsnu/gbsnu6d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf
+-dist/fonts/type1/arphic/gbsnu/gbsnu6e.pfb><d:/2--LaTex/TeXLive/texlive/2024/te
+xmf-dist/fonts/type1/arphic/gbsnu/gbsnu6f.pfb><d:/2--LaTex/TeXLive/texlive/2024
+/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu70.pfb><d:/2--LaTex/TeXLive/texlive/2
+024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu71.pfb><d:/2--LaTex/TeXLive/texliv
+e/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu72.pfb><d:/2--LaTex/TeXLive/tex
+live/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu73.pfb><d:/2--LaTex/TeXLive/
+texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu74.pfb><d:/2--LaTex/TeXLi
+ve/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu75.pfb><d:/2--LaTex/Te
+XLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><d:/2--LaTex
+/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><d:/2--La
+Tex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu78.pfb><d:/2-
+-LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu79.pfb><d:
+/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb>
+<d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7b.p
+fb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7
+c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbs
+nu7d.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/
+gbsnu7e.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbs
+nu/gbsnu7f.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/
+gbsnu/gbsnu80.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arph
+ic/gbsnu/gbsnu81.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/a
+rphic/gbsnu/gbsnu82.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type
+1/arphic/gbsnu/gbsnu83.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/t
+ype1/arphic/gbsnu/gbsnu84.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/font
+s/type1/arphic/gbsnu/gbsnu85.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/f
+onts/type1/arphic/gbsnu/gbsnu86.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dis
+t/fonts/type1/arphic/gbsnu/gbsnu88.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-
+dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb><d:/2--LaTex/TeXLive/texlive/2024/tex
+mf-dist/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><d:/2--LaTex/TeXLive/texlive/2024/
+texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8c.pfb><d:/2--LaTex/TeXLive/texlive/20
+24/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8d.pfb><d:/2--LaTex/TeXLive/texlive
+/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8e.pfb><d:/2--LaTex/TeXLive/texl
+ive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8f.pfb><d:/2--LaTex/TeXLive/t
+exlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu90.pfb><d:/2--LaTex/TeXLiv
+e/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu91.pfb><d:/2--LaTex/TeX
+Live/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu92.pfb><d:/2--LaTex/
+TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu94.pfb><d:/2--LaT
+ex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><d:/2--
+LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu96.pfb><d:/
+2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu97.pfb><
+d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pf
+b><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99
+.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/gbsn
+u9a.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsnu/g
+bsnu9c.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/arphic/gbsn
+u/gbsnuff.pfb><d:/2--LaTex/TeXLive/texlive/2024/texmf-dist/fonts/type1/public/c
+m-super/sfrm1200.pfb>
+Output written on document.pdf (22 pages, 6476858 bytes).
 PDF statistics:
- 1176 PDF objects out of 1200 (max. 8388607)
- 846 compressed objects within 9 object streams
- 109 named destinations out of 1000 (max. 500000)
- 620 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1188 PDF objects out of 1200 (max. 8388607)
+ 853 compressed objects within 9 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 627 words of extra memory for PDF output out of 10000 (max. 10000000)
 

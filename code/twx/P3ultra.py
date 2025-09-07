@@ -11,7 +11,7 @@ SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 DROP_INTERVAL = 1.0
 
-NUM_INITIAL_STARTS = 500
+NUM_INITIAL_STARTS = 50
 
 OPTIMIZATION_ITERATIONS = 10
 
@@ -27,11 +27,11 @@ missile_velocity_vector = (false_target_pos - missile_initial_pos) / np.linalg.n
 missile_total_time = np.linalg.norm(false_target_pos - missile_initial_pos) / 300.0
 
 SEARCH_EXPLODE_TIMES_RANGE = (missile_total_time * 0, missile_total_time * 0.9)
-SEARCH_EXPLODE_TIMES_STEPS = 500
+SEARCH_EXPLODE_TIMES_STEPS = 100
 SEARCH_DELAYS_RANGE = (0, 5.0)
-SEARCH_DELAYS_STEPS = 500
+SEARCH_DELAYS_STEPS = 100
 SEARCH_LOS_RATIO_RANGE = (0, 0.9)
-SEARCH_LOS_RATIO_STEPS = 500
+SEARCH_LOS_RATIO_STEPS = 100
 
 def is_line_segment_intersecting_sphere(p1, p2, sphere_center, sphere_radius):
     if np.any(np.isnan(sphere_center)): return False

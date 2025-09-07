@@ -1,6 +1,6 @@
 import numpy as np
 import time
-import itertools
+import itertools 
 import csv
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
@@ -8,6 +8,13 @@ from sklearn.preprocessing import StandardScaler
 import multiprocessing
 from tqdm import tqdm
 from numba import njit
+import os
+import matplotlib.font_manager
+
+font_path = 'C:/Windows/Fonts/simhei.ttf' 
+
+if os.path.exists(font_path):
+    my_font = matplotlib.font_manager.FontProperties(fname=font_path)
 
 GRAVITY = 9.8
 SMOKE_DURATION = 20.0
@@ -15,18 +22,21 @@ SMOKE_RADIUS = 10.0
 UAV_V_MIN, UAV_V_MAX = 70.0, 140.0
 DROP_INTERVAL = 1.0
 
-UAV_NAMES = ['FY1', 'FY2']
+UAV_NAMES = ['FY1', 'FY2'] 
 UAV_INITIAL_POS = {
     'FY1': np.array([17800, 0, 1800], dtype=float),
-    'FY2': np.array([12000, 1400, 1400], dtype=float),
+    'FY2': np.array([12000, 1400, 1400], dtype=float)
+    
 }
 
-NUM_INDIVIDUAL_STRATEGIES = 150
-NUM_TEAMS_TO_FORM = 150
-NUM_OPTIMIZATION_ROUNDS = 15
+NUM_INDIVIDUAL_STRATEGIES = 50 
+NUM_TEAMS_TO_FORM = 50       
+NUM_OPTIMIZATION_ROUNDS = 10 
 OCCLUSION_THRESHOLD_PERCENT = 70.0
 
 missile_initial_pos = np.array([20000, 0, 2000], dtype=float)
+
+
 false_target_pos = np.array([0, 0, 0], dtype=float)
 true_target_base_center = np.array([0, 200, 0], dtype=float)
 true_target_height = 10
@@ -48,6 +58,7 @@ def is_line_segment_intersecting_sphere_numba(p1, p2, sphere_center, sphere_radi
 
 def get_occlusion_timeline(team_strategies, uav_pos_dict, target_point, time_step=0.1):
     smoke_events, min_explode_time, max_end_time = [], float('inf'), float('-inf')
+   
     for uav_name, strat in team_strategies.items():
         if uav_name not in uav_pos_dict: continue
         uav_pos = uav_pos_dict[uav_name]
@@ -75,11 +86,11 @@ def get_occlusion_timeline(team_strategies, uav_pos_dict, target_point, time_ste
                 if is_line_segment_intersecting_sphere_numba(missile_pos, target_point, smoke_pos, SMOKE_RADIUS):
                     occlusion_timeline[t_idx] = True; break
     return np.sum(occlusion_timeline) * time_step
-
+    
 def stage1_worker(args):
     uav_name, uav_pos, n_top = args; feasible_solutions = []
-    search_explode_times = np.linspace(missile_total_time * 0.1, missile_total_time * 0.9, 300)
-    search_delays = np.linspace(0, 8.0, 300); search_los_ratios = np.linspace(0, 0.9, 300)
+    search_explode_times = np.linspace(missile_total_time * 0, missile_total_time * 0.9, 150)
+    search_delays = np.linspace(0, 8.0, 150); search_los_ratios = np.linspace(0, 0.9, 150)
     for t_explode in search_explode_times:
         for t_delay in search_delays:
             t_drop = t_explode - t_delay
@@ -106,15 +117,31 @@ def stage1_individual_coarse_search_parallel(n_top):
     return individual_strategies
 
 def stage2_team_formation_and_expansion(individual_strats, n_teams):
-    print(f"\n--- [阶段二] 开始：组合与扩展 {n_teams} 个“双机三弹”初始团队 ---")
-    strat_fy1 = individual_strats['FY1']; strat_fy2 = individual_strats['FY2']; all_combinations = []
-    for s1 in tqdm(strat_fy1, desc="计算组合得分", leave=False):
-        for s2 in strat_fy2:
-            team = {'FY1': s1, 'FY2': s2}
-            score = get_occlusion_timeline(team, UAV_INITIAL_POS, simple_target_point)
-            all_combinations.append({'team': team, 'score': score})
+    num_uavs = len(UAV_NAMES)
+    print(f"\n--- [阶段二] 开始：组合与扩展 {n_teams} 个“{num_uavs}机协同”初始团队 ---")
+    
+    all_combinations = []
+    
+    for name in UAV_NAMES:
+        if not individual_strats.get(name):
+            print(f"警告：无人机 {name} 未能在阶段一找到任何可行策略。将无法组合团队。")
+            return [] 
+        
+    strategy_lists = [individual_strats[name] for name in UAV_NAMES]
+
+    for team_tuple in tqdm(itertools.product(*strategy_lists), desc="计算组合得分", leave=False):
+       
+        team = {strat['uav_name']: strat for strat in team_tuple}
+        score = get_occlusion_timeline(team, UAV_INITIAL_POS, simple_target_point)
+        all_combinations.append({'team': team, 'score': score})
+
+    if not all_combinations:
+        print("警告：未能生成任何有效的团队组合。")
+        return []
+
     sorted_combinations = sorted(all_combinations, key=lambda x: x['score'], reverse=True)
     top_single_grenade_teams = [c['team'] for c in sorted_combinations[:n_teams]]
+    
     expanded_teams = []
     for team in top_single_grenade_teams:
         expanded_team = {}
@@ -126,7 +153,8 @@ def stage2_team_formation_and_expansion(individual_strats, n_teams):
             expanded_team[uav_name] = expanded_strat
         expanded_team['occlusion_time'] = get_occlusion_timeline(expanded_team, UAV_INITIAL_POS, simple_target_point)
         expanded_teams.append(expanded_team)
-    print(f"--- [阶段二] 完成：成功生成了 {len(expanded_teams)} 个初始“双机三弹”团队。---")
+    
+    print(f"--- [阶段二] 完成：成功生成了 {len(expanded_teams)} 个初始“{num_uavs}机协同”团队。---")
     return expanded_teams
 
 def stage3_local_optimization_team(team_composition):
@@ -189,7 +217,7 @@ def stage4_final_validation_team(final_team, n_points=1000, threshold_percent=70
         if is_occluded_this_step: total_occluded_time += time_step
     return total_occluded_time, final_team_details
 
-def save_initial_teams_to_csv(initial_teams, filename="stage2_initial_teams_2UAV_6G.csv"):
+def save_initial_teams_to_csv(initial_teams, filename="stage2_initial_teams_3UAV_9G.csv"):
     if not initial_teams: return
     header = ['team_id', 'initial_score']
     for name in UAV_NAMES:
@@ -211,7 +239,7 @@ def save_initial_teams_to_csv(initial_teams, filename="stage2_initial_teams_2UAV
             writer.writerow(row)
     print(f"\n[日志] 阶段二：{len(initial_teams)} 组初始团队参数已保存到 {filename}")
 
-def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, filename="stage3_optimization_process_2UAV_6G.csv"):
+def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, filename="stage3_optimization_process_3UAV_9G.csv"):
     if not optimized_teams: return
     base_header = ['team_id', 'initial_score', 'final_score']
     for name in UAV_NAMES:
@@ -231,7 +259,9 @@ def save_optimization_process_to_csv(optimized_teams, initial_teams, histories, 
     print(f"\n[日志] 阶段三：{len(optimized_teams)} 组团队的详细优化过程已保存到 {filename}")
 
 def visualize_optimization_journey(initial_teams, optimized_teams):
-    print("\n--- [可视化] 正在生成16维解空间的PCA降维图 ---")
+    num_uavs = len(UAV_NAMES)
+    dim = num_uavs * 4 * 2 # 2 params v/theta, 3 drops * 2 params t_drop/t_delay
+    print(f"\n--- [可视化] 正在生成{dim}维解空间的PCA降维图 ---")
     def team_to_vector(team):
         vec = []
         for name in UAV_NAMES:
@@ -251,30 +281,28 @@ def visualize_optimization_journey(initial_teams, optimized_teams):
     plt.scatter(initial_pca[:, 0], initial_pca[:, 1], c='dodgerblue', s=80, alpha=0.9, label='初始团队 (Initial Teams)')
     plt.scatter(final_pca[:, 0], final_pca[:, 1], c='orangered', s=80, alpha=0.9, label='局部最优团队 (Local Optima)')
     plt.scatter(final_pca[best_idx, 0], final_pca[best_idx, 1], c='gold', s=400, marker='*', edgecolors='black', linewidth=1.5, zorder=5, label='最佳候选团队 (Best Candidate)')
-    plt.title('16维协同策略空间的PCA降维可视化 (2 UAVs, 6 Grenades)', fontsize=18, pad=20)
+    plt.title(f'{dim}维协同策略空间的PCA降维可视化 ({num_uavs} UAVs)', fontsize=18, pad=20)
     plt.xlabel('主成分 1 (Principal Component 1)', fontsize=14); plt.ylabel('主成分 2 (Principal Component 2)', fontsize=14)
     plt.legend(fontsize=12, loc='best')
-
-    image_filename = "optimization_journey_pca_2UAV_6G.png"
+    image_filename = f"optimization_journey_pca_{num_uavs}UAV.png"
     plt.savefig(image_filename, dpi=300, bbox_inches='tight')
     print(f"[可视化] PCA降维图已保存为: {image_filename}")
-    
     plt.show()
 
 if __name__ == "__main__":
     start_total_time = time.time()
     
-    print("="*60); print("  双机协同六弹干扰问题求解器启动 (集成文件与图片保存)"); print("="*60)
+    num_uavs = len(UAV_NAMES)
+    print("="*60); print(f"  {num_uavs}机协同干扰问题求解器启动"); print("="*60)
     
     individual_strategies = stage1_individual_coarse_search_parallel(n_top=NUM_INDIVIDUAL_STRATEGIES)
     
     initial_teams = stage2_team_formation_and_expansion(individual_strategies, NUM_TEAMS_TO_FORM)
     
-    # --- 核心修改：调用新增的保存函数 ---
     save_initial_teams_to_csv(initial_teams)
 
     if not initial_teams:
-        print("错误：阶段二未能组合出任何团队。")
+        print("错误：阶段二未能组合出任何团队。程序终止。")
     else:
         print(f"\n--- [阶段三] 开始：对 {len(initial_teams)} 个团队进行局部协同调优 ---")
         optimized_teams, histories = [], []
@@ -291,7 +319,7 @@ if __name__ == "__main__":
         print("\n--- [阶段四] 开始：对冠军团队进行最终高精度验证 ---")
         final_time, final_details = stage4_final_validation_team(champion_team, threshold_percent=OCCLUSION_THRESHOLD_PERCENT)
         
-        print("\n" + "="*70); print("            最优“双机六弹”协同干扰策略及最终结果"); print("="*70)
+        print("\n" + "="*70); print(f"            最优“{num_uavs}机协同”干扰策略及最终结果"); print("="*70)
         print(f"\n搜索概况: 从 {len(initial_teams)} 个高质量团队组合出发，找到的最佳协同策略如下。")
         for uav_name in UAV_NAMES:
             details = final_details[uav_name]
